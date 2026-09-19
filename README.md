@@ -233,7 +233,6 @@ COURSE PROJECT
 </div>
 
 ---
-
 # Student Outcome
 
 <div style="page-break-after: always;">
@@ -241,12 +240,9 @@ COURSE PROJECT
 El curso contribuye al cumplimiento del Student Outcome ABET:<br>
 **ABET - EAC - Student Outcome 7**
 
-**Criterio:** La capacidad de adquirir y aplicar nuevos
-conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.
+**Criterio:** La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.
 
-En elsiguiente cuadro se describe las accionesrealizadas y enunciados de conclusiones
-por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET –
-EAC - Student Outcome 7.
+En el siguiente cuadro se describen las acciones realizadas y los aportes individuales de los integrantes del equipo, que permiten sustentar el logro del ABET – EAC - Student Outcome 7.
 
 <table>
   <thead>
@@ -259,22 +255,13 @@ EAC - Student Outcome 7.
   <tbody>
     <!-- FILA 1 -->
     <tr>
-      <td><b>Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.</b></td>
       <td>
-        <p><b>[Nombre de integrante 1]</b></p>
-        <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
-        </ul>
-        <p><b>[Nombre de integrante 2]</b></p>
-        <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
-        </ul>
+        <b>
+          Actualiza conceptos y conocimientos necesarios para su desarrollo profesional
+          y en especial para su proyecto en soluciones de software.
+        </b>
+      </td>
+      <td>
         <p><b>Ruiz Huisa, Daniel Elias</b></p>
         <ul>
           <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
@@ -282,7 +269,20 @@ EAC - Student Outcome 7.
           <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
           <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
         </ul>
-        <p><b>[Nombre de integrante 3]</b></p>
+        <p><b>Mansilla Rivero, Carlos Marcelo</b></p>
+        <ul>
+          <li>
+            <b>TB1:</b> Revisé y reforcé conceptos relacionados con el análisis y diseño de
+            soluciones de software, el desarrollo de aplicaciones móviles y la documentación
+            técnica. Apliqué estos conocimientos en la adaptación de SafeWork al nuevo enfoque
+            móvil, así como en la revisión de la estructura, consistencia y organización del
+            informe de acuerdo con los requerimientos del curso.
+          </li>
+          <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
+          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
+          <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
+        </ul>
+        <p><b>Uribe Linares, Francisco</b></p>
         <ul>
           <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
           <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
@@ -292,7 +292,12 @@ EAC - Student Outcome 7.
       </td>
       <td>
         <ul>
-          <li><b>TB1:</b> [Acción realizada por el equipo en TB1 para la actualización de conceptos]</li>
+          <li>
+            <b>TB1:</b> El equipo revisó los conceptos y lineamientos necesarios para adaptar
+            SafeWork a una solución orientada a dispositivos móviles, actualizando la
+            problemática, la propuesta de solución y la documentación del proyecto según
+            la nueva estructura del curso.
+          </li>
           <li><b>TP:</b> [Acción realizada por el equipo en TP para la actualización de conceptos]</li>
           <li><b>TB2:</b> [Acción realizada por el equipo en TB2 para la actualización de conceptos]</li>
           <li><b>TF:</b> [Acción realizada por el equipo en TF para la actualización de conceptos]</li>
@@ -301,22 +306,13 @@ EAC - Student Outcome 7.
     </tr>
     <!-- FILA 2 -->
     <tr>
-      <td><b>Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.</b></td>
       <td>
-        <p><b>[Nombre de integrante 1]</b></p>
-        <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
-        </ul>
-        <p><b>[Nombre de integrante 2]</b></p>
-        <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
-        </ul>
+        <b>
+          Reconoce la necesidad del aprendizaje permanente para el desempeño profesional
+          y el desarrollo de proyectos en soluciones de software.
+        </b>
+      </td>
+      <td>
         <p><b>Ruiz Huisa, Daniel Elias</b></p>
         <ul>
           <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
@@ -324,7 +320,21 @@ EAC - Student Outcome 7.
           <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
           <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
         </ul>
-        <p><b>[Nombre de integrante 3]</b></p>
+        <p><b>Mansilla Rivero, Carlos Marcelo</b></p>
+        <ul>
+          <li>
+            <b>TB1:</b> Reconocí la importancia de mantener una actualización constante de
+            conocimientos debido a la evolución de las tecnologías y metodologías utilizadas
+            en el desarrollo de software. Durante la elaboración de la TB1 reforcé conocimientos
+            relacionados con aplicaciones móviles, análisis de requerimientos y documentación
+            de soluciones, aplicándolos directamente en el desarrollo y adaptación del proyecto
+            SafeWork.
+          </li>
+          <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
+          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
+          <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
+        </ul>
+        <p><b>Uribe Linares, Francisco</b></p>
         <ul>
           <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
           <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
@@ -334,7 +344,12 @@ EAC - Student Outcome 7.
       </td>
       <td>
         <ul>
-          <li><b>TB1:</b> [Acción realizada por el equipo en TB1 para fomentar el aprendizaje permanente]</li>
+          <li>
+            <b>TB1:</b> El equipo investigó y revisó los conocimientos necesarios para adaptar
+            el proyecto a los requerimientos del curso, identificando la necesidad de continuar
+            aprendiendo nuevas herramientas, tecnologías y prácticas de desarrollo móvil durante
+            las siguientes etapas de SafeWork.
+          </li>
           <li><b>TP:</b> [Acción realizada por el equipo en TP para fomentar el aprendizaje permanente]</li>
           <li><b>TB2:</b> [Acción realizada por el equipo en TB2 para fomentar el aprendizaje permanente]</li>
           <li><b>TF:</b> [Acción realizada por el equipo en TF para fomentar el aprendizaje permanente]</li>
@@ -344,11 +359,9 @@ EAC - Student Outcome 7.
   </tbody>
 </table>
 
+
 <div style="page-break-after: always;">
-
 # Objetivos SMART
-
-
 <table>
   <thead>
     <tr>
@@ -359,91 +372,135 @@ EAC - Student Outcome 7.
     </tr>
   </thead>
   <tbody>
-    <!-- INTEGRANTE 1: TÚ -->
+    <!-- DANIEL -->
     <tr>
       <td><b>Ruiz Huisa, Daniel Elias</b></td>
+
       <td>
         <p><b>[Título breve del Objetivo 1]</b></p>
         <ul>
-          <li><b>S (Específico):</b> [Qué habilidad, certificación o rol laboral específico planeas conseguir tras graduarte]</li>
-          <li><b>M (Medible):</b> [Métrica clara, p. ej. obtener la certificación X, aprobar con puntaje Y, conseguir puesto Z]</li>
-          <li><b>A (Alcanzable):</b> [Pasos previos o recursos que te permitirán lograrlo]</li>
-          <li><b>R (Relevante):</b> [Cómo impacta este objetivo en tu carrera profesional a largo plazo]</li>
-          <li><b>T (Temporal):</b> [Fecha límite o plazo exacto posterior a la graduación, p. ej., 6 meses post-graduación]</li>
+          <li><b>S (Específico):</b> [Descripción del objetivo profesional]</li>
+          <li><b>M (Medible):</b> [Indicador de éxito]</li>
+          <li><b>A (Alcanzable):</b> [Plan de acción]</li>
+          <li><b>R (Relevante):</b> [Importancia para su carrera]</li>
+          <li><b>T (Temporal):</b> [Plazo de cumplimiento]</li>
         </ul>
       </td>
+
       <td>
         <p><b>[Título breve del Objetivo 2]</b></p>
         <ul>
-          <li><b>S (Específico):</b> [Qué especialización o logro profesional buscas alcanzar]</li>
-          <li><b>M (Medible):</b> [Métrica o entregable concreto que confirme su logro]</li>
-          <li><b>A (Alcanzable):</b> [Estrategia o formación requerida]</li>
-          <li><b>R (Relevante):</b> [Aporte al crecimiento profesional continuo]</li>
-          <li><b>T (Temporal):</b> [Plazo de ejecución, p. ej., primer año posgrado/laboral]</li>
+          <li><b>S (Específico):</b> [Descripción del objetivo profesional]</li>
+          <li><b>M (Medible):</b> [Indicador de éxito]</li>
+          <li><b>A (Alcanzable):</b> [Plan de acción]</li>
+          <li><b>R (Relevante):</b> [Importancia para su carrera]</li>
+          <li><b>T (Temporal):</b> [Plazo de cumplimiento]</li>
         </ul>
       </td>
       <td>
         <ul>
           <li><b>Revisión:</b> Semestral</li>
-          <li><b>Evidencia:</b> Certificado / Contrato / Portafolio</li>
+          <li><b>Evidencia:</b> Certificados / Portafolio / Experiencia profesional</li>
         </ul>
       </td>
     </tr>
+    <!-- CARLOS -->
     <tr>
-      <td><b>[Nombre de Integrante 2]</b></td>
+      <td><b>Mansilla Rivero, Carlos Marcelo</b></td>
+      <td>
+        <p><b>Obtener experiencia profesional en desarrollo de software</b></p>
+        <ul>
+          <li>
+            <b>S (Específico):</b> Obtener una oportunidad laboral como practicante
+            preprofesional o desarrollador junior en un área relacionada con desarrollo
+            frontend, backend o desarrollo de aplicaciones.
+          </li>
+          <li>
+            <b>M (Medible):</b> Conseguir al menos una experiencia laboral formal relacionada
+            con Ingeniería de Software y mantener actualizado un portafolio con proyectos que
+            demuestren mis conocimientos técnicos.
+          </li>
+          <li>
+            <b>A (Alcanzable):</b> Mejorar mi CV y portafolio, continuar desarrollando proyectos
+            académicos y personales, fortalecer mis conocimientos técnicos y participar
+            periódicamente en procesos de selección para puestos de practicante o desarrollador junior.
+          </li>
+          <li>
+            <b>R (Relevante):</b> Obtener experiencia profesional me permitirá aplicar los
+            conocimientos adquiridos durante la carrera en proyectos reales y desarrollar las
+            competencias necesarias para consolidar mi perfil como Ingeniero de Software.
+          </li>
+          <li>
+            <b>T (Temporal):</b> Alcanzar este objetivo antes de finalizar el año 2027.
+          </li>
+        </ul>
+      </td>
+      <td>
+        <p><b>Consolidar un perfil profesional Full Stack</b></p>
+        <ul>
+          <li>
+            <b>S (Específico):</b> Fortalecer mis conocimientos en desarrollo frontend y backend,
+            complementándolos con tecnologías para el desarrollo de aplicaciones web y móviles.
+          </li>
+          <li>
+            <b>M (Medible):</b> Desarrollar y publicar al menos tres proyectos funcionales en
+            GitHub que utilicen diferentes tecnologías y demuestren conocimientos de frontend,
+            backend, bases de datos y buenas prácticas de desarrollo.
+          </li>
+
+          <li>
+            <b>A (Alcanzable):</b> Continuar aprendiendo mediante cursos, documentación,
+            proyectos universitarios y proyectos personales, aplicando progresivamente nuevas
+            tecnologías en soluciones funcionales.
+          </li>
+          <li>
+            <b>R (Relevante):</b> Contar con conocimientos en distintas áreas del desarrollo de
+            software ampliará mis oportunidades profesionales y me permitirá comprender el ciclo
+            completo de construcción de una solución tecnológica.
+          </li>
+          <li>
+            <b>T (Temporal):</b> Contar con los tres proyectos publicados y documentados antes
+            de diciembre de 2027.
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><b>Revisión:</b> Trimestral</li>
+          <li><b>Evidencia:</b> GitHub</li>
+          <li><b>Evidencia:</b> Portafolio personal</li>
+          <li><b>Evidencia:</b> CV actualizado</li>
+          <li><b>Evidencia:</b> Contrato o constancia de prácticas</li>
+        </ul>
+      </td>
+    </tr>
+    <!-- FRANCISCO -->
+    <tr>
+      <td><b>Uribe Linares, Francisco</b></td>
       <td>
         <p><b>[Título breve del Objetivo 1]</b></p>
         <ul>
-          <li><b>S (Específico):</b> [Descripción del objetivo profesional 1]</li>
+          <li><b>S (Específico):</b> [Descripción del objetivo profesional]</li>
           <li><b>M (Medible):</b> [Indicador de éxito]</li>
-          <li><b>A (Alcanzable):</b> [Plan de acción inicial]</li>
-          <li><b>R (Relevante):</b> [Importancia en su perfil laboral]</li>
-          <li><b>T (Temporal):</b> [Tiempo de cumplimiento]</li>
+          <li><b>A (Alcanzable):</b> [Plan de acción]</li>
+          <li><b>R (Relevante):</b> [Importancia para su carrera]</li>
+          <li><b>T (Temporal):</b> [Plazo de cumplimiento]</li>
         </ul>
       </td>
       <td>
         <p><b>[Título breve del Objetivo 2]</b></p>
         <ul>
-          <li><b>S (Específico):</b> [Descripción del objetivo profesional 2]</li>
+          <li><b>S (Específico):</b> [Descripción del objetivo profesional]</li>
           <li><b>M (Medible):</b> [Indicador de éxito]</li>
-          <li><b>A (Alcanzable):</b> [Plan de acción inicial]</li>
-          <li><b>R (Relevante):</b> [Importancia en su perfil laboral]</li>
-          <li><b>T (Temporal):</b> [Tiempo de cumplimiento]</li>
+          <li><b>A (Alcanzable):</b> [Plan de acción]</li>
+          <li><b>R (Relevante):</b> [Importancia para su carrera]</li>
+          <li><b>T (Temporal):</b> [Plazo de cumplimiento]</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li><b>Revisión:</b> Anual</li>
-          <li><b>Evidencia:</b> Documentación acreditada</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>[Nombre de Integrante 3]</b></td>
-      <td>
-        <p><b>[Título breve del Objetivo 1]</b></p>
-        <ul>
-          <li><b>S (Específico):</b> [Descripción del objetivo profesional 1]</li>
-          <li><b>M (Medible):</b> [Indicador de éxito]</li>
-          <li><b>A (Alcanzable):</b> [Plan de acción inicial]</li>
-          <li><b>R (Relevante):</b> [Importancia en su perfil laboral]</li>
-          <li><b>T (Temporal):</b> [Tiempo de cumplimiento]</li>
-        </ul>
-      </td>
-      <td>
-        <p><b>[Título breve del Objetivo 2]</b></p>
-        <ul>
-          <li><b>S (Específico):</b> [Descripción del objetivo profesional 2]</li>
-          <li><b>M (Medible):</b> [Indicador de éxito]</li>
-          <li><b>A (Alcanzable):</b> [Plan de acción inicial]</li>
-          <li><b>R (Relevante):</b> [Importancia en su perfil laboral]</li>
-          <li><b>T (Temporal):</b> [Tiempo de cumplimiento]</li>
-        </ul>
-      </td>
-      <td>
-        <ul>
-          <li><b>Revisión:</b> Anual</li>
-          <li><b>Evidencia:</b> Documentación acreditada</li>
+          <li><b>Revisión:</b> Semestral</li>
+          <li><b>Evidencia:</b> Certificados / Portafolio / Experiencia profesional</li>
         </ul>
       </td>
     </tr>
@@ -455,16 +512,24 @@ EAC - Student Outcome 7.
 # Capítulo I: Presentación
 
 ## 1.1. Startup Profile
+
 ### 1.1.1. Descripción de la Startup
+
 Retornamos con NexoraPE, un equipo de estudiantes de la Universidad Peruana de Ciencias Aplicadas comprometidos con el desarrollo de soluciones tecnológicas que mejoren la seguridad laboral en el Perú.
+
 Nuestra misión es ofrecer una plataforma digital que facilite el reporte y seguimiento de incidentes laborales en tiempo real, permitiendo a trabajadores y responsables de seguridad actuar de manera rápida y eficiente para prevenir accidentes y garantizar entornos de trabajo más seguros.
+
 Nuestra visión es convertirnos en la herramienta líder en gestión de seguridad laboral en Latinoamérica, ayudando a las empresas a reducir riesgos, cumplir con normativas y proteger la integridad de sus trabajadores mediante el uso de tecnología accesible, intuitiva y confiable.
+
+
 ### 1.1.2. Perfiles de integrantes del equipo
+
 | Foto | Nombre y Apellidos | Código | Carrera | Resumen de Conocimientos y Habilidades |
-| :---: | :--- | :---: | :---: | :--- |
-| ![Daniel](assets/Cap-1//Daniel.jpeg) | **Daniel Elias Ruiz Huisa** | u202210764 | Estudiante de Ingeniería de Software. Me intereso por el desarrollo web y la evolucion de tecnologias como los nuevos agentes AI. Tengo conocimientos en Frameworks orientados a node.js como Astro, Vue y Angular. Domino lenguajes como python, C++ y typescript. Soy una persona responsable que busca siempre generar un ambiente sano y agradable para todos.     |
-| ![Carlos](imgs/FotoLiam.png) | **Estudiante** | Codigo | Descripcion |
-| ![Francisco](imgs/FotoLiam.png) | **Estudiante** | Codigo | Descripcion |
+| :---: | :--- | :---: | :--- | :--- |
+| ![Daniel](assets/Cap-1/Daniel.jpeg) | **Daniel Elias Ruiz Huisa** | u202210764 | Ingeniería de Software | Soy estudiante de Ingeniería de Software. Me intereso por el desarrollo web y la evolución de tecnologías como los nuevos agentes de inteligencia artificial. Tengo conocimientos en frameworks orientados a Node.js como Astro, Vue y Angular. Domino lenguajes como Python, C++ y TypeScript. Soy una persona responsable que busca siempre generar un ambiente sano y agradable para todos. |
+| ![Carlos Marcelo Mansilla Rivero](https://github.com/BrainSpark-upc/Report/raw/main/assets/chapter-1/carlos.png) | **Carlos Marcelo Mansilla Rivero** | u202414510 | Ingeniería de Software | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Cuento con conocimientos en programación y desarrollo web utilizando tecnologías como C++, HTML, CSS, JavaScript y Python. Me interesa el desarrollo de software tanto desde la parte técnica como desde el análisis y diseño de soluciones. En el desarrollo de SafeWork aporto en la revisión de consistencia del informe, mejora de redacción, organización de evidencias y alineación de la documentación con los requerimientos y rúbrica del curso. |
+| ![Francisco](imgs/FotoLiam.png) | **Francisco Uribe Linares** | [Código] | Ingeniería de Software | [Descripción de conocimientos, habilidades e intereses profesionales.] |
+
 ## 1.2. Solution Profile
 SafeWork empezo como una aplicación web diseñada para mejorar la gestión de la seguridad laboral en fábricas, almacenes y construcciones. Ahora cambiamos a un enfoque movil, mucho mas versatil e inmediato. El aplicativo debe permitir que los trabajadores reporten incidentes con su telefono, evitando retrasos o la pérdida de información en papeleo. La plataforma asigna responsables de seguimiento, envía notificaciones inmediatas y facilita el monitoreo de cada caso hasta su resolución. Con esto, se garantiza mayor transparencia, rapidez y trazabilidad en los procesos de seguridad. SafeWork contribuye a reducir riesgos, fomentar una cultura de prevención y brindar a las empresas una base de datos útil para analizar y prevenir futuros incidentes.
 ### 1.2.1. Antecedentes y problemática
