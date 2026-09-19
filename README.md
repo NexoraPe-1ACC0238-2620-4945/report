@@ -264,38 +264,19 @@ EAC - Student Outcome 7.
         <p><b>[Nombre de integrante 1]</b></p>
         <ul>
           <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
         </ul>
         <p><b>[Nombre de integrante 2]</b></p>
         <ul>
           <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
         </ul>
         <p><b>Ruiz Huisa, Daniel Elias</b></p>
         <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
-        </ul>
-        <p><b>[Nombre de integrante 3]</b></p>
-        <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
+          <li><b>TB1:</b> Investigó tendencias tecnológicas en arquitecturas cliente-servidor y frameworks web/móviles (Node.js, Vue, Angular, Astro) para definir el stack técnico y la visión del Startup Profile de NexoraPE</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li><b>TB1:</b> [Acción realizada por el equipo en TB1 para la actualización de conceptos]</li>
-          <li><b>TP:</b> [Acción realizada por el equipo en TP para la actualización de conceptos]</li>
-          <li><b>TB2:</b> [Acción realizada por el equipo en TB2 para la actualización de conceptos]</li>
-          <li><b>TF:</b> [Acción realizada por el equipo en TF para la actualización de conceptos]</li>
+          <li><b>TB1:</b> Se llevaron a cabo reuniones de ideación para definir el Lean UX Process y el Lean UX Canvas, unificando criterios sobre los segmentos objetivo y los perfiles de usuario.</li>
         </ul>
       </td>
     </tr>
@@ -306,38 +287,20 @@ EAC - Student Outcome 7.
         <p><b>[Nombre de integrante 1]</b></p>
         <ul>
           <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
         </ul>
         <p><b>[Nombre de integrante 2]</b></p>
         <ul>
           <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
         </ul>
         <p><b>Ruiz Huisa, Daniel Elias</b></p>
         <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
-        </ul>
-        <p><b>[Nombre de integrante 3]</b></p>
-        <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
-          <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
-          <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
+          <li><b>TB1:</b> Reflexionó sobre la rápida evolución de los frameworks (Node.js, Vue, Angular, Astro) y la necesidad de aprender de forma autodidacta nuevas tecnologías según el contexto del proyecto.</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li><b>TB1:</b> [Acción realizada por el equipo en TB1 para fomentar el aprendizaje permanente]</li>
-          <li><b>TP:</b> [Acción realizada por el equipo en TP para fomentar el aprendizaje permanente]</li>
-          <li><b>TB2:</b> [Acción realizada por el equipo en TB2 para fomentar el aprendizaje permanente]</li>
-          <li><b>TF:</b> [Acción realizada por el equipo en TF para fomentar el aprendizaje permanente]</li>
+          <li><b>TB1:</b> El equipo reconoció que el éxito en la fase de concepción de software depende de la investigación autónoma y la actualización permanente sobre las mejores prácticas de la industria.</li>
+          <li><b>TB1:</b> Se estableció un repositorio de documentación compartida para recopilar fuentes oficiales, leyes y análisis de mercado, fomentando una cultura de aprendizaje continuo en el grupo.</li>
         </ul>
       </td>
     </tr>
@@ -363,29 +326,29 @@ EAC - Student Outcome 7.
     <tr>
       <td><b>Ruiz Huisa, Daniel Elias</b></td>
       <td>
-        <p><b>[Título breve del Objetivo 1]</b></p>
+        <p><b>Certificación en Desarrollo Frontend Profesional (TypeScript / Frameworks Web)</b></p>
         <ul>
-          <li><b>S (Específico):</b> [Qué habilidad, certificación o rol laboral específico planeas conseguir tras graduarte]</li>
-          <li><b>M (Medible):</b> [Métrica clara, p. ej. obtener la certificación X, aprobar con puntaje Y, conseguir puesto Z]</li>
-          <li><b>A (Alcanzable):</b> [Pasos previos o recursos que te permitirán lograrlo]</li>
-          <li><b>R (Relevante):</b> [Cómo impacta este objetivo en tu carrera profesional a largo plazo]</li>
-          <li><b>T (Temporal):</b> [Fecha límite o plazo exacto posterior a la graduación, p. ej., 6 meses post-graduación]</li>
+          <li><b>S (Específico):</b> Prepararme y aprobar la certificación profesional en desarrollo web full-stack enfocado en TypeScript, Node.js y frameworks modernos (Angular/Vue/Astro).</li>
+          <li><b>M (Medible):</b> Obtención del certificado digital oficial expedido por la entidad certificadora con un puntaje mínimo del 80%.</li>
+          <li><b>A (Alcanzable):</b> Dedicar 8 horas semanales al estudio autodidacta basándome en los aprendizajes técnicos iniciales del Startup Profile.</li>
+          <li><b>R (Relevante):</b> Consolidará mi perfil técnico para desempeñarme como Frontend / Full-Stack Developer en proyectos de gran escala.</li>
+          <li><b>T (Temporal):</b> Obtener la certificación dentro de los 6 meses posteriores a la graduación.</li>
         </ul>
       </td>
       <td>
-        <p><b>[Título breve del Objetivo 2]</b></p>
+        <p><b>Especialización en Integración de Agentes de IA en Aplicaciones Web/Móviles</b></p>
         <ul>
-          <li><b>S (Específico):</b> [Qué especialización o logro profesional buscas alcanzar]</li>
-          <li><b>M (Medible):</b> [Métrica o entregable concreto que confirme su logro]</li>
-          <li><b>A (Alcanzable):</b> [Estrategia o formación requerida]</li>
-          <li><b>R (Relevante):</b> [Aporte al crecimiento profesional continuo]</li>
-          <li><b>T (Temporal):</b> [Plazo de ejecución, p. ej., primer año posgrado/laboral]</li>
+          <li><b>S (Específico):</b> Diseñar y desplegar un proyecto que integre agentes de Inteligencia Artificial para el procesamiento inteligente de datos en plataformas web/móviles.</li>
+          <li><b>M (Medible):</b> Repositorio público en GitHub con la solución documentada y una demo interactiva desplegada en la nube.</li>
+          <li><b>A (Alcanzable):</b> Aprovechar la base de lenguajes como Python, C++ y TypeScript para seguir especializaciones en plataformas como DeepLearning.AI.</li>
+          <li><b>R (Relevante):</b> Me posicionará en el campo emergente de AI Engineering, elevando mi competitividad en el mercado laboral.</li>
+          <li><b>T (Temporal):</b> Lograr el despliegue del proyecto dentro de los 12 meses posteriores a la graduación.</li>
         </ul>
       </td>
       <td>
         <ul>
           <li><b>Revisión:</b> Semestral</li>
-          <li><b>Evidencia:</b> Certificado / Contrato / Portafolio</li>
+          <li><b>Evidencia:</b> Certificado Oficial / Repositorio GitHub</li>
         </ul>
       </td>
     </tr>
