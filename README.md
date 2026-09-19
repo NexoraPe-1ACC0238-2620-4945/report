@@ -264,7 +264,7 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
       <td>
         <p><b>Ruiz Huisa, Daniel Elias</b></p>
         <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
+          <li><b>TB1:</b> Reforce conceptos de arquitectura de software y ahonede en nuevos orientados a architecturas moviles. Adapte estos conocimientos para darle una nueva forma al proyecto</li>
         </ul>
         <p><b>Mansilla Rivero, Carlos Marcelo</b></p>
         <ul>
@@ -312,7 +312,7 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
       <td>
         <p><b>Ruiz Huisa, Daniel Elias</b></p>
         <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
+          <li><b>TB1:</b> Reconozco la importancia del constante y permanente aprendizaje del desarrolador. Adaptandose a nuevos stacks tecnologicso que cumplen propositos distintos segun las necesidades del proyecto.</li>
         </ul>
         <p><b>Mansilla Rivero, Carlos Marcelo</b></p>
         <ul>
