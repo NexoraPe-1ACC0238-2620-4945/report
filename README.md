@@ -49,11 +49,11 @@ COURSE PROJECT
             <td>u202210764</td>
         </tr>
         <tr>
-            <td>Apellido, Nombre </td>
+            <td>Mansilla Rivero, Carlos Marcelo </td>
             <td>Codigo</td>
         </tr>
         <tr>
-            <td>Apellido, Nombre </td>
+            <td>Uribe Linares, Francisco </td>
             <td>Codigo</td>
         </tr>
     </table>
@@ -70,7 +70,7 @@ COURSE PROJECT
 | **Versión** | **Fecha** | **Autor** | **Descripción de modificación** |
 |     ---     |     ---   |     ---   |             ---                 |
 | 1.0 | 18/09/2026 | R. Daniel| Se adapto el proyecto utilizado anteriormente a la nueva plantilla de contenidos |
-
+| 1.1 | 18/09/2026 | C. Mansilla | Se revisó y actualizó la estructura inicial del informe, realizando ajustes en la presentación del proyecto y organización de los contenidos. |
 
 
 
