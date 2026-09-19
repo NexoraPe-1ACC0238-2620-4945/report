@@ -375,7 +375,6 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
     <!-- DANIEL -->
     <tr>
       <td><b>Ruiz Huisa, Daniel Elias</b></td>
-
       <td>
         <p><b>[Título breve del Objetivo 1]</b></p>
         <ul>
@@ -386,7 +385,6 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
           <li><b>T (Temporal):</b> [Plazo de cumplimiento]</li>
         </ul>
       </td>
-
       <td>
         <p><b>[Título breve del Objetivo 2]</b></p>
         <ul>
@@ -447,7 +445,6 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
             GitHub que utilicen diferentes tecnologías y demuestren conocimientos de frontend,
             backend, bases de datos y buenas prácticas de desarrollo.
           </li>
-
           <li>
             <b>A (Alcanzable):</b> Continuar aprendiendo mediante cursos, documentación,
             proyectos universitarios y proyectos personales, aplicando progresivamente nuevas
