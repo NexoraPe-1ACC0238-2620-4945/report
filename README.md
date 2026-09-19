@@ -49,8 +49,8 @@ COURSE PROJECT
             <td>u202210764</td>
         </tr>
         <tr>
-            <td>Mansilla Rivero, Carlos Marcelo </td>
-            <td>Codigo</td>
+            <td>Masilla Rivero, Carlos Marcelo</td>
+            <td>u202414510</td>
         </tr>
         <tr>
             <td>Uribe Linares, Francisco </td>
