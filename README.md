@@ -466,16 +466,16 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
       </td>
     </tr>
     <!-- FRANCISCO -->
-    <tr>
+    <tr> 
       <td><b>Uribe Linares, Francisco</b></td>
       <td>
-        <p><b>[Título breve del Objetivo 1]</b></p>
+        <p><b>Conseguir experiencia profesional como desarrollador de software</b></p>
         <ul>
-          <li><b>S (Específico):</b> [Descripción del objetivo profesional]</li>
-          <li><b>M (Medible):</b> [Indicador de éxito]</li>
-          <li><b>A (Alcanzable):</b> [Plan de acción]</li>
-          <li><b>R (Relevante):</b> [Importancia para su carrera]</li>
-          <li><b>T (Temporal):</b> [Plazo de cumplimiento]</li>
+          <li><b>S (Específico):</b> Conseguir una oportunidad de prácticas preprofesionales en el área de desarrollo de software, enfocándome en el desarrollo backend o full stack, para aplicar mis conocimientos y fortalecer mis habilidades técnicas.</li>
+          <li><b>M (Medible):</b> Obtener al menos una experiencia de prácticas preprofesionales y contar con un portafolio en GitHub que incluya tres proyectos funcionales que demuestren mis conocimientos de programación y desarrollo de aplicaciones</li>
+          <li><b>A (Alcanzable):</b> Continuar desarrollando proyectos personales y universitarios, reforzar mis conocimientos en lenguajes de programación y frameworks, mejorar mi nivel de inglés y postular constantemente a oportunidades de prácticas.</li>
+          <li><b>R (Relevante):</b> Adquirir experiencia profesional me permitirá aplicar los conocimientos obtenidos durante la carrera, desarrollar habilidades en proyectos reales y fortalecer mi perfil para desempeñarme como ingeniero de software.</li>
+          <li><b>T (Temporal):</b> Conseguir una oportunidad de prácticas preprofesionales y completar mi portafolio de proyectos antes de finalizar el año 2027.</li>
         </ul>
       </td>
       <td>
