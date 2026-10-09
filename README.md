@@ -207,10 +207,10 @@ COURSE PROJECT
     - [4.1.3. Source Code Style Guide \& Conventions](#413-source-code-style-guide--conventions)
     - [4.1.4. Software Deployment Configuration](#414-software-deployment-configuration)
   - [4.2. Landing Page \& Mobile Application Implementation](#42-landing-page--mobile-application-implementation)
-    - [4.2.1. Sprint n](#421-sprint-n)
-      - [4.2.1.1. Sprint Planning n](#4211-sprint-planning-n)
+    - [4.2.1. Sprint 1](#421-sprint-1)
+      - [4.2.1.1. Sprint Planning 1](#4211-sprint-planning-1)
       - [4.2.1.2. Aspect Leaders and Collaborators](#4212-aspect-leaders-and-collaborators)
-      - [4.2.1.3. Sprint Backlog n](#4213-sprint-backlog-n)
+      - [4.2.1.3. Sprint Backlog 1](#4213-sprint-backlog-1)
       - [4.2.1.4. Development Evidence for Sprint Review](#4214-development-evidence-for-sprint-review)
       - [4.2.1.5. Testing Suite Evidence for Sprint Review](#4215-testing-suite-evidence-for-sprint-review)
       - [4.2.1.6. Execution Evidence for Sprint Review](#4216-execution-evidence-for-sprint-review)
@@ -1947,7 +1947,7 @@ Durante la evaluación del prototipo se prestará atención al número de intera
 
 ---
 
-## Capítulo IV: Product Implementation & Validation
+# Capítulo IV: Product Implementation & Validation
 
 Este capítulo documenta el incremento de SafeWork integrado y probado al 8 de octubre de 2026. Se distinguen implementación, pruebas automatizadas, integración HTTP, ejecución en dispositivo físico y despliegue público.
 
@@ -1993,7 +1993,7 @@ El flujo acordado para los repositorios de aplicación es:
 4. Abrir PR hacia `test` y validar el incremento integrado.
 5. Abrir PR de `test` hacia `main` cuando el conjunto esté aprobado.
 
-Para actualizar este informe se utiliza una rama de trabajo desde `TB1`, con revisión mediante PR hacia esa rama antes de integrar la entrega final.
+Esta actualización documental se incorporó directamente en `TB1`. Para los siguientes cambios se utilizarán ramas de trabajo y revisión mediante PR hacia `TB1`, antes de integrar la entrega final.
 
 Se emplean Conventional Commits y las identidades reales de los participantes. Se conservan los commits mediante merge y se revisan los archivos efectivamente incluidos en cada PR.
 
