@@ -135,8 +135,8 @@ COURSE PROJECT
       - [2.5.3.1. Software Architecture Context Level Diagrams](#2531-software-architecture-context-level-diagrams)
       - [2.5.3.2. Software Architecture Container Level Diagrams](#2532-software-architecture-container-level-diagrams)
       - [2.5.3.3. Software Architecture Deployment Diagrams](#2533-software-architecture-deployment-diagrams)
-  - [2.6. Tactical-Level Domain-Driven Design](#26-tactical-level-domain-driven-design)
-    - [2.6.1. Bounded Context: IncidentsBC](#261-bounded-context-incidentsbc)
+   - [2.6. Tactical-Level Domain-Driven Design](#26-tactical-level-domain-driven-design)
+    - [2.6.1. Bounded Context: Identity and Access Management](#261-bounded-context-identity-and-access-management)
       - [2.6.1.1. Domain Layer](#2611-domain-layer)
       - [2.6.1.2. Interface Layer](#2612-interface-layer)
       - [2.6.1.3. Application Layer](#2613-application-layer)
@@ -145,7 +145,7 @@ COURSE PROJECT
       - [2.6.1.6. Bounded Context Software Architecture Code Level Diagrams](#2616-bounded-context-software-architecture-code-level-diagrams)
         - [2.6.1.6.1. Bounded Context Domain Layer Class Diagrams](#26161-bounded-context-domain-layer-class-diagrams)
         - [2.6.1.6.2. Bounded Context Database Design Diagram](#26162-bounded-context-database-design-diagram)
-    - [2.6.2. Bounded Context: AssignmentBC](#262-bounded-context-assignmentbc)
+    - [2.6.2. Bounded Context: Incident Management](#262-bounded-context-incident-management)
       - [2.6.2.1. Domain Layer](#2621-domain-layer)
       - [2.6.2.2. Interface Layer](#2622-interface-layer)
       - [2.6.2.3. Application Layer](#2623-application-layer)
@@ -154,7 +154,7 @@ COURSE PROJECT
       - [2.6.2.6. Bounded Context Software Architecture Code Level Diagrams](#2626-bounded-context-software-architecture-code-level-diagrams)
         - [2.6.2.6.1. Bounded Context Domain Layer Class Diagrams](#26261-bounded-context-domain-layer-class-diagrams)
         - [2.6.2.6.2. Bounded Context Database Design Diagram](#26262-bounded-context-database-design-diagram)
-    - [2.6.3. Bounded Context: NotificationBC](#263-bounded-context-notificationbc)
+    - [2.6.3. Bounded Context: Notification Management](#263-bounded-context-notification-management)
       - [2.6.3.1. Domain Layer](#2631-domain-layer)
       - [2.6.3.2. Interface Layer](#2632-interface-layer)
       - [2.6.3.3. Application Layer](#2633-application-layer)
@@ -1511,139 +1511,382 @@ El diagrama de contenedores descompone **SafeWork** en sus partes principales:
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
-### 2.6.1. Bounded Context: IncidentsBC
+La arquitectura del incremento actual de SafeWork se organiza en tres bounded contexts: Identity and Access Management, Incident Management y Notification Management.
+
+Esta sección corresponde al cliente Android integrado en `test`, revisión `3887c49`, y al backend corregido integrado en la revisión `08b0767`.
+
+La propuesta anterior identificaba Assignment y Profile como contextos independientes. En la implementación actual, Assignment pertenece a Incident Management y el perfil del usuario pertenece a IAM. La analítica móvil permanece fuera del incremento integrado.
+
+| Contexto actual | Responsabilidades |
+| --- | --- |
+| Identity and Access Management | Identidad, autenticación, perfil, incorporación a empresas, roles y sesiones |
+| Incident Management | Reporte, consulta, autoasignación e inicio/cierre de incidentes |
+| Notification Management | Generación y consulta de notificaciones del destinatario autenticado |
+
+### Organización de capas en Android
+
+Los paquetes de cada contexto se ubican directamente bajo `com.nexorape.safework`.
+
+| Módulo | Capas | Responsabilidad |
+| --- | --- | --- |
+| `business` | Domain y Application | Modelos, valores validados, interfaces y casos de uso en Kotlin/JVM |
+| `app` | Presentation e Infrastructure | Compose, ViewModels, transporte HTTP, almacenamiento y capacidades Android |
+
+La dependencia Gradle es `app → business`. Domain y Application no dependen de Compose, Android Location, DTO HTTP ni almacenamiento de credenciales.
+
+Los componentes de `core` atienden responsabilidades técnicas compartidas, como configuración, navegación, transporte y tema visual. No constituyen nuevos bounded contexts.
+
+La autorización del backend es obligatoria, incluso cuando Android valida datos o restringe acciones para orientar al usuario.
+
+Fuente: [arquitectura Android documentada](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/architecture.md).
+
+### 2.6.1. Bounded Context: Identity and Access Management
+
+IAM gestiona la identidad del usuario, su incorporación a una empresa y el acceso a funciones autorizadas. El perfil pertenece a este contexto.
 
 #### 2.6.1.1. Domain Layer
-* **Entities & Aggregates:** `Incident` (Agregado Raíz que contiene la lógica de ciclo de vida del reporte).
-* **Value Objects:** `IncidentId`, `Location` (latitud, longitud), `EvidencePhoto`, `IncidentSeverity` (Enum: BAJA, MEDIA, ALTA, CRÍTICA), `IncidentStatus` (Enum: ABIERTO, EN_PROCESO, RESUELTO, CERRADO).
-* **Domain Services:** `IncidentStateMachine` (Valida las transiciones de estado permitidas del incidente).
-* **Domain Events:** `IncidentReportedEvent`, `IncidentStatusUpdatedEvent`, `IncidentClosedEvent`.
-* **Repository Interfaces:** `IncidentRepository` (Interfaz del puerto de persistencia).
+
+En Android se implementan los siguientes conceptos:
+
+- `UserProfile`: identidad, empresa, nombre, correo, teléfono y roles del usuario.
+- `UserId` y `CompanyId`: identificadores positivos.
+- `EmailAddress`, `FullName` y `PhoneNumber`: valores que validan los datos correspondientes.
+- `Password`: encapsula las reglas aplicables a credenciales.
+- `InvitationProof`: representa la prueba de invitación utilizada durante el registro.
+- `Role`: valores WORKER, EMPLOYER y ADMIN.
+- `IdentityRepository`: contrato del dominio para las operaciones de identidad.
+
+En el backend existen los agregados `User` y `Company`, y las entidades `Role`, `CompanyInvitation`, `UserSession` y `AdministrationAudit`.
+
+El registro público crea usuarios WORKER mediante una invitación válida. No permite solicitar ADMIN/EMPLOYER ni incorporarse libremente a una empresa existente.
 
 #### 2.6.1.2. Interface Layer
-* **Controllers:** `IncidentController` (Spring MVC REST Controller que expone endpoints para la App Móvil).
-* **DTOs:** `CreateIncidentRequest`, `UpdateIncidentStatusRequest`, `IncidentResponse`.
+
+**Android Presentation**
+
+`IdentityScreen` y `IdentityViewModel` presentan:
+
+- Registro mediante invitación.
+- Inicio de sesión.
+- Perfil propio.
+- Edición de nombre y teléfono.
+- Restauración de sesión.
+- Cierre de sesión.
+
+**Backend REST**
+
+Los controladores de autenticación, usuarios, invitaciones, administración y sesiones exponen los contratos HTTP correspondientes.
+
+Las operaciones administrativas se realizan mediante el backend autorizado. La aplicación Android no incluye una pantalla ADMIN ni selección pública de privilegios.
 
 #### 2.6.1.3. Application Layer
-* **Application Services:** `IncidentService` (Orquesta la creación, actualización y cierre de incidentes delegando las reglas de estado a `IncidentStateMachine`).
-* **Use Cases:** `CreateIncidentUseCase`, `UpdateIncidentStatusUseCase`, `CloseIncidentUseCase`.
+
+En Android, `IdentityUseCases` valida los valores de entrada y coordina las operaciones de `IdentityRepository`.
+
+Después de iniciar sesión y durante la restauración se consulta el perfil autorizado del servidor. Un token almacenado no se considera suficiente para presentar una identidad confiable sin validación.
+
+El registro devuelve al usuario a la pantalla de login; no crea automáticamente una sesión.
+
+En el backend, los servicios coordinan incorporación, autenticación, perfil, administración y revocación:
+
+- Cada login crea una sesión independiente.
+- Logout revoca únicamente la sesión presentada.
+- Los cambios efectivos de roles, empresa o habilitación revocan todas las sesiones del usuario afectado.
+- La vigencia predeterminada es de siete días, configurable.
+- No existe renovación automática.
 
 #### 2.6.1.4. Infrastructure Layer
-* **Persistence:** `IncidentRepositoryImpl` (Implementación de `IncidentRepository` usando Spring Data JPA/Hibernate sobre MySQL).
+
+`HttpIdentityRepository` implementa el contrato del dominio y transforma los DTO HTTP en modelos validados.
+
+`ApiClient` centraliza el transporte autenticado y el tratamiento de errores de sesión. Una respuesta 401 invalida la sesión local correspondiente; una respuesta 403 conserva una sesión válida y representa una denegación de permisos.
+
+`EncryptedSessionStore` protege el token mediante AES-GCM y Android Keystore. El almacenamiento se vincula a la URL de la API.
+
+No se almacenan contraseñas ni invitaciones. Tampoco se utiliza un perfil persistido como sustituto de la validación del servidor.
+
+El backend utiliza JPA/MySQL, BCrypt y JWT firmado. Cada petición protegida comprueba firma, expiración y sesión persistida activa. La sesión se identifica mediante `jti`; la tabla no conserva el JWT completo.
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
-![imgs](./assets/Cap-2/component1.png)
+
+El diagrama actualizado debe mostrar los siguientes componentes y dependencias:
+
+| Componente | Relación principal |
+| --- | --- |
+| `IdentityScreen` | Presenta el estado y envía acciones al ViewModel |
+| `IdentityViewModel` | Invoca `IdentityUseCases` |
+| `IdentityUseCases` | Depende de `IdentityRepository` |
+| `HttpIdentityRepository` | Implementa el contrato y utiliza el transporte |
+| `ApiClient` | Ejecuta peticiones HTTP |
+| `EncryptedSessionStore` | Protege y recupera credenciales de sesión |
+| API IAM | Valida identidad, incorporación, permisos y sesiones |
+| MySQL | Persiste usuarios, empresas, roles, invitaciones y sesiones |
+
+**Estado de evidencia:** pendiente de incorporar el diagrama actualizado y su archivo fuente. La figura anterior de Profile no acredita todos los componentes actuales de IAM.
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
+El diagrama de clases Android debe representar `UserProfile`, sus identificadores y valores, `Role` y el contrato `IdentityRepository`.
+
+El modelo de servidor debe distinguir `User`, `Company`, `Role`, `CompanyInvitation`, `UserSession` y `AdministrationAudit`.
+
+Las clases del servidor y los modelos Android no se presentan como una única implementación compartida: cada producto posee sus propios modelos y límites.
+
+**Estado de evidencia:** pendiente de incorporar el UML actualizado a partir del código.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
+El diseño debe representar:
+
+- Usuarios vinculados a empresas.
+- Roles y asociación usuario–rol.
+- Invitaciones vinculadas a empresa y correo, con expiración y consumo.
+- Sesiones vinculadas al usuario, con vigencia y revocación.
+- Auditoría de cambios administrativos.
+
+Los nombres físicos, claves e índices deben obtenerse del esquema JPA/MySQL real. No se deben reutilizar diagramas anteriores que omitan invitaciones o sesiones persistidas.
+
+**Estado de evidencia:** pendiente de incorporar el diagrama actualizado del esquema.
 
 ---
 
-### 2.6.2. Bounded Context: AssignmentBC
+### 2.6.2. Bounded Context: Incident Management
+
+Incident Management reúne reporte, consulta y atención de incidentes. Assignment pertenece a este contexto porque establece la responsabilidad sobre el mismo incidente y participa en su ciclo de vida.
+
+El cliente integrado implementa consulta, detalle, reporte y ubicación opcional. La gestión móvil de autoasignación, inicio y cierre requiere integrar el paquete de Francisco.
 
 #### 2.6.2.1. Domain Layer
-* **Entities & Aggregates:** `Assignment` (Agregado Raíz que vincula un `IncidentId` con un `ResponsibleUserId`).
-* **Value Objects:** `AssignmentId`, `SlaDeadline`, `AssignmentStatus` (Enum: ASIGNADO, EN_REVISIÓN, VENCIDO, REASIGNADO).
-* **Domain Services:** `SlaEngine` (Aplica y evalúa las reglas del Acuerdo de Nivel de Servicio / SLA según el tipo de incidente).
-* **Domain Events:** `AssignmentCreatedEvent`, `SlaBreachedEvent`.
-* **Repository Interfaces:** `AssignmentRepository` (Interfaz del puerto de persistencia).
+
+En Android se implementan:
+
+- `Incident`: modelo del incidente.
+- `IncidentDraft`: datos validados para crear un reporte.
+- `IncidentId`: identificador positivo.
+- `IncidentTitle`: título no vacío, máximo 120 puntos de código Unicode.
+- `IncidentDescription`: descripción no vacía, máximo 4000 puntos de código Unicode.
+- `IncidentLocation`: ubicación textual no vacía, máximo 500 puntos de código Unicode.
+- `IncidentStatus`: OPEN, ASSIGNED, IN_PROGRESS y CLOSED.
+- `IncidentRepository`: contrato para consulta y reporte.
+- `LocationProvider`: puerto para captura opcional de ubicación.
+
+La ubicación se conserva como texto editable. La captura de coordenadas no introduce un DTO adicional de latitud/longitud.
+
+En el backend, `Incident` mantiene el ciclo de vida y `Assignment` vincula el incidente con el responsable.
 
 #### 2.6.2.2. Interface Layer
-* **Controllers:** `AssignmentController` (Spring MVC REST Controller con endpoints para asignación manual y gestión de casos).
-* **DTOs:** `AssignIncidentRequest`, `AssignmentStatusResponse`.
+
+**Android Presentation**
+
+`IncidentScreen` y `IncidentViewModel` presentan:
+
+- Lista de incidentes de la empresa.
+- Detalle del incidente.
+- Formulario de reporte.
+- Validaciones, carga, errores y reintento.
+- Ubicación manual.
+- Solicitud de permiso y captura puntual de ubicación.
+
+**Backend REST**
+
+Las operaciones principales incluyen:
+
+- GET `/api/v1/incidents`.
+- GET `/api/v1/incidents/{incidentId}`.
+- POST `/api/v1/incidents`.
+- POST `/api/v1/assignments`.
+- POST `/api/v1/incidents/{incidentId}/start`.
+- POST `/api/v1/incidents/{incidentId}/close`.
+
+Las rutas de gestión ya están implementadas y probadas en el backend. Esto no demuestra por sí mismo que sus pantallas Android estén integradas.
 
 #### 2.6.2.3. Application Layer
-* **Application Services:** `AssignmentService` (Lógica de negocio para asignación automática/manual evaluando reglas mediante `SlaEngine`).
-* **Use Cases:** `AssignResponsibleUseCase`, `EvaluateSlaBreachUseCase`.
+
+`IncidentUseCases` coordina consultas y creación de reportes a través de `IncidentRepository`.
+
+`CaptureIncidentLocation` depende de `LocationProvider`, sin importar tipos Android en Application.
+
+Las comprobaciones locales validan entradas y detectan respuestas inconsistentes con la identidad o empresa actual. La autorización definitiva corresponde al servidor.
+
+El ciclo de atención acordado es:
+
+1. Se crea un incidente OPEN.
+2. Un EMPLOYER de la misma empresa lo asume y pasa a ASSIGNED.
+3. El responsable lo inicia y pasa a IN_PROGRESS.
+4. El responsable lo cierra y pasa a CLOSED.
+
+La autoasignación envía únicamente `incidentId`. El servidor obtiene el responsable de la sesión autenticada.
+
+Los rechazos por empresa, permisos, responsable o estado no deben modificar los datos.
 
 #### 2.6.2.4. Infrastructure Layer
-* **Persistence:** `AssignmentRepositoryImpl` (Implementación de `AssignmentRepository` usando JPA/Hibernate sobre MySQL).
+
+`HttpIncidentRepository` ejecuta el transporte y transforma `IncidentDto` en el modelo del dominio.
+
+`IncidentResource` conserva exactamente diez campos:
+
+- `id`
+- `userId`
+- `companyId`
+- `title`
+- `description`
+- `location`
+- `status`
+- `documentUrl`
+- `reporterName`
+- `assigneeName`
+
+`userId` identifica al reportante. La identidad del responsable se obtiene de Assignment; no se infiere comparando nombres.
+
+`assignmentId` y `assigneeUserId` no forman parte de `IncidentResource`.
+
+La implementación Android de ubicación utiliza LocationManager y permisos durante el uso. La captura es puntual y opcional; no realiza seguimiento en segundo plano.
+
+Cuando el permiso o la ubicación no están disponibles, el reporte puede continuar mediante entrada manual.
+
+En el backend se utiliza JPA/MySQL para persistir incidentes y asignaciones. El cierre conserva `completionDate`.
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
-![imgs](./assets/Cap-2/component2.png)
+
+El diagrama debe mostrar:
+
+| Componente | Responsabilidad |
+| --- | --- |
+| `IncidentScreen` | Lista, detalle y formulario |
+| `IncidentViewModel` | Estado de UI y coordinación de acciones |
+| `IncidentUseCases` | Consulta y creación de reportes |
+| `IncidentRepository` | Puerto del dominio |
+| `HttpIncidentRepository` | Transporte y transformación de DTO |
+| `CaptureIncidentLocation` | Caso de uso de ubicación |
+| `LocationProvider` | Abstracción de captura |
+| Implementación Android de ubicación | Acceso al dispositivo y permisos |
+| API Incident Management | Autorización, persistencia y ciclo de vida |
+
+**Estado de evidencia:** pendiente de actualizar las figuras de Incident y Assignment para representar un único contexto y los componentes reales.
+
+El diseño no incluye un motor SLA, reasignación a otro técnico ni procesamiento distribuido como funcionalidades implementadas.
 
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
+El UML Android debe mostrar `Incident`, `IncidentDraft`, los valores validados, `IncidentStatus` y los contratos del dominio.
+
+El UML del servidor debe reflejar `Incident`, `Assignment`, el reportante, la empresa y el responsable.
+
+Los estados deben coincidir con el contrato: OPEN, ASSIGNED, IN_PROGRESS y CLOSED. No se agregan estados SLA o reasignación que no existen en el incremento.
+
+**Estado de evidencia:** pendiente de incorporar los diagramas actuales y sus fuentes.
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
+El esquema debe mostrar:
+
+- Incidente vinculado al reportante y a la empresa.
+- Assignment vinculado al incidente y al usuario responsable.
+- Restricción que impide varias asignaciones para un mismo incidente en el modelo actual.
+- Estado, fechas, prioridad y fecha de cierre de Assignment.
+- Campos textuales compatibles con las validaciones del contrato.
+
+El nombre del responsable mostrado en un DTO no sustituye las relaciones e identificadores persistidos.
+
+**Estado de evidencia:** pendiente de incorporar el diagrama obtenido del esquema real.
 
 ---
 
-### 2.6.3. Bounded Context: NotificationBC
+### 2.6.3. Bounded Context: Notification Management
+
+Notification Management gestiona mensajes asociados a los eventos del ciclo de vida de incidentes y su consulta por el destinatario autorizado.
+
+El backend está implementado y probado. El cliente Android de este contexto requiere integrar y validar el paquete de Francisco.
 
 #### 2.6.3.1. Domain Layer
-* **Entities & Aggregates:** `Notification` (Agregado que representa el mensaje y el destinatario).
-* **Value Objects:** `NotificationId`, `Recipient`, `NotificationContent`, `DeliveryChannel` (Enum: PUSH, EMAIL, SMS).
-* **Domain Events:** `NotificationSentEvent`, `NotificationFailedEvent`.
-* **Interfaces Outbound:** `NotificationProvider` (Interfaz para abstraer los proveedores de mensajería).
+
+El backend implementa `Notification` con información del destinatario y la empresa.
+
+El recurso público incluye:
+
+- `id`: UUID.
+- `subject`.
+- `body`.
+- `createdAt`: fecha con zona.
+- `isRead`.
+
+El campo `isRead` mantiene el valor provisional indicado en el contrato. No demuestra que exista marcado o seguimiento de lectura.
+
+La presencia de código dentro del paquete de Francisco no constituye evidencia de integración en el repositorio móvil.
 
 #### 2.6.3.2. Interface Layer
-* **Controllers:** `NotificationController` (Expone endpoints REST para consultar el historial de notificaciones del usuario).
-* **DTOs:** `SendNotificationRequest`, `NotificationHistoryResponse`.
+
+`NotificationController` expone:
+
+- GET `/api/v1/notifications/my-notifications`.
+
+El destinatario se obtiene de la sesión autenticada. No se permite consultar notificaciones mediante un selector arbitrario de usuario.
+
+La pantalla Android y sus estados de carga, error, vacío y contenido deben documentarse después de integrar el cliente.
 
 #### 2.6.3.3. Application Layer
-* **Application Services:** `NotificationService` (Decide el canal y compone el contenido del mensaje antes de enviarlo).
-* **Use Cases:** `SendPushNotificationUseCase`, `SendEmailNotificationUseCase`.
+
+El backend procesa eventos de incidentes mediante `NotificationEventListener`.
+
+La consulta devuelve notificaciones del destinatario autenticado y su empresa actual, ordenadas desde las más recientes.
+
+Los casos de uso Android deben utilizar la sesión y los contratos compartidos, sin duplicar la identidad ni introducir un modelo alternativo de incidentes.
 
 #### 2.6.3.4. Infrastructure Layer
-* **Adapters & Providers:** 
-  * `NotificationAdapter` (Adaptador genérico que implementa `NotificationProvider`).
-  * `EmailProvider` (Componente de integración para servicios de correo).
-  * `SmsProvider` / `PushProvider` (Integración con Firebase Cloud Messaging o SMS).
-* **Persistence:** Guardado del historial de notificaciones en MySQL.
+
+Las notificaciones se persisten mediante `NotificationRepository`, JPA y MySQL.
+
+El transporte devuelve JSON conforme al contrato. La integración Android utilizará la infraestructura autenticada compartida.
+
+El incremento no implementa:
+
+- Firebase Cloud Messaging.
+- Notificaciones push.
+- Envío automático por correo o SMS.
+- Kafka o Spark.
+- Marcado de lectura.
+
+Estas tecnologías y funciones del diseño anterior no se presentan como componentes desplegados.
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
-![imgs](./assets/Cap-2/component3.png)
+
+El diagrama debe representar la generación desde eventos de incidentes, persistencia, consulta autorizada y cliente móvil.
+
+Los componentes Android se incorporarán según sus nombres y dependencias reales después de integrar a Francisco.
+
+**Estado de evidencia:** pendiente de actualizar la figura anterior y añadir el diagrama del cliente integrado.
+
+Un gateway push, correo o SMS no debe aparecer como implementado en el diagrama del incremento actual.
 
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
+El UML debe mostrar `Notification` y las referencias de destinatario y empresa, distinguiendo el modelo del servidor y el modelo Android.
+
+Los atributos deben coincidir con la implementación y el contrato. No se incorporan proveedores o estados de entrega inexistentes.
+
+**Estado de evidencia:** pendiente de completar con el código Android integrado y el modelo de servidor.
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
+El diseño debe representar la persistencia de notificaciones, su UUID y las referencias utilizadas para limitar la consulta por destinatario y empresa.
+
+Los nombres físicos y restricciones deben verificarse en el esquema MySQL.
+
+**Estado de evidencia:** pendiente de incorporar el diagrama actualizado.
 
 ---
 
-### 2.6.4. Bounded Context: AnalyticsBC
+**Referencias de implementación**
 
-#### 2.6.4.1. Domain Layer
-* **Entities & Aggregates:** `AnalyticsReport` (Representación agregada de las métricas de seguridad y reportes generados).
-* **Value Objects:** `MetricType`, `TimeWindow`, `IncidentKPI`.
-* **Domain Services:** Algoritmos de agregación y detección de patrones de riesgo laboral.
-
-#### 2.6.4.2. Interface Layer
-* **Controllers / Exporters:** `ReportGenerator` (Componente Django/Python que renderiza y genera dashboards y reportes exportables).
-* **DTOs:** `AnalyticsFilterRequest`, `KPISummaryResponse`.
-
-#### 2.6.4.3. Application Layer
-* **Application Services:** `AnalyticsService` (Procesa los eventos entrantes y prepara los datos estructurados para las métricas).
-* **Use Cases:** `ProcessAnalyticsEventUseCase`, `GenerateSafetyReportUseCase`.
-
-#### 2.6.4.4. Infrastructure Layer
-* **Event Processing Pipeline:**
-  * `EventBus` (Componente Apache Kafka para consumir el flujo de eventos de los otros BCs).
-  * `AnalyticsPipeline` (Componente Apache Spark / Python para procesamiento de datos en flujo y por lotes).
-* **Persistence:** Conexión a la base de datos de analítica / MySQL.
-
-#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
-![imgs](./assets/Cap-2/component4.png)
-
-#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
-
-##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
-
-
-##### 2.6.4.6.2. Bounded Context Database Design Diagram
-
+- [Arquitectura móvil](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/architecture.md).
+- [Contratos compartidos móviles](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/team-integration-contracts.md).
+- [Contrato del backend corregido](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend/blob/08b07675720d378db7a552c44d493f9c386d8375/docs/api-contract.md).
 
 ---
 
