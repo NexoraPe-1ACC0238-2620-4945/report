@@ -1947,85 +1947,283 @@ Durante la evaluación del prototipo se prestará atención al número de intera
 
 ---
 
-# Capítulo IV: Product Implementation & Validation
+## Capítulo IV: Product Implementation & Validation
 
-El desarrollo de SafeWork comprende la configuración del entorno técnico, la organización del código fuente y la construcción progresiva de la landing page y la aplicación móvil. La implementación se organiza en sprints, de modo que cada avance pueda asociarse con historias de usuario y verificarse mediante evidencia de ejecución, pruebas y despliegue.
+Este capítulo documenta el incremento de SafeWork integrado y probado al 8 de octubre de 2026. Se distinguen implementación, pruebas automatizadas, integración HTTP, ejecución en dispositivo físico y despliegue público.
+
+Las funcionalidades futuras del Product Backlog no se presentan como terminadas. Los resultados se respaldan mediante los informes técnicos y Pull Requests enlazados.
 
 ## 4.1. Software Configuration Management
 
-La gestión de configuración del software establece las herramientas, convenciones y mecanismos necesarios para mantener la solución organizada y trazable. Este proceso abarca tanto la documentación y la landing page como el cliente móvil y los servicios de backend que soportan el registro y seguimiento de incidentes.
-
 ### 4.1.1. Software Development Environment Configuration
 
-El entorno de trabajo debe permitir el diseño de interfaces, desarrollo de funcionalidades móviles, construcción de servicios, control de versiones y ejecución de pruebas.
+| Componente | Configuración utilizada |
+| --- | --- |
+| Aplicación Android | Kotlin y Compose Compiler 2.2.21, Android Gradle Plugin 8.10.1, Gradle Wrapper 8.11.1 y JDK 17 |
+| Interfaz Android | Jetpack Compose y Material 3; Compose BOM 2025.04.01 |
+| Compatibilidad Android | minSdk 26; compileSdk y targetSdk 35 |
+| Identificador de aplicación | `com.nexorape.safework` |
+| Módulos | `app`: aplicación Android; `business`: dominio y casos de uso en Kotlin/JVM |
+| Transporte | OkHttp 4.12.0 y Gson 2.13.2 |
+| Estado y concurrencia | Lifecycle 2.8.7 y coroutines 1.10.2 |
+| Pruebas móviles | JUnit 4.13.2, MockWebServer y coroutines-test |
+| Backend | Spring Boot 4.0.5, JDK 25 y Maven Wrapper 3.9.14 |
+| Base de datos | MySQL 8.4 |
+| Dispositivo físico probado | Huawei CLT-L29, Android 10/API 29 |
+| Landing page | HTML5, CSS3 y JavaScript; publicación mediante GitHub Pages coordinada con Daniel |
 
-| Área | Herramienta o componente | Uso dentro de SafeWork |
-| :--- | :--- | :--- |
-| Gestión del proyecto | GitHub | Repositorios, historial de cambios y colaboración. |
-| Diseño de producto | Herramienta de prototipado de interfaces, como Figma | Wireframes, mock-ups, wireflows y prototipo interactivo. |
-| Landing page | HTML, CSS y JavaScript | Interfaz informativa adaptable a pantallas móviles. |
-| Aplicación móvil | Entorno de desarrollo Android por confirmar | Construcción y pruebas de pantallas y funciones del dispositivo. |
-| Servicios de backend | API REST basada en la arquitectura documentada | Autenticación, incidentes, asignaciones, notificaciones y perfiles. |
-| Persistencia | MySQL, según los diagramas y componentes del proyecto | Almacenamiento de información de usuarios y casos. |
-| Pruebas | Emulador y dispositivos físicos, cuando estén configurados | Verificación de navegación, permisos, cámara, GPS y conectividad. |
+Android y backend utilizan JDK diferentes: las tareas Gradle del móvil requieren JDK 17, mientras el backend utiliza JDK 25.
 
-En el diseño técnico del proyecto se describen componentes de servicios con **Spring MVC**, **JPA/Hibernate** y persistencia en **MySQL**. El entorno concreto del cliente móvil, sus dependencias y versiones deberá consignarse a partir de la configuración efectiva de su repositorio, para evitar confundir herramientas previstas con componentes implementados.
+Las versiones y dependencias se encuentran registradas en la configuración y los README de cada repositorio.
 
 ### 4.1.2. Source Code Management
 
-El código y la documentación de SafeWork se gestionan con **Git** y repositorios de **GitHub**, lo que permite identificar cambios, mantener versiones y coordinar el trabajo de los integrantes del equipo.
+| Producto | Repositorio | Estado de referencia |
+| --- | --- | --- |
+| Informe | [report](https://github.com/NexoraPe-1ACC0238-2620-4945/report) | Documentación colaborativa; preparación de la entrega en `TB1` |
+| Aplicación móvil | [safework-mobile](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile) | IAM e incidentes integrados en `test`, revisión `3887c49` |
+| Backend | [safework-backend](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend) | Fundación corregida integrada, revisión `08b0767` |
+| Landing actual | [safework-landing-page](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-landing-page) | Adaptación y publicación pendientes de verificar |
 
-**Repositorio del informe:** [NexoraPe - SafeWork Report](https://github.com/NexoraPe-1ACC0238-2620-4945/report).
+El flujo acordado para los repositorios de aplicación es:
 
-Se establece como criterio de trabajo mantener una rama principal para las versiones integradas y utilizar ramas específicas para cambios funcionales cuando corresponda. Cada modificación debe acompañarse de un commit descriptivo; las incorporaciones relevantes deben revisarse antes de integrarse. Los archivos de configuración local, credenciales y claves privadas no deben incluirse en el repositorio público.
+1. Integrar la fundación mediante `feature/...-foundation` y PR hacia `main`.
+2. Crear `test` desde la fundación integrada.
+3. Crear cada `feature/...` desde `test` actualizado.
+4. Abrir PR hacia `test` y validar el incremento integrado.
+5. Abrir PR de `test` hacia `main` cuando el conjunto esté aprobado.
 
-Los repositorios concretos de landing page, cliente móvil y backend se documentarán aquí cuando estén definidos y accesibles, indicando su rama principal y responsabilidades. Este apartado no sustituye la evidencia de commits, ramas o solicitudes de incorporación que se presentará durante los sprints.
+Para actualizar este informe se utiliza una rama de trabajo desde `TB1`, con revisión mediante PR hacia esa rama antes de integrar la entrega final.
+
+Se emplean Conventional Commits y las identidades reales de los participantes. Se conservan los commits mediante merge y se revisan los archivos efectivamente incluidos en cada PR.
+
+Las credenciales, tokens, archivos de configuración local, herramientas, paquetes de entrega y compilaciones quedan excluidos del control de versiones.
 
 ### 4.1.3. Source Code Style Guide & Conventions
 
-Se adoptan convenciones de código para facilitar la lectura, el mantenimiento y la colaboración:
+Los nombres de paquetes, clases y conceptos técnicos se escriben en inglés. Los contextos están directamente bajo `com.nexorape.safework`:
 
-**Landing page (HTML, CSS y JavaScript).** Se utiliza marcado semántico, nombres descriptivos, indentación uniforme y separación de contenido, presentación y comportamiento. Las imágenes informativas incorporan textos alternativos; los estilos deben evitar duplicidades y considerar diseños adaptables. Las funciones de JavaScript deben expresar claramente su responsabilidad.
+- `iam`: identidad, perfil, incorporación, roles y sesiones.
+- `incidentmanagement`: reporte, consulta y atención de incidentes, incluida Assignment.
+- `notificationmanagement`: notificaciones del usuario.
 
-**Aplicación móvil.** Los componentes de interfaz y la lógica de negocio deben mantenerse organizados por responsabilidades. Se recomienda utilizar nombres consistentes para pantallas, modelos y servicios; centralizar textos reutilizables; evitar valores sensibles en el código; y controlar de manera explícita permisos, validaciones, errores y estados de carga. Las convenciones de lenguaje concretas se registrarán cuando se confirme la tecnología utilizada por el cliente móvil.
+En Android, Domain y Application pertenecen a `business`; Presentation e Infrastructure pertenecen a `app`. La dependencia Gradle es `app → business`.
 
-**Servicios REST y persistencia.** La arquitectura documenta ámbitos como `Incidents`, `Assignment`, `Notification`, `Analytics` y `Profile`. La implementación debe mantener denominaciones coherentes entre entidades, servicios, controladores y objetos de transferencia de datos. Se deben validar las entradas, separar las capas y evitar exponer información confidencial en respuestas o registros.
+Los DTO HTTP se transforman en Infrastructure antes de devolver modelos del dominio. Las reglas de negocio no dependen de Compose, Android Location ni almacenamiento de credenciales. Los ViewModels invocan casos de uso y exponen estado para la interfaz.
 
-**Gestión de cambios.** Los commits deben tener mensajes breves que expliquen la modificación realizada. Antes de integrar cambios se debe comprobar que el código compila, que las pruebas disponibles se ejecutan y que la documentación refleja las funcionalidades afectadas.
+Los textos de la aplicación utilizan recursos localizados: inglés predeterminado y español latinoamericano. Se incluyen temas claro y oscuro, estados de carga, errores y reintento.
 
 ### 4.1.4. Software Deployment Configuration
 
-La configuración de despliegue de SafeWork distingue tres componentes con necesidades diferentes:
+La validación realizada utiliza el backend corregido en `http://127.0.0.1:18082/`, con MySQL y datos sintéticos. El dispositivo físico se conecta mediante redirección USB del puerto. Esta configuración corresponde a ejecución local.
 
-1. **Landing page:** debe publicarse mediante un servicio de hosting web con acceso HTTPS y soporte para contenido adaptable. Es necesario comprobar su funcionamiento desde navegadores de escritorio y móviles, así como los enlaces y botones de descarga o demostración.
-2. **Aplicación móvil:** debe generar un paquete instalable adecuado para las pruebas de la plataforma elegida. Su configuración debe considerar identificador de aplicación, permisos de cámara y ubicación, conexión a los servicios y firma correspondiente al entorno de pruebas o distribución.
-3. **Backend y almacenamiento:** los servicios deben contar con dirección de acceso y configuración de conexión a base de datos. Las credenciales, tokens y claves de integración se gestionan fuera del código fuente. Las comunicaciones que transporten información de usuarios e incidentes deben protegerse durante su transmisión.
+El despliegue público se coordina reutilizando el hosting existente. Debe utilizar el código corregido del repositorio actual, JDK 25, una base MySQL persistente, esquema compatible y variables privadas de configuración.
 
-Las notificaciones push, el almacenamiento local y la sincronización de reportes sin conexión requieren configuración y pruebas específicas antes de considerarse operativos. La evidencia de despliegue deberá indicar **URL o paquete generado, ambiente, fecha, versión, procedimiento de ejecución y resultado de verificación**. No se declara aquí un despliegue completado sin la documentación correspondiente.
+La URL HTTPS y el commit desplegado deben verificarse antes de conectar la aplicación. La existencia del despliegue histórico no demuestra compatibilidad con el contrato corregido.
+
+Android admite una URL HTTPS explícita mediante `-Psafework.apiUrl`. La compilación release no dispone de un host de producción predeterminado. Los APK release generados durante la validación no tienen firma de distribución.
+
+La landing anterior se reutilizará previa revisión de contenido, enlaces, idiomas y correspondencia con las funcionalidades móviles actuales. Su publicación mediante GitHub Pages debe acompañarse de URL y evidencia de ejecución.
 
 ## 4.2. Landing Page & Mobile Application Implementation
 
-La implementación de SafeWork se organiza en entregas incrementales basadas en las historias de usuario priorizadas. Cada sprint debe definir objetivos concretos, funcionalidades a desarrollar y criterios de aceptación verificables.
+El incremento documentado comprende IAM y consulta/reporte de incidentes en Android, junto con el backend corregido.
 
-El trabajo abarca dos frentes complementarios. En la **landing page** se consideran navegación adaptable, información de beneficios, testimonios, planes, preguntas frecuentes y llamadas a la acción. En la **aplicación móvil** se priorizan autenticación, reporte de incidentes, captura de evidencia, consulta de estados, gestión SST, asignaciones, búsqueda, notificaciones y perfiles; otras funciones se incorporan de acuerdo con el Product Backlog y la capacidad del equipo.
+La gestión móvil de incidentes y las notificaciones requieren integrar y validar el paquete de Francisco. La mejora visual y el despliegue público requieren evidencias adicionales.
 
-Para cada sprint se documentarán la planificación, responsables, backlog seleccionado, cambios de código, resultados de pruebas, capturas de ejecución, documentación de servicios, evidencias de despliegue y colaboración del equipo. Las evidencias deben corresponder a funcionalidades realmente desarrolladas y permitir contrastar lo implementado con los criterios de aceptación de las historias de usuario.
+### 4.2.1. Sprint 1
 
-### 4.2.1. Sprint n
-#### 4.2.1.1. Sprint Planning n
+#### 4.2.1.1. Sprint Planning 1
+
+El objetivo del incremento documentado es permitir que un usuario autorizado acceda a SafeWork, consulte su perfil y reporte o consulte incidentes desde un dispositivo Android, con ubicación manual o captura puntual opcional.
+
+La planificación formal debe complementarse con su fecha, duración, registro y tablero del equipo. Esta descripción del incremento no sustituye un acta de planificación.
+
 #### 4.2.1.2. Aspect Leaders and Collaborators
-#### 4.2.1.3. Sprint Backlog n
+
+| Integrante | Responsabilidad acordada | Evidencia disponible |
+| --- | --- | --- |
+| Carlos Mansilla Rivero | IAM, configuración compartida, correcciones del backend e integración técnica | PR de fundación backend, IAM móvil y corrección de publicación de incidentes |
+| Daniel Ruiz Huisa | Consulta, detalle, reporte y ubicación de incidentes; coordinación de landing y despliegue | PR documental de incidentes; código del paquete recuperado mediante el PR correctivo de Carlos |
+| Francisco Uribe Linares | Autoasignación, inicio/cierre y notificaciones móviles | Paquete preparado sobre `test`; integración y validación pendientes al corte |
+
+El reparto de responsabilidades se distingue de la autoría de commits. Los commits correctivos realizados por Carlos no se atribuyen a Daniel.
+
+La participación se documenta mediante contribuciones, revisiones y resultados reales. Cada integrante debe comprender y sustentar el código y las decisiones correspondientes a su trabajo.
+
+#### 4.2.1.3. Sprint Backlog 1
+
+| Historia o funcionalidad | Alcance evidenciado | Pendiente o límite |
+| --- | --- | --- |
+| US04: registro | Invitación verificada, rol inicial WORKER y retorno al login | Completar evidencia de términos y aceptación en la interfaz |
+| US05: login | Autenticación con credenciales y perfil autorizado | Biometría no implementada |
+| US06: roles | Roles concedidos administrativamente y sesiones revocadas ante cambios | No existe elección pública de privilegios |
+| US08: contraseña | Reglas de registro y validaciones | Cobertura visual completa pendiente |
+| US09/US10/US36: reporte | Título, descripción y ubicación manual o GPS opcional | Cámara y adjuntos no implementados |
+| US15/US27: consulta | Lista de empresa, detalle y estado actual | Galería, mapa e historial ampliado pendientes |
+| US19: perfil | Consulta y edición de nombre/teléfono | No permite cambiar rol o empresa desde Android |
+| US13/US14: atención | Backend con autoasignación e inicio/cierre autorizados | Integración móvil de Francisco pendiente |
+| Consulta de notificaciones | Backend limitado al destinatario y empresa autenticados | Pantalla móvil pendiente; no incluye push |
+| Landing | Reutilización y adaptación coordinadas | URL y pruebas del contenido actual pendientes |
+
+Las historias se consideran cumplidas únicamente respecto a los criterios demostrados.
+
+El cifrado del token no acredita almacenamiento offline de reportes. La consulta de notificaciones no acredita notificaciones push. La expiración y revocación de sesiones no acreditan un bloqueo por inactividad de quince minutos.
+
 #### 4.2.1.4. Development Evidence for Sprint Review
+
+| Incremento | Evidencia | Resultado |
+| --- | --- | --- |
+| Fundación Android | [PR móvil #1](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/pull/1) | Configuración, módulos y pantalla inicial |
+| Backend corregido | [PR backend #1](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend/pull/1) | Incorporación verificada, autorización y sesiones revocables |
+| IAM Android | [PR móvil #2](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/pull/2) | Registro, login, perfil, restauración y logout |
+| Documentación de incidentes | [PR móvil #3](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/pull/3) | Publicó únicamente un documento |
+| Implementación de incidentes | [PR móvil #4](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/pull/4) | Recuperó código, recursos, navegación, permisos y pruebas faltantes |
+
+El PR #4 conserva el historial previo y registra correctamente la autoría de la corrección.
+
+Los enlaces deben complementarse con capturas legibles de commits, diff, revisiones y contribuidores. Las funcionalidades aún no integradas no se acreditan mediante estos PR.
+
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
+
+| Validación | Resultado documentado |
+| --- | --- |
+| Backend corregido | Maven `verify`: 28 pruebas, sin fallos, errores ni omisiones |
+| HTTP del backend | 222 peticiones reales registradas, incluidos dos reinicios del servidor |
+| IAM móvil previo | 14 pruebas y 20 peticiones HTTP reales |
+| IAM e incidentes integrados | 21 pruebas JVM: 19 locales/simuladas y 2 integraciones reales; sin fallos, errores ni omisiones |
+| HTTP móvil integrado | 40 peticiones reales: 20 de IAM y 20 de incidentes/preparación |
+| Compilación Android | APK debug y release generados |
+| Lint Android | 0 errores y 9 advertencias documentadas |
+
+Las 14 pruebas de IAM están incluidas en las 21 del incremento posterior.
+
+Las 20 peticiones de IAM están incluidas en las 40 del incremento integrado; no se suman como ejecuciones independientes.
+
+Las pruebas con MockWebServer verifican contratos del cliente mediante respuestas simuladas. Las integraciones reales utilizan el backend corregido con MySQL.
+
+Sin la configuración opt-in requerida, dichas integraciones se omiten y no pueden presentarse como aprobadas. Las peticiones HTTP incluyen preparación y limpieza de datos; no representan exclusivamente casos de negocio independientes.
+
+Fuentes:
+
+- [Verificación del backend](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend/blob/08b07675720d378db7a552c44d493f9c386d8375/docs/verification.md).
+- [Implementación y pruebas de IAM](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/iam-implementation.md).
+- [Implementación y pruebas de incidentes](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/incident-query-reporting.md).
+
 #### 4.2.1.6. Execution Evidence for Sprint Review
+
+La aplicación se instaló y ejecutó en un Huawei CLT-L29 con Android 10.
+
+**IAM comprobado:**
+
+- Registro confirmado por el tester.
+- Login y consulta del perfil.
+- Edición del perfil.
+- Restauración después de reiniciar el proceso.
+- Logout.
+- Revocación administrativa y nuevo login con los roles actualizados.
+
+El [informe físico de IAM](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/iam-device-validation.md) registra diez peticiones del celular, separadas de las pruebas automatizadas.
+
+El estado HTTP del registro inicial no quedó capturado; su confirmación se apoya en la comprobación del tester.
+
+**Incidentes comprobados después del merge en `test` (`3887c49`):**
+
+- Restauración de sesión y consulta de incidentes.
+- Reporte con ubicación manual: creación HTTP 201.
+- Consulta del detalle: HTTP 200.
+- Captura real de coordenadas.
+- Ubicación desactivada: aviso y entrada manual disponibles.
+
+Estos resultados fueron confirmados durante la prueba física y registrados en el documento local `docs/incident-device-validation.md`, pendiente de publicación al corte.
+
+Quedan pendientes:
+
+- Denegación explícita del permiso.
+- Timeout de captura.
+- Cancelación durante la captura.
+- Cobertura adicional de accesibilidad y versiones Android.
+- Gestión y notificaciones después de integrar a Francisco.
+
+Los resultados físicos posteriores no validan retroactivamente las afirmaciones antiguas corregidas del PR #3.
+
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
+
+El [contrato actual del backend](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend/blob/08b07675720d378db7a552c44d493f9c386d8375/docs/api-contract.md) describe rutas, DTO, autorización y errores JSON.
+
+Las decisiones principales son:
+
+- Registro mediante invitación vinculada a correo y empresa.
+- Rol inicial WORKER y concesión administrativa de EMPLOYER.
+- Autoasignación enviando únicamente `incidentId`.
+- Empresa y reportante derivados de la identidad autenticada.
+- Inicio y cierre limitados al responsable de la misma empresa.
+- Estados OPEN → ASSIGNED → IN_PROGRESS → CLOSED.
+- Notificaciones limitadas al destinatario autenticado.
+- Logout de la sesión actual.
+- Revocación de todas las sesiones del usuario ante cambios administrativos efectivos de roles, empresa o habilitación.
+
+`IncidentResource` conserva diez campos. No incluye `assignmentId` ni `assigneeUserId`.
+
+OpenAPI local se consultó en `/v3/api-docs` y Swagger UI en `/swagger-ui/index.html`.
+
+La URL pública y su captura deben agregarse al verificar el despliegue corregido.
+
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
+
+| Producto | Estado al corte | Evidencia pendiente |
+| --- | --- | --- |
+| Landing | Se reporta un despliegue anterior; adaptación coordinada | URL, revisión publicada, capturas y comprobación del contenido actual |
+| Backend corregido | JAR local con MySQL y pruebas satisfactorias | URL HTTPS, commit desplegado y pruebas contra ese servidor |
+| Android | APK instalado y flujos IAM/incidentes probados físicamente | Versión integrada de Francisco/UI y prueba contra el backend público |
+
+El despliegue anterior del backend no se considera compatible hasta verificar que utiliza el código y esquema actuales. La ejecución local no equivale a publicación pública.
+
+Las evidencias finales deben indicar ambiente, fecha, revisión, procedimiento y resultado, sin mostrar credenciales o tokens.
+
+No se asigna un porcentaje de cumplimiento del backend únicamente a partir de la cantidad de pruebas; debe contrastarse con los criterios y el alcance del hito.
+
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
+El equipo distribuyó IAM/configuración, incidentes/ubicación y atención/notificaciones. La preparación de paquetes se separó de su incorporación, revisión y publicación.
+
+La revisión del PR #3 detectó que solo contenía documentación. El PR #4 recuperó los archivos faltantes, conservó el commit anterior y ejecutó validaciones contra el backend corregido.
+
+Francisco recibió su paquete actualizado contra `test` en `3887c49`, sin necesidad de reaplicar el paquete de Daniel. Su integración y pruebas deben quedar respaldadas por su PR y resultados reales.
+
+Carlos prepara mejoras visuales en local y Daniel coordina landing y despliegue.
+
+La promoción de `test` a `main` se realizará después de validar el incremento completo.
+
 ## 4.3. Validation Interviews
+
 ### 4.3.1. Diseño de Entrevistas
+
+La validación con usuarios representativos debe observar las tareas de reporte, consulta y comprensión de estados y permisos.
+
+Se utilizarán consentimiento y datos de demostración.
+
+Las entrevistas de needfinding del capítulo II no se presentan como nuevas entrevistas de validación de la aplicación implementada.
+
 ### 4.3.2. Registro de Entrevistas
+
+No se aportaron registros nuevos de entrevistas de validación para este incremento.
+
+Queda pendiente documentar participante, segmento, fecha, tareas, observaciones y enlace cuando corresponda al hito.
+
+La prueba técnica realizada por el desarrollador en su celular no sustituye validación con usuarios representativos.
+
 ### 4.3.3. Evaluaciones según heurísticas
+
+La evaluación debe registrar evidencia de:
+
+- Visibilidad del estado del sistema.
+- Prevención y recuperación de errores.
+- Consistencia de componentes y mensajes.
+- Navegación y orientación.
+- Legibilidad y accesibilidad.
+
+Este informe no declara una evaluación heurística ejecutada sin sus fichas y resultados.
 
 ---
 
