@@ -609,26 +609,79 @@ Debe tener un diseño claro, simple y profesional, con íconos fáciles de recon
 * **Creemos que** ofrecer un historial accesible de incidentes con estadísticas y reportes ayudará a las empresas a tomar decisiones preventivas más efectivas. **Sabremos que** hemos tenido éxito cuando al menos el 80% de los usuarios responsables de seguridad accedan al módulo de reportes y estadísticas al menos una vez por semana.
 
 #### 1.2.2.4. Lean UX Canvas
+<table>
+  <!-- FILA SUPERIOR: Bloques 1, 5 (que ocupa 2 alturas de fila) y 2 -->
+  <tr>
+    <td width="33%" valign="top">
+      <b>1. Business Problem</b><br><br>
+      Actualmente, muchas empresas en Perú gestionan incidentes laborales de forma manual y desorganizada, lo que dificulta la prevención de accidentes y el cumplimiento normativo. No existen muchas soluciones que sean digitales, accesibles y estandarizadas que permitan reportar, organizar y dar seguimiento a estos incidentes de forma eficiente. Esta falta de herramientas genera riesgos operativos, pérdida de información y baja transparencia en los entornos laborales.
+    </td>
+    <td width="34%" rowspan="2" valign="top">
+      <b>5. Solutions</b><br><br>
+      SafeWork es una aplicación web que permite a los trabajadores reportar incidentes, riesgos y fallas de seguridad de forma inmediata desde sus dispositivos móviles. El personal de seguridad recibe estos reportes, asigna responsables, da seguimiento y cierra los casos una vez resueltos. La plataforma también almacena un historial de incidentes para generar reportes y estadísticas que faciliten la toma de decisiones preventivas.
+      <br><br>
+      <b>Características clave:</b>
+      <ul>
+        <li>Reporte de incidentes en tiempo real con foto, ubicación y descripción</li>
+        <li>Panel de control para responsables de seguridad</li>
+        <li>Historial de incidentes y estadísticas exportables</li>
+        <li>Sistema de asignación de responsables y seguimiento de casos</li>
+        <li>Opción de reportes anónimos</li>
+        <li>Panel visual con indicadores clave de seguridad</li>
+      </ul>
+    </td>
+    <td width="33%" valign="top">
+      <b>2. Business Outcomes</b><br><br>
+      Sabremos que estamos resolviendo el problema cuando las empresas comiencen a reportar incidentes laborales a través de la plataforma de forma consistente, reduciendo el tiempo de hacer un reporte en al menos un 40%. Esperamos ver un aumento en la trazabilidad de los casos, una mejora en el cumplimiento normativo, y una adopción de la app sostenida por parte de empresas medianas, con una tasa de retención superior al 70% en los primeros seis meses.
+    </td>
+  </tr>
 
-| 1. Businesses Problem | 5. Solutions | 2. Businesses Outcomes |
-|-----------------------|--------------|-------------------------|
-| Actualmente, muchas empresas en Perú gestionan incidentes laborales de forma manual y desorganizada, lo que dificulta la prevención de accidentes y el cumplimiento normativo. No existen muchas soluciones que sean digital accesible y estandarizada que permitan reportar, organizar y dar seguimiento a estos incidentes de forma eficiente. Esta falta de herramientas genera riesgos operativos, pérdida de información y baja transparencia en los entornos laborales. | SafeWork es una aplicación web que permite a los trabajadores reportar incidentes, riesgos y fallas de seguridad de forma inmediata desde sus dispositivos móviles. El personal de seguridad recibe estos reportes, asigna responsables, da seguimiento y cierra los casos una vez resueltos. La plataforma también almacena un historial de incidentes para generar reportes y estadísticas que faciliten la toma de decisiones preventivas. <br><br>Características clave:<br>- Reporte de incidentes en tiempo real con foto, ubicación y descripción<br>- Panel de control para responsables de seguridad<br>- Historial de incidentes y estadísticas exportables<br>- Sistema de asignación de responsables y seguimiento de casos<br>- Opción de reportes anónimos<br>- Panel visual con indicadores clave de seguridad | Sabremos que estamos resolviendo el problema cuando las empresas comiencen a reportar incidentes laborales a través de la plataforma de forma consistente, reduciendo el tiempo de hacer un reporte en al menos un 40%. Esperamos ver un aumento en la trazabilidad de los casos, una mejora en el cumplimiento normativo, y una adopción de la app sostenida por parte de empresas medianas, con una tasa de retención superior al 70% en los primeros seis meses. |
+  <!-- FILA INTERMEDIA: Bloques 3 y 4 en los lados (el centro lo sigue ocupando el bloque 5) -->
+  <tr>
+    <td valign="top">
+      <b>3. Users</b><br><br>
+      Nos enfocaremos inicialmente en tres tipos de usuarios:
+      <ol>
+        <li><b>Trabajadores operativos</b> en fábricas, almacenes y obras de construcción que necesitan reportar incidentes de forma rápida y sencilla.</li>
+        <li><b>Personal de seguridad y salud ocupacional</b> que gestiona y da seguimiento a los reportes.</li>
+        <li><b>Gerentes o jefes de área</b> que aprueban la adopción del sistema y supervisan su uso.</li>
+      </ol>
+      Estos perfiles son clave para garantizar la adopción, configuración y uso efectivo de la aplicación.
+    </td>
+    <td valign="top">
+      <b>4. User Outcomes & Benefits</b><br><br>
+      Los usuarios buscan nuestra solución para reducir el tiempo y la complejidad al reportar incidentes laborales, lo que les permite enfocarse en tareas más importantes y disminuir el estrés.<br><br>
+      El personal de seguridad obtiene una herramienta organizada para clasificar y gestionar incidentes, mejorando la trazabilidad y la respuesta.<br><br>
+      Los gerentes logran mayor visibilidad y control sobre los riesgos, lo que se traduce en decisiones más efectivas y ahorro económico.<br><br>
+      Observamos como cambio de comportamiento una mayor frecuencia en los reportes, tiempos de respuesta más cortos y una disminución en incidentes repetitivos.
+    </td>
+  </tr>
 
-| 3. Users |
-|----------|
-| Nos enfocaremos inicialmente en tres tipos de usuarios: (1) trabajadores operativos en fábricas, almacenes y obras de construcción que necesitan reportar incidentes de forma rápida y sencilla; (2) personal de seguridad y salud ocupacional que gestiona y da seguimiento a los reportes; y (3) gerentes o jefes de área que aprueban la adopción del sistema y supervisan su uso. Estos perfiles son clave para garantizar la adopción, configuración y uso efectivo de la aplicación. |
-
-| 4. User Outcomes & Benefits |
-|-----------------------------|
-| Los usuarios buscan nuestra solución para reducir el tiempo y la complejidad al reportar incidentes laborales, lo que les permite enfocarse en tareas más importantes y disminuir el estrés. El personal de seguridad obtiene una herramienta organizada para clasificar y gestionar incidentes, mejorando la trazabilidad y la respuesta. Los gerentes logran mayor visibilidad y control sobre los riesgos, lo que se traduce en decisiones más efectivas y ahorro económico. Observamos como cambio de comportamiento una mayor frecuencia en los reportes, tiempos de respuesta más cortos y una disminución en incidentes repetitivos. |
-
-| 6. Hypotheses |
-|----------------|
-| - Creemos que se logrará una reducción del tiempo de hacer un reporte en al menos 40% si los trabajadores operativos pueden reportar incidentes rápidamente mediante la función de reporte en tiempo real con foto, ubicación y descripción.<br>- Creemos que se mejorará la trazabilidad de los casos si el personal de seguridad y salud ocupacional obtiene mayor control mediante el panel de gestión de incidentes.<br>- Creemos que se logrará un mejor cumplimiento normativo de riesgos si los gerentes pueden visualizar métricas clave mediante el panel de indicadores de seguridad.<br>- Creemos que se alcanzará una adopción sostenida por parte de empresas medianas en al menos 70% de los casos si los usuarios pueden acceder fácilmente a la plataforma mediante la versión web. |
-
-| 7. What's the most important thing we need to learn first? | 8. What's the least amount of work we need to do to learn the next most important thing? |
-|------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-| ¿Realmente los trabajadores usarán la función de reporte en tiempo real en el momento del incidente? | Validar si los trabajadores están dispuestos y son capaces de reportar incidentes en tiempo real, sin necesidad de construir el sistema completo:<br><br>- Prototipo interactivo (sin backend): Simulación de la función de reporte en una app o mockup clickable<br>- Video demo + encuesta: Mostrar cómo funciona la aplicación y recolectar feedback |
+  <!-- FILA INFERIOR: Bloques 6, 7 y 8 -->
+  <tr>
+    <td valign="top">
+      <b>6. Hypotheses</b><br><br>
+      <ul>
+        <li>Creemos que se logrará una reducción del tiempo de hacer un reporte en al menos 40% si los trabajadores operativos pueden reportar incidentes rápidamente mediante la función de reporte en tiempo real con foto, ubicación y descripción.</li>
+        <li>Creemos que se mejorará la trazabilidad de los casos si el personal de seguridad y salud ocupacional obtiene mayor control mediante el panel de gestión de incidentes.</li>
+        <li>Creemos que se logrará un mejor cumplimiento normativo de riesgos si los gerentes pueden visualizar métricas clave mediante el panel de indicadores de seguridad.</li>
+        <li>Creemos que se alcanzará una adopción sostenida por parte de empresas medianas en al menos 70% de los casos si los usuarios pueden acceder fácilmente a la plataforma mediante la versión web.</li>
+      </ul>
+    </td>
+    <td valign="top">
+      <b>7. What's the most important thing we need to learn first?</b><br><br>
+      ¿Realmente los trabajadores usarán la función de reporte en tiempo real en el momento del incidente?
+    </td>
+    <td valign="top">
+      <b>8. Least Work / Experiments</b><br><br>
+      Validar si los trabajadores están dispuestos y son capaces de reportar incidentes en tiempo real, sin necesidad de construir el sistema completo:
+      <ul>
+        <li><b>Prototipo interactivo (sin backend):</b> Simulación de la función de reporte en una app o mockup clickable</li>
+        <li><b>Video demo + encuesta:</b> Mostrar cómo funciona la aplicación y recolectar feedback</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ## 1.3. Segmentos objetivo
 
