@@ -1685,409 +1685,45 @@ El diagrama de contenedores descompone **SafeWork** en sus partes principales:
 # Capítulo III: Solution UI/UX Design
 
 ## 3.1. Product design
-
-El diseño de **SafeWork** se orienta a una experiencia de uso centrada en el trabajador y en el personal de Seguridad y Salud en el Trabajo (SST). A diferencia de la solución web documentada en el ciclo anterior, la propuesta actual prioriza el uso desde teléfonos móviles para reportar accidentes e incidentes en campo, consultar el seguimiento y recibir alertas. La **landing page** mantiene el propósito de presentar el servicio a potenciales usuarios y empresas.
-
 ### 3.1.1. Style Guidelines
-
 #### 3.1.1.1. General Style Guidelines
-
-##### Tipografía
-
-Se conserva la identidad tipográfica documentada para SafeWork. **Raleway** se propone para títulos y botones por su estilo moderno y fácil de reconocer, mientras que **Montserrat** se emplea para los textos generales, instrucciones, descripciones y formularios. En la aplicación móvil se dará prioridad a tamaños legibles, jerarquía visual consistente y textos breves que faciliten la lectura durante las operaciones de campo.
-
-**Figura 1:**  
-Uso de la tipografía **"Raleway"** en encabezados
-<img width="1200" height="600" alt="Image" src="https://github.com/user-attachments/assets/38728751-2ad1-4f38-ac13-b584c1d69c54" />
-
-Fuente: [1001 Fonts - Raleway](https://www.1001fonts.com/raleway-font.html)  
-
-**Figura 2:**  
-Uso de la tipografía **"Montserrat"** en textos generales
-<img width="1200" height="600" alt="Image" src="https://github.com/user-attachments/assets/23decf9b-8a59-42e5-8fe1-e4ee2312c9fe" /> 
-
-Fuente: [1001 Fonts - Montserrat](https://www.1001fonts.com/montserrat-font.html)
-
-##### Colores principales
-
-SafeWork mantiene como base gráfica el **violeta `#7B7DC1`**, asociado a confianza y modernidad, y el **azul muy oscuro `#0D0C22`** como fondo de contraste. Los textos principales utilizan blanco `#FFFFFF` y grises claros (`#888A9C`, `#E1E3EC`). Como colores complementarios para la **interpretación del estado de los incidentes**, la propuesta móvil prevé señales visuales en verde, amarillo y rojo, coherentes con el enfoque de seguridad expuesto en el capítulo I. Estos colores de estado irán acompañados de etiquetas e íconos, de modo que la información no dependa únicamente del color.
-
-**Figura 1:** Colores del texto
-<img width="1600" height="1200" alt="Image" src="https://github.com/user-attachments/assets/fa6069e5-d854-492c-82b7-6020becddd1e" />
-
-[Paleta en Coolors](https://coolors.co/ffffff-000000-7b7dc1)  
-
-**Figura 2:** Colores principales
-<img width="1600" height="1200" alt="Image" src="https://github.com/user-attachments/assets/dd4c5a6b-8aac-4f18-87cb-f35c35d408b8" />
-
-[Paleta en Coolors](https://coolors.co/0d0c22-7b7dc1-5a5ca0-1a1835)  
-
-**Figura 3:** Colores secundarios
-<img width="1600" height="1200" alt="Image" src="https://github.com/user-attachments/assets/037fd2b4-e65c-4e6c-8fed-ad1956134894" />
-
-[Paleta en Coolors](https://coolors.co/444654-888a9c-e1e3ec)  
-
-**Figura 4:** Colores aplicados en wireframes
-<img width="1600" height="1200" alt="Image" src="https://github.com/user-attachments/assets/cb7cf89e-bd8f-4634-9b8f-fa7d8a6aa17c" />
-
-[Paleta en Coolors](https://coolors.co/f0f0f0-bdbdbd-b3b3b3-3f3f3f-2e2e2e)
-
-##### Estilo visual
-
-La interfaz utiliza tarjetas, campos bien delimitados, iconografía reconocible, espacios regulares y esquinas redondeadas. Las pantallas móviles presentan primero la información relevante para la tarea: reportar un incidente, revisar su estado, consultar asignaciones y responder a notificaciones. El diseño adapta los formularios al espacio vertical del smartphone y muestra mensajes de validación cercanos a los campos correspondientes.
-
-##### Interactividad
-
-En la landing page se mantienen los cambios de color, desplazamiento suave y retroalimentación visual de botones documentados en el informe anterior. En la **aplicación móvil**, esas interacciones se adaptan al **toque, desplazamiento vertical y selección táctil**; no se considera el efecto *hover* como interacción principal. Se priorizan botones fáciles de pulsar, confirmación del envío de reportes, indicadores de carga y mensajes claros de éxito o error.
-
-##### Accesibilidad y adaptación móvil
-
-La propuesta considera contraste legible, tamaño de texto adecuado, etiquetas comprensibles y jerarquía visual consistente. Los formularios se diseñan para pantallas pequeñas, contemplando la aparición del teclado en pantalla y el acceso a permisos de cámara o ubicación únicamente cuando corresponda. Los componentes deben ajustarse a distintas resoluciones de teléfonos y orientaciones compatibles con el diseño.
-
 ### 3.1.2. Information Architecture
-
-La arquitectura de información de SafeWork se organiza en dos experiencias diferenciadas: la **landing page**, orientada a informar y captar interesados, y la **aplicación móvil**, orientada a ejecutar operaciones y gestionar reportes. Los módulos y acciones de la aplicación se alinean con las épicas e historias de usuario definidas en el apartado **2.4.1** del presente informe.
-
 #### 3.1.2.1. Organization Systems
-
-**Organización jerárquica — landing page.** Se mantiene una estructura de navegación desde el inicio hacia secciones como *About Us*, *Services*, *Benefits*, *Plans*, *Testimonials*, *FAQ* y *Contact*. Este modelo facilita que los visitantes conozcan los beneficios, las funcionalidades y los medios de contacto de SafeWork antes de decidir utilizar la solución.
-
-**Organización por tareas y por rol — aplicación móvil.** La navegación se estructura según las necesidades del trabajador y del personal SST:
-
-- **Trabajador:** inicio, reportar incidente, mis reportes, detalle y estado del caso, notificaciones, ayuda y perfil.
-- **Personal SST:** inicio, listado de reportes, búsqueda y filtros, revisión de casos, asignación de responsables, actualización de estados, indicadores y perfil.
-
-Esta estructura considera los módulos de autenticación, incidentes, asignaciones, notificaciones, analítica y perfil ya definidos en el diseño de dominio de SafeWork. Las funcionalidades avanzadas, como el registro sin conexión, la evidencia multimedia y el asistente de ayuda, se contemplan en la propuesta de requisitos y deberán incorporarse progresivamente de acuerdo con el backlog.
-
 #### 3.1.2.2. Labelling Systems
-
-**Etiquetado de la landing page.** Para conservar continuidad con el diseño anterior, el menú utiliza nombres breves como *Home*, *About Us*, *Services*, *Plans*, *Testimonials*, *FAQ* y *Contact*, así como llamadas a la acción del tipo *Start Now* y *Learn More*. En su adaptación al enfoque móvil, el proyecto incorpora los CTA **“Descargar App”** y **“Probar Demo”**, según las historias US01 y US41.
-
-**Etiquetado de la aplicación móvil.** Se utilizan acciones directas como **“Iniciar sesión”**, **“Crear cuenta”**, **“Olvidé mi contraseña”**, **“Reportar incidente”**, **“Mis reportes”**, **“Asignar responsable”**, **“Guardar”**, **“Enviar reporte”**, **“Ver estado”**, **“Notificaciones”** y **“Ayuda”**. Los reportes deben mostrar estados explícitos, por ejemplo **“Enviado”**, **“En revisión”** y **“Resuelto”**, conforme a la línea de tiempo propuesta en la historia US26.
-
-Los mensajes de error y confirmación emplearán un lenguaje concreto, como *“Completa la descripción obligatoria”* o *“Reporte enviado correctamente”*, evitando que el usuario tenga que interpretar íconos sin texto.
-
 #### 3.1.2.3. SEO Tags and Meta Tags
-
-Las prácticas de SEO aplican principalmente a la **landing page pública**, y no directamente a las pantallas privadas de la aplicación móvil. Se mantiene la definición utilizada en la versión anterior: el título de la página identifica el producto en la pestaña del navegador; la descripción resume la propuesta de valor; y la metaetiqueta de viewport permite que el contenido se ajuste a smartphones y tabletas.
-
-**Título (`title`).** Establece el nombre presentado en la pestaña del navegador y en resultados de búsqueda.
-
-<img width="578" height="19" alt="Ejemplo de título SEO del informe anterior" src="https://github.com/user-attachments/assets/80eb332d-b023-4ad2-93d4-f2a3239f9098" />
-
-**Meta descripción.** Presenta una explicación breve de SafeWork y su enfoque en reportes de incidentes laborales.
-
-<img width="725" height="75" alt="Ejemplo de meta descripción del informe anterior" src="https://github.com/user-attachments/assets/241b7211-01de-41f3-9e17-0cad13913afb" />
-
-**Palabras clave y autoría.** Se conservan como parte de la configuración documental de la página. Las palabras clave pueden describir el producto, aunque la etiqueta `keywords` no es determinante para el posicionamiento en los buscadores modernos.
-
-**Adaptación a pantallas móviles.** Se utiliza la declaración de viewport para favorecer el diseño responsivo, junto con etiquetas de idioma y codificación apropiadas.
-
-<img width="542" height="19" alt="Ejemplo de meta viewport del informe anterior" src="https://github.com/user-attachments/assets/5e8902ca-d6a3-43f4-9bac-38d3fc89f63a" />
-
-Las capturas anteriores corresponden al **informe previo** y se conservan como evidencia de referencia de la landing page. Si el código de la versión actual cambia, las capturas deberán actualizarse.
-
 #### 3.1.2.4. Searching Systems
-
-En el informe web anterior se indicaba que todavía no había un sistema de búsqueda implementado. Para la propuesta móvil actual **sí se han especificado funcionalidades de búsqueda**, por lo que este apartado se actualiza de acuerdo con las historias de usuario:
-
-- **US35 — Buscador y filtros táctiles de reportes:** el personal SST podrá localizar casos por trabajador o tipo de incidente desde una barra de búsqueda.
-- **US39 — Filtro rápido por estado:** se prevén pestañas o *chips* como **“Abiertos”** y **“Cerrados”** para acotar los resultados.
-- **US37 — Buscador de preguntas frecuentes:** el módulo de ayuda permitirá buscar temas mediante palabras clave y mostrará un mensaje cuando no existan coincidencias.
-
-Estas funcionalidades están **definidas como requisitos**, y su estado de implementación deberá verificarse durante los sprints; no se presentan aquí como funcionalidades ya desplegadas.
-
 #### 3.1.2.5. Navigation Systems
-
-**Landing page.** Conserva un menú superior, enlaces a secciones y navegación secundaria en el pie de página. En teléfonos, la barra debe transformarse en un menú compacto o desplegable, manteniendo visible el acceso a la presentación de beneficios y a los CTA de la aplicación.
-
-**Aplicación móvil.** Se propone una navegación centrada en las tareas principales, con accesos destacados al registro de incidentes y a su seguimiento. Las rutas disponibles dependen del rol del usuario: los trabajadores consultan sus reportes y el personal SST accede a herramientas de gestión, asignación y métricas. Las notificaciones deben abrir el detalle del caso relacionado.
-
-**Flujo lógico y retorno.** Cada pantalla mostrará claramente su título y el mecanismo para regresar. Se evitará que el usuario pierda la información introducida cuando deba revisar un campo, adjuntar una fotografía o consultar permisos de ubicación.
-
 ### 3.1.3. Landing Page UI Design
-
-La landing page de SafeWork presenta la solución, sus ventajas y sus funcionalidades para empresas y trabajadores. Se utiliza como punto de contacto inicial antes de acceder a la aplicación móvil. El diseño del proyecto anterior se conserva como base visual, incorporando la necesidad de que sus botones y bloques informativos funcionen adecuadamente en pantallas táctiles.
-
-**Landing page documentada en el proyecto anterior:** https://nexorape.github.io/Landing-Page/
-
 #### 3.1.3.1. Landing Page Wireframe
-
-Los wireframes representan la disposición básica de las secciones de la landing page antes de aplicar el estilo gráfico definitivo. Se conservan las siguientes evidencias de SafeWork del proyecto anterior:
-
-<img width="658" height="345" alt="Image" src="https://github.com/user-attachments/assets/09868085-60ed-4896-b8ce-247c0d168524" />
-
-<img width="657" height="530" alt="Image" src="https://github.com/user-attachments/assets/591c2aa6-72de-4749-92cb-534669f58035" />
-
-<img width="657" height="566" alt="Image" src="https://github.com/user-attachments/assets/4bd4fb59-6910-4afc-ba82-56b48ecac19f" />
-
-<img width="660" height="564" alt="Image" src="https://github.com/user-attachments/assets/5ffcd15c-451e-405d-ab1e-35c28b9b2359" />
-
-<img width="657" height="327" alt="Image" src="https://github.com/user-attachments/assets/65062db1-5bcf-4e4d-aec6-b6a4cef652a4" />
-
-<img width="658" height="540" alt="Image" src="https://github.com/user-attachments/assets/4d94dddf-98d2-4486-a892-defddee0c86b" />
-
-<img width="657" height="552" alt="Image" src="https://github.com/user-attachments/assets/a7e49de8-59cc-43a8-b0d0-0ab509a644a3" />
-
-<img width="658" height="214" alt="Image" src="https://github.com/user-attachments/assets/8b8ce5b8-0af3-4ec1-b601-6f81a1060b99" />
-
-Para el nuevo enfoque del curso, el mismo diseño deberá contemplar el menú móvil desplegable, la visualización de beneficios de cámara/GPS/alertas, las preguntas frecuentes adaptadas y el CTA **“Descargar App”**, conforme a US01, US02, US31, US41 y US42.
-
 #### 3.1.3.2. Landing Page Mock-up
-
-Los mock-ups detallan colores, tipografías, componentes y distribución visual. Se conservan las siguientes capturas de la landing page de SafeWork como referencia de continuidad del diseño:
-
-<img width="660" height="343" alt="Image" src="https://github.com/user-attachments/assets/74cd0ebe-0e74-41bd-91d3-1c24fac944c8" />
-
-<img width="656" height="473" alt="Image" src="https://github.com/user-attachments/assets/747ddf92-c0f0-4d3e-8346-f06cefaa1ab3" />
-
-<img width="661" height="564" alt="Image" src="https://github.com/user-attachments/assets/e1a5a73d-c8d2-4e78-bb37-348631f9cb21" />
-
-<img width="656" height="555" alt="Image" src="https://github.com/user-attachments/assets/4cfdfb0a-3ebe-4cfc-a42f-811c56dcc625" />
-
-<img width="655" height="316" alt="Image" src="https://github.com/user-attachments/assets/9a393329-6b2e-472d-b145-8e563d21535e" />
-
-<img width="659" height="530" alt="Image" src="https://github.com/user-attachments/assets/20c1e8e7-6d30-449d-8b76-ad236f3e8280" />
-
-<img width="658" height="560" alt="Image" src="https://github.com/user-attachments/assets/8bda1b93-f9c4-4b1d-89a3-5d295707d199" />
-
-<img width="657" height="210" alt="Image" src="https://github.com/user-attachments/assets/7876a1b0-f900-47fd-8729-11f901e42c9f" />
-
-Para evidenciar el cumplimiento de las historias de usuario móviles, se deberán agregar los mock-ups de la **vista responsiva en smartphone**, principalmente el menú, los CTA táctiles y las tarjetas de planes (US43).
-
 ### 3.1.4. Mobile Applications UX/UI Design
-
-A diferencia del trabajo anterior, centrado en una **aplicación web**, SafeWork se plantea ahora como una **aplicación para dispositivos móviles**. Se priorizan la rapidez para registrar incidentes desde el lugar del evento, la captura de evidencias con cámara y GPS, la revisión del historial y la atención de casos desde el teléfono. La distribución de las pantallas se adapta a los roles de trabajador y personal SST, conforme a las épicas EP02 a EP13.
-
-**Nota sobre las evidencias:** los wireframes, mock-ups y enlaces de Figma del informe previo corresponden a una **aplicación web**. Sirven para conservar la lógica del producto, pero no deben presentarse como si fueran capturas de una app móvil ya diseñada o implementada.
-
 #### 3.1.4.1. Mobile Applications Wireframes
-
-Para el diseño de baja fidelidad se propone un conjunto de pantallas verticales que abarcan los principales objetivos de ambos segmentos:
-
-| Pantalla | Elementos y finalidad de diseño | Relación con requisitos |
-| --- | --- | --- |
-| **Inicio de sesión** | Credenciales, acceso biométrico cuando esté disponible, recuperar contraseña e iniciar registro. | EP02, US05, US07 |
-| **Registro de cuenta** | Datos corporativos, rol, validación de contraseña y confirmación. | US04, US06, US08 |
-| **Inicio del trabajador** | Acceso destacado a “Reportar incidente”, “Mis reportes” y notificaciones. | EP04, EP06, EP09 |
-| **Nuevo reporte** | Tipo, descripción, cámara, ubicación GPS, adjuntos, validación y botón de envío. | US09, US10, US24, US36 |
-| **Confirmación de reporte** | Número de caso generado, estado inicial y enlace para seguimiento. | US34 |
-| **Mis reportes / Detalle del caso** | Tarjetas con estado, responsable asignado, evidencias e historial de cambios. | US15, US16, US26 |
-| **Bandeja de SST / Asignaciones** | Reportes priorizados, filtros, búsqueda y acciones para asignar o actualizar casos. | US12, US13, US14, US35, US39 |
-| **Notificaciones** | Alertas de cambio de estado y nuevas asignaciones con acceso a cada caso. | US21, US38 |
-| **Dashboard** | Tarjetas de indicadores e información de seguimiento adaptada a pantalla móvil. | EP12, US28 |
-| **Perfil y ayuda** | Datos del usuario, foto, cambios de contraseña, FAQ y ayuda contextual. | EP07, EP08 |
-
-**[PENDIENTE: insertar aquí los wireframes móviles reales —capturas de Figma o herramienta equivalente—. Los archivos adjuntos no incluyen estas imágenes.]**
-
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
-
-El wireflow permite visualizar cómo se conectan las pantallas y qué acciones del usuario provocan cada transición. Para SafeWork se propone partir del siguiente recorrido base, coherente con el registro y seguimiento de incidentes de las historias de usuario:
-
-```mermaid
-flowchart TD
-    A[Inicio de la app] --> B{¿Sesión activa?}
-    B -- No --> C[Iniciar sesión]
-    C --> D[Crear cuenta]
-    C --> E[Recuperar contraseña]
-    D --> C
-    E --> C
-    C --> F[Inicio según rol]
-    B -- Sí --> F
-    F --> G[Reportar incidente]
-    G --> H[Confirmación y número de caso]
-    H --> I[Detalle y estado]
-    F --> J[Mis reportes]
-    J --> I
-    F --> K[Bandeja SST]
-    K --> L[Asignar responsable / actualizar estado]
-    F --> M[Notificaciones]
-    M --> I
-```
-
-Este esquema documenta **conexiones funcionales propuestas**. El wireflow gráfico definitivo debe conectar **miniaturas de las pantallas móviles** e identificar sus controles táctiles.
-
-**[PENDIENTE: agregar el wireflow visual de los wireframes móviles definitivos.]**
-
 #### 3.1.4.3. Mobile Applications Mock-ups
-
-Los mock-ups deberán trasladar la identidad de SafeWork a componentes visuales de alta fidelidad. Se mantendrán, cuando corresponda, la tipografía Raleway para títulos, Montserrat para textos, el violeta corporativo `#7B7DC1` y el contraste entre fondo oscuro y texto claro. Las tarjetas de incidentes incorporarán indicadores de estado fácilmente distinguibles y la pantalla de reporte priorizará el botón de envío y la captura de evidencias.
-
-Los mock-ups deben representar al menos los recorridos de **registro e inicio de sesión**, **reporte de incidente**, **consulta del estado**, **gestión de casos por SST**, **notificaciones** y **panel de indicadores**, en las dimensiones propias de un smartphone.
-
-**[PENDIENTE: insertar capturas de mock-ups móviles de alta fidelidad. No sustituirlas por mock-ups web del informe anterior.]**
-
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
-
-El user flow describe las acciones y decisiones que toma una persona para cumplir un objetivo concreto, diferenciándose del wireflow porque no necesita representar visualmente cada pantalla. Se considera prioritario el proceso de **reporte inmediato de un incidente**:
-
-```mermaid
-flowchart TD
-    A[Abre SafeWork] --> B{¿Cuenta con sesión válida?}
-    B -- No --> C[Iniciar sesión]
-    C --> D{¿Credenciales correctas?}
-    D -- No --> C
-    D -- Sí --> E[Inicio de trabajador]
-    B -- Sí --> E
-    E --> F[Reportar incidente]
-    F --> G[Completar tipo y descripción]
-    G --> H[Agregar foto y ubicación cuando corresponda]
-    H --> I{¿Campos obligatorios completos?}
-    I -- No --> G
-    I -- Sí --> J[Enviar o guardar según conectividad]
-    J --> K[Confirmación y número de caso]
-    K --> L[Consultar estado del reporte]
-```
-
-Para el personal SST, el flujo complementario comprende **abrir la bandeja de reportes → localizar un caso → revisar detalle → asignar responsable → actualizar estado → registrar seguimiento**.
-
-**[PENDIENTE: incluir los user flows finales generados en la herramienta de diseño, con la distinción por rol.]**
-
 #### 3.1.4.5. Mobile Applications Prototyping
-
-El prototipo navegable de SafeWork deberá unir las pantallas diseñadas para permitir evaluar las rutas principales sin necesidad de que todas las funcionalidades estén conectadas a un backend. La primera validación puede centrarse en que un trabajador logre ingresar, reportar un incidente y consultar su estado; la segunda, en que un responsable SST pueda encontrar, asignar y actualizar un caso.
-
-Como referencia de la etapa anterior, el proyecto cuenta con un enlace a un diseño de **aplicación web** en Figma: https://www.figma.com/design/4lfYU4omqUax0rxIYtyXp1/Untitled?node-id=87-101&t=vINDSY2w8lBsUY2f-1. Este enlace **no se considera evidencia del prototipo móvil**.
-
-**[PENDIENTE: incorporar el enlace al prototipo móvil interactivo y capturas de las conexiones entre pantallas.]**
 
 ---
 
 # Capítulo IV: Product Implementation & Validation
 
 ## 4.1. Software Configuration Management
-
-Esta sección describe la configuración y organización de las herramientas empleadas o previstas en la continuidad de SafeWork. Se distinguen las herramientas ya documentadas para la landing page y el sistema web previo de los recursos que deberán confirmarse durante la implementación de la versión móvil.
-
 ### 4.1.1. Software Development Environment Configuration
-
-Las herramientas documentadas en el proyecto SafeWork anterior sirven como base del nuevo entorno de trabajo:
-
-| Área | Herramientas documentadas | Aplicación en SafeWork |
-| --- | --- | --- |
-| **Coordinación** | WhatsApp | Comunicación y organización del equipo. |
-| **Análisis UX** | Uxpressia | Elaboración de personas, mapas de empatía y recorridos del usuario. |
-| **Diseño de interfaz** | Figma | Diseño de wireframes, wireflows, mock-ups y prototipos. |
-| **Landing page** | HTML5, CSS y JavaScript | Construcción y mantenimiento de la web informativa. |
-| **Edición de código** | Visual Studio Code e IntelliJ IDEA | Herramientas empleadas en el proyecto anterior. |
-| **Pruebas web** | Chrome, Brave, Opera y Edge | Evaluación visual y funcional de la landing. |
-| **Versionado y documentación** | Git, GitHub y Google Docs | Historial de cambios, colaboración y documentación. |
-| **Publicación web** | GitHub Pages | Alojamiento de la landing page documentada anteriormente. |
-
-En la arquitectura del informe actual se plantea una **Mobile App** conectada con servicios del dominio de SafeWork, mientras que las descripciones de infraestructura contemplan un backend basado en Spring y persistencia en MySQL. Esta especificación arquitectónica **no confirma que todos esos componentes ya estén implementados o desplegados**.
-
-**[PENDIENTE: indicar la tecnología móvil realmente seleccionada (por ejemplo, Android Studio/Kotlin, Flutter u otra), la versión del SDK, las dependencias y el emulador o dispositivo físico utilizado. La fuente nueva todavía no identifica este entorno.]**
-
 ### 4.1.2. Source Code Management
-
-El código y la documentación se gestionan mediante un sistema de control de versiones basado en Git y GitHub. A diferencia de las referencias del informe del ciclo anterior, el repositorio de informe correspondiente a este curso es:
-
-**Repositorio del informe actual:** https://github.com/NexoraPe-1ACC0238-2620-4945/report.git
-
-Las modificaciones deben registrarse con mensajes de commit descriptivos y ramas de trabajo que permitan distinguir correcciones del informe, desarrollo de la landing e implementación móvil. El informe previo menciona ramas como `main` y `docs/`; su existencia y configuración en el repositorio de este ciclo deben confirmarse antes de presentarlas como parte del flujo actual.
-
-**[PENDIENTE: agregar URL del repositorio de la aplicación móvil y evidencias actuales de ramas, commits y pull requests, cuando estén disponibles.]**
-
 ### 4.1.3. Source Code Style Guide & Conventions
-
-Para mantener la legibilidad del código y facilitar la participación del equipo se retoman las convenciones del proyecto web anterior y se distinguen de las que deberá adoptar la aplicación móvil:
-
-**HTML (landing page).** Los documentos deben declarar su tipo, indicar el idioma, utilizar etiquetas semánticas en minúsculas, escribir atributos entre comillas y definir textos alternativos para imágenes. Se conserva el uso adecuado de `title` y metadatos para la web informativa.
-
-**CSS (landing page).** Se emplean selectores descriptivos, nombres de clase consistentes, espacios e indentación uniformes, propiedades terminadas en punto y coma y recursos externos cargados mediante HTTPS. La presentación se adapta mediante reglas responsivas a móviles y computadoras.
-
-**JavaScript (landing page).** Se recomienda utilizar identificadores expresivos, funciones de responsabilidad acotada, estructura modular y manejo explícito de errores. Estas pautas constituyen criterios de desarrollo y deberán verificarse con el código que se entregue.
-
-**Código móvil.** Al tratarse de un nuevo canal de implementación, se requiere una guía correspondiente al lenguaje seleccionado y a su arquitectura efectiva. Como criterios generales se propone: separar interfaz y lógica de negocio, reutilizar componentes, nombrar clases y funciones de forma descriptiva, centralizar constantes, gestionar permisos de cámara y GPS de manera controlada y evitar incluir credenciales o información sensible en el repositorio.
-
 ### 4.1.4. Software Deployment Configuration
 
-La landing page cuenta con la referencia histórica de publicación mediante **GitHub Pages**, accesible en https://nexorape.github.io/Landing-Page/. Su publicación consiste en mantener el contenido web versionado y verificar que el sitio sea accesible mediante HTTPS.
-
-Para la aplicación móvil se deberá documentar el procedimiento real una vez seleccionado y configurado el entorno: compilación, identificación de versión, ejecución en emulador o dispositivo, instalación, configuración de endpoints de servicios y validación de las funciones principales. Si se desarrolla una aplicación Android, los archivos APK o AAB podrán constituir evidencia de compilación y distribución, según el objetivo del sprint.
-
-**[PENDIENTE: evidencias de compilación, instalación y despliegue móvil; no se adjuntaron archivos ejecutables ni registros de publicación de esta versión.]**
-
 ## 4.2. Landing Page & Mobile Application Implementation
-
-En esta etapa se documentan los incrementos del producto realizados durante los sprints. La **landing page** presenta la propuesta de SafeWork y dirige al usuario hacia la solución; la **aplicación móvil** busca permitir reportar incidentes desde el teléfono, consultar el seguimiento y gestionar los casos según el rol del usuario. Los componentes se vinculan con las épicas y las historias de usuario ya definidas en el apartado 2.4.1.
-
-La estructura siguiente se conserva de la plantilla del informe actual. Se presenta como **guía para registrar las actividades y evidencias del sprint real**, sin atribuir fechas, horas ni resultados del proyecto anterior al equipo del ciclo 2026-2.
-
 ### 4.2.1. Sprint n
-
 #### 4.2.1.1. Sprint Planning n
-
-El objetivo del sprint debe identificar qué incremento de la landing page o de la aplicación móvil se busca entregar. Según la planificación elegida, una primera iteración puede priorizar los flujos de autenticación y registro de incidentes, junto con la revisión de la landing responsiva.
-
-| Campo | Información del sprint |
-| --- | --- |
-| **Sprint** | **[PENDIENTE: número del sprint]** |
-| **Fecha de planificación** | **[PENDIENTE]** |
-| **Duración** | **[PENDIENTE]** |
-| **Objetivo del sprint** | **[PENDIENTE: especificar funcionalidades comprometidas]** |
-| **Historias priorizadas** | **[PENDIENTE: seleccionar del Product Backlog 2.4.3]** |
-| **Velocidad y story points** | **[PENDIENTE: incluir solo si fueron definidos]** |
-
 #### 4.2.1.2. Aspect Leaders and Collaborators
-
-Los integrantes del equipo del informe actual son **Daniel Elías Ruiz Huisa**, **Carlos Marcelo Mansilla Rivero** y **Francisco Uribe Linares**. Los roles de líder y colaborador de cada aspecto deben completarse con la asignación realizada en el sprint.
-
-| Integrante | UI/UX Design | Landing Page | Mobile App | Testing | Documentation |
-| --- | --- | --- | --- | --- | --- |
-| Daniel Elías Ruiz Huisa | Por asignar | Por asignar | Por asignar | Por asignar | Por asignar |
-| Carlos Marcelo Mansilla Rivero | Por asignar | Por asignar | Por asignar | Por asignar | Por asignar |
-| Francisco Uribe Linares | Por asignar | Por asignar | Por asignar | Por asignar | Por asignar |
-
-*Nota:* reemplazar “Por asignar” por **L (Leader)** o **C (Collaborator)** según el trabajo real del equipo.
-
 #### 4.2.1.3. Sprint Backlog n
-
-El Sprint Backlog debe vincular las historias comprometidas con tareas concretas, responsables y evidencias. El siguiente cuadro es una **propuesta de organización** que utiliza identificadores existentes en el backlog del informe actual, no una declaración de tareas terminadas.
-
-| User Story | Funcionalidad prevista | Tarea propuesta | Responsable | Estado |
-| --- | --- | --- | --- | --- |
-| **US01, US31** | Navegación responsiva de landing | Revisar menú táctil y adaptación a smartphone | [PENDIENTE] | Por planificar |
-| **US04, US05** | Registro e inicio de sesión | Diseñar e implementar flujo móvil de acceso | [PENDIENTE] | Por planificar |
-| **US09, US10** | Reporte in-situ | Preparar formulario y captura de foto/ubicación | [PENDIENTE] | Por planificar |
-| **US15, US16** | Consulta de casos | Crear listado y detalle del seguimiento | [PENDIENTE] | Por planificar |
-| **US35, US39** | Búsqueda de reportes | Diseñar buscador y filtros táctiles para SST | [PENDIENTE] | Por planificar |
-
 #### 4.2.1.4. Development Evidence for Sprint Review
-
-En este apartado deberán adjuntarse capturas y enlaces de los cambios realizados en el repositorio, archivos creados o modificados, interfaces implementadas y funcionalidades desarrolladas durante el sprint. Las evidencias deben corresponder a la versión móvil y al equipo actual, sin copiar capturas del frontend web anterior como implementación móvil.
-
-**[PENDIENTE: insertar commits, pull requests y capturas del código o pantallas desarrolladas.]**
-
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
-
-Se documentarán las pruebas ejecutadas sobre las funcionalidades implementadas. De acuerdo con las historias priorizadas, podrán incluir validación de campos obligatorios (US36), flujo de inicio de sesión, envío de reportes, permisos de cámara/ubicación y adaptación a pantallas de diferentes resoluciones (US31).
-
-**[PENDIENTE: agregar casos de prueba, resultados observados y evidencia de ejecución; no se cuenta todavía con resultados verificables de la aplicación móvil.]**
-
 #### 4.2.1.6. Execution Evidence for Sprint Review
-
-Corresponde presentar evidencia de ejecución en el entorno real de pruebas: capturas de la aplicación abierta en un emulador o dispositivo, recorridos de navegación y demostración de las funciones completadas. Si alguna funcionalidad está solo prototipada en Figma, debe indicarse expresamente, sin clasificarla como ejecución de código.
-
-**[PENDIENTE: añadir capturas o videos de ejecución.]**
-
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
-
-Cuando el sprint incluya integración con backend, se deberán documentar los servicios consumidos por la aplicación, su propósito, parámetros, respuestas y mecanismos de autenticación. Los dominios descritos en el capítulo II —incidentes, asignaciones, notificaciones, analítica y perfil— sirven para organizar estos servicios, pero no acreditan por sí mismos APIs funcionando.
-
-**[PENDIENTE: incluir documentación de endpoints o indicar que no se integraron servicios durante el sprint.]**
-
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
-
-Se consignarán los pasos utilizados para preparar y distribuir la versión evaluada: configuración de compilación, resultado del build, instalación en dispositivo o emulador y ubicación del artefacto generado. Para la landing se podrá incluir la URL publicada y capturas de su funcionamiento. La entrega móvil deberá sustentarse mediante evidencias de la versión realmente obtenida.
-
-**[PENDIENTE: incorporar capturas de despliegue y artefactos reales del sprint.]**
-
 #### 4.2.1.9. Team Collaboration Insights during Sprint
-
-Para demostrar la colaboración se incluirán las contribuciones registradas durante el sprint: commits por integrante, pull requests, revisiones, issues y decisiones relevantes de coordinación. El repositorio de referencia para este curso es https://github.com/NexoraPe-1ACC0238-2620-4945/report.git; cualquier métrica de colaboración debe corresponder a las actividades efectivas del equipo actual.
-
-**[PENDIENTE: insertar la evidencia de colaboración del sprint y un breve comentario de los avances y dificultades.]**
 
 ## 4.3. Validation Interviews
 ### 4.3.1. Diseño de Entrevistas
