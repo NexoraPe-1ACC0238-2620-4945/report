@@ -137,7 +137,7 @@ COURSE PROJECT
       - [2.5.3.2. Software Architecture Container Level Diagrams](#2532-software-architecture-container-level-diagrams)
       - [2.5.3.3. Software Architecture Deployment Diagrams](#2533-software-architecture-deployment-diagrams)
   - [2.6. Tactical-Level Domain-Driven Design](#26-tactical-level-domain-driven-design)
-    - [2.6.1. Bounded Context: IncidentsBC](#261-bounded-context-incidentsbc)
+    - [2.6.1. Bounded Context: Identity and Access Management](#261-bounded-context-identity-and-access-management)
       - [2.6.1.1. Domain Layer](#2611-domain-layer)
       - [2.6.1.2. Interface Layer](#2612-interface-layer)
       - [2.6.1.3. Application Layer](#2613-application-layer)
@@ -146,7 +146,7 @@ COURSE PROJECT
       - [2.6.1.6. Bounded Context Software Architecture Code Level Diagrams](#2616-bounded-context-software-architecture-code-level-diagrams)
         - [2.6.1.6.1. Bounded Context Domain Layer Class Diagrams](#26161-bounded-context-domain-layer-class-diagrams)
         - [2.6.1.6.2. Bounded Context Database Design Diagram](#26162-bounded-context-database-design-diagram)
-    - [2.6.2. Bounded Context: AssignmentBC](#262-bounded-context-assignmentbc)
+    - [2.6.2. Bounded Context: Incident Management](#262-bounded-context-incident-management)
       - [2.6.2.1. Domain Layer](#2621-domain-layer)
       - [2.6.2.2. Interface Layer](#2622-interface-layer)
       - [2.6.2.3. Application Layer](#2623-application-layer)
@@ -155,7 +155,7 @@ COURSE PROJECT
       - [2.6.2.6. Bounded Context Software Architecture Code Level Diagrams](#2626-bounded-context-software-architecture-code-level-diagrams)
         - [2.6.2.6.1. Bounded Context Domain Layer Class Diagrams](#26261-bounded-context-domain-layer-class-diagrams)
         - [2.6.2.6.2. Bounded Context Database Design Diagram](#26262-bounded-context-database-design-diagram)
-    - [2.6.3. Bounded Context: NotificationBC](#263-bounded-context-notificationbc)
+    - [2.6.3. Bounded Context: Notification Management](#263-bounded-context-notification-management)
       - [2.6.3.1. Domain Layer](#2631-domain-layer)
       - [2.6.3.2. Interface Layer](#2632-interface-layer)
       - [2.6.3.3. Application Layer](#2633-application-layer)
@@ -164,24 +164,6 @@ COURSE PROJECT
       - [2.6.3.6. Bounded Context Software Architecture Code Level Diagrams](#2636-bounded-context-software-architecture-code-level-diagrams)
         - [2.6.3.6.1. Bounded Context Domain Layer Class Diagrams](#26361-bounded-context-domain-layer-class-diagrams)
         - [2.6.3.6.2. Bounded Context Database Design Diagram](#26362-bounded-context-database-design-diagram)
-    - [2.6.4. Bounded Context: AnalyticsBC](#264-bounded-context-analyticsbc)
-      - [2.6.4.1. Domain Layer](#2641-domain-layer)
-      - [2.6.4.2. Interface Layer](#2642-interface-layer)
-      - [2.6.4.3. Application Layer](#2643-application-layer)
-      - [2.6.4.4. Infrastructure Layer](#2644-infrastructure-layer)
-      - [2.6.4.5. Bounded Context Software Architecture Component Level Diagrams](#2645-bounded-context-software-architecture-component-level-diagrams)
-      - [2.6.4.6. Bounded Context Software Architecture Code Level Diagrams](#2646-bounded-context-software-architecture-code-level-diagrams)
-        - [2.6.4.6.1. Bounded Context Domain Layer Class Diagrams](#26461-bounded-context-domain-layer-class-diagrams)
-        - [2.6.4.6.2. Bounded Context Database Design Diagram](#26462-bounded-context-database-design-diagram)
-    - [2.6.5. Bounded Context: ProfileBC](#265-bounded-context-profilebc)
-      - [2.6.5.1. Domain Layer](#2651-domain-layer)
-      - [2.6.5.2. Interface Layer](#2652-interface-layer)
-      - [2.6.5.3. Application Layer](#2653-application-layer)
-      - [2.6.5.4. Infrastructure Layer](#2654-infrastructure-layer)
-      - [2.6.5.5. Bounded Context Software Architecture Component Level Diagrams](#2655-bounded-context-software-architecture-component-level-diagrams)
-      - [2.6.5.6. Bounded Context Software Architecture Code Level Diagrams](#2656-bounded-context-software-architecture-code-level-diagrams)
-        - [2.6.5.6.1. Bounded Context Domain Layer Class Diagrams](#26561-bounded-context-domain-layer-class-diagrams)
-        - [2.6.5.6.2. Bounded Context Database Design Diagram](#26562-bounded-context-database-design-diagram)
 - [Capítulo III: Solution UI/UX Design](#capítulo-iii-solution-uiux-design)
   - [3.1. Product design](#31-product-design)
     - [3.1.1. Style Guidelines](#311-style-guidelines)
@@ -208,10 +190,10 @@ COURSE PROJECT
     - [4.1.3. Source Code Style Guide \& Conventions](#413-source-code-style-guide--conventions)
     - [4.1.4. Software Deployment Configuration](#414-software-deployment-configuration)
   - [4.2. Landing Page \& Mobile Application Implementation](#42-landing-page--mobile-application-implementation)
-    - [4.2.1. Sprint n](#421-sprint-n)
-      - [4.2.1.1. Sprint Planning n](#4211-sprint-planning-n)
+    - [4.2.1. Sprint 1](#421-sprint-1)
+      - [4.2.1.1. Sprint Planning 1](#4211-sprint-planning-1)
       - [4.2.1.2. Aspect Leaders and Collaborators](#4212-aspect-leaders-and-collaborators)
-      - [4.2.1.3. Sprint Backlog n](#4213-sprint-backlog-n)
+      - [4.2.1.3. Sprint Backlog 1](#4213-sprint-backlog-1)
       - [4.2.1.4. Development Evidence for Sprint Review](#4214-development-evidence-for-sprint-review)
       - [4.2.1.5. Testing Suite Evidence for Sprint Review](#4215-testing-suite-evidence-for-sprint-review)
       - [4.2.1.6. Execution Evidence for Sprint Review](#4216-execution-evidence-for-sprint-review)
@@ -467,16 +449,16 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
       </td>
     </tr>
     <!-- FRANCISCO -->
-    <tr>
+    <tr> 
       <td><b>Uribe Linares, Francisco</b></td>
       <td>
-        <p><b>[Título breve del Objetivo 1]</b></p>
+        <p><b>Conseguir experiencia profesional como desarrollador de software</b></p>
         <ul>
-          <li><b>S (Específico):</b> [Descripción del objetivo profesional]</li>
-          <li><b>M (Medible):</b> [Indicador de éxito]</li>
-          <li><b>A (Alcanzable):</b> [Plan de acción]</li>
-          <li><b>R (Relevante):</b> [Importancia para su carrera]</li>
-          <li><b>T (Temporal):</b> [Plazo de cumplimiento]</li>
+          <li><b>S (Específico):</b> Conseguir una oportunidad de prácticas preprofesionales en el área de desarrollo de software, enfocándome en el desarrollo backend o full stack, para aplicar mis conocimientos y fortalecer mis habilidades técnicas.</li>
+          <li><b>M (Medible):</b> Obtener al menos una experiencia de prácticas preprofesionales y contar con un portafolio en GitHub que incluya tres proyectos funcionales que demuestren mis conocimientos de programación y desarrollo de aplicaciones</li>
+          <li><b>A (Alcanzable):</b> Continuar desarrollando proyectos personales y universitarios, reforzar mis conocimientos en lenguajes de programación y frameworks, mejorar mi nivel de inglés y postular constantemente a oportunidades de prácticas.</li>
+          <li><b>R (Relevante):</b> Adquirir experiencia profesional me permitirá aplicar los conocimientos obtenidos durante la carrera, desarrollar habilidades en proyectos reales y fortalecer mi perfil para desempeñarme como ingeniero de software.</li>
+          <li><b>T (Temporal):</b> Conseguir una oportunidad de prácticas preprofesionales y completar mi portafolio de proyectos antes de finalizar el año 2027.</li>
         </ul>
       </td>
       <td>
@@ -520,7 +502,8 @@ Nuestra visión es convertirnos en la herramienta líder en gestión de segurida
 | :---: | :--- | :---: | :--- | :--- |
 | ![Daniel](assets/Cap-1/Daniel.jpeg) | **Daniel Elias Ruiz Huisa** | u202210764 | Ingeniería de Software | Soy estudiante de Ingeniería de Software. Me intereso por el desarrollo web y la evolución de tecnologías como los nuevos agentes de inteligencia artificial. Tengo conocimientos en frameworks orientados a Node.js como Astro, Vue y Angular. Domino lenguajes como Python, C++ y TypeScript. Soy una persona responsable que busca siempre generar un ambiente sano y agradable para todos. |
 | ![Carlos Marcelo Mansilla Rivero](https://github.com/BrainSpark-upc/Report/raw/main/assets/chapter-1/carlos.png) | **Carlos Marcelo Mansilla Rivero** | u202414510 | Ingeniería de Software | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Cuento con conocimientos en programación y desarrollo web utilizando tecnologías como C++, HTML, CSS, JavaScript y Python. Me interesa el desarrollo de software tanto desde la parte técnica como desde el análisis y diseño de soluciones. En el desarrollo de SafeWork aporto en la revisión de consistencia del informe, mejora de redacción, organización de evidencias y alineación de la documentación con los requerimientos y rúbrica del curso. |
-| ![Francisco](assets/Cap-1/Foto.jpg) | **Francisco Uribe Linares** | u20211b686 | Ingeniería de Software | Soy estudiante de séptimo ciclo de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Cuento con conocimientos en C++ y Python, orientados al desarrollo de soluciones y resolución de problemas. Me caracterizo por ser perseverante, responsable, adaptable y comprometido con el trabajo en equipo. |
+| ![Francisco](assets/Cap-1/Foto.jpg) | **Francisco Uribe Linares** | u20211b686 | Ingeniería de Software | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas. Cuento con conocimientos en programación utilizando Java, Python y C++, así como experiencia en el desarrollo de aplicaciones web y proyectos que integran frontend, backend y bases de datos. Me interesa especialmente el desarrollo de software full stack y backend, además de continuar aprendiendo nuevas tecnologías y buenas prácticas de programación. Me considero una persona responsable, perseverante, adaptable y comprometida con el aprendizaje continuo y el trabajo en equipo. |
+
 
 ## 1.2. Solution Profile
 SafeWork empezo como una aplicación web diseñada para mejorar la gestión de la seguridad laboral en fábricas, almacenes y construcciones. Ahora cambiamos a un enfoque movil, mucho mas versatil e inmediato. El aplicativo debe permitir que los trabajadores reporten incidentes con su telefono, evitando retrasos o la pérdida de información en papeleo. La plataforma asigna responsables de seguimiento, envía notificaciones inmediatas y facilita el monitoreo de cada caso hasta su resolución. Con esto, se garantiza mayor transparencia, rapidez y trazabilidad en los procesos de seguridad. SafeWork contribuye a reducir riesgos, fomentar una cultura de prevención y brindar a las empresas una base de datos útil para analizar y prevenir futuros incidentes.
@@ -1511,224 +1494,927 @@ El diagrama de contenedores descompone **SafeWork** en sus partes principales:
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
-### 2.6.1. Bounded Context: IncidentsBC
+La arquitectura del incremento actual de SafeWork se organiza en tres bounded contexts: Identity and Access Management, Incident Management y Notification Management.
+
+Esta sección corresponde al cliente Android integrado en `test`, revisión `3887c49`, y al backend corregido integrado en la revisión `08b0767`.
+
+La propuesta anterior identificaba Assignment y Profile como contextos independientes. En la implementación actual, Assignment pertenece a Incident Management y el perfil del usuario pertenece a IAM. La analítica móvil permanece fuera del incremento integrado.
+
+| Contexto actual | Responsabilidades |
+| --- | --- |
+| Identity and Access Management | Identidad, autenticación, perfil, incorporación a empresas, roles y sesiones |
+| Incident Management | Reporte, consulta, autoasignación e inicio/cierre de incidentes |
+| Notification Management | Generación y consulta de notificaciones del destinatario autenticado |
+
+### Organización de capas en Android
+
+Los paquetes de cada contexto se ubican directamente bajo `com.nexorape.safework`.
+
+| Módulo | Capas | Responsabilidad |
+| --- | --- | --- |
+| `business` | Domain y Application | Modelos, valores validados, interfaces y casos de uso en Kotlin/JVM |
+| `app` | Presentation e Infrastructure | Compose, ViewModels, transporte HTTP, almacenamiento y capacidades Android |
+
+La dependencia Gradle es `app → business`. Domain y Application no dependen de Compose, Android Location, DTO HTTP ni almacenamiento de credenciales.
+
+Los componentes de `core` atienden responsabilidades técnicas compartidas, como configuración, navegación, transporte y tema visual. No constituyen nuevos bounded contexts.
+
+La autorización del backend es obligatoria, incluso cuando Android valida datos o restringe acciones para orientar al usuario.
+
+Fuente: [arquitectura Android documentada](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/architecture.md).
+
+### 2.6.1. Bounded Context: Identity and Access Management
+
+IAM gestiona la identidad del usuario, su incorporación a una empresa y el acceso a funciones autorizadas. El perfil pertenece a este contexto.
 
 #### 2.6.1.1. Domain Layer
-* **Entities & Aggregates:** `Incident` (Agregado Raíz que contiene la lógica de ciclo de vida del reporte).
-* **Value Objects:** `IncidentId`, `Location` (latitud, longitud), `EvidencePhoto`, `IncidentSeverity` (Enum: BAJA, MEDIA, ALTA, CRÍTICA), `IncidentStatus` (Enum: ABIERTO, EN_PROCESO, RESUELTO, CERRADO).
-* **Domain Services:** `IncidentStateMachine` (Valida las transiciones de estado permitidas del incidente).
-* **Domain Events:** `IncidentReportedEvent`, `IncidentStatusUpdatedEvent`, `IncidentClosedEvent`.
-* **Repository Interfaces:** `IncidentRepository` (Interfaz del puerto de persistencia).
+
+En Android se implementan los siguientes conceptos:
+
+- `UserProfile`: identidad, empresa, nombre, correo, teléfono y roles del usuario.
+- `UserId` y `CompanyId`: identificadores positivos.
+- `EmailAddress`, `FullName` y `PhoneNumber`: valores que validan los datos correspondientes.
+- `Password`: encapsula las reglas aplicables a credenciales.
+- `InvitationProof`: representa la prueba de invitación utilizada durante el registro.
+- `Role`: valores WORKER, EMPLOYER y ADMIN.
+- `IdentityRepository`: contrato del dominio para las operaciones de identidad.
+
+En el backend existen los agregados `User` y `Company`, y las entidades `Role`, `CompanyInvitation`, `UserSession` y `AdministrationAudit`.
+
+El registro público crea usuarios WORKER mediante una invitación válida. No permite solicitar ADMIN/EMPLOYER ni incorporarse libremente a una empresa existente.
 
 #### 2.6.1.2. Interface Layer
-* **Controllers:** `IncidentController` (Spring MVC REST Controller que expone endpoints para la App Móvil).
-* **DTOs:** `CreateIncidentRequest`, `UpdateIncidentStatusRequest`, `IncidentResponse`.
+
+**Android Presentation**
+
+`IdentityScreen` y `IdentityViewModel` presentan:
+
+- Registro mediante invitación.
+- Inicio de sesión.
+- Perfil propio.
+- Edición de nombre y teléfono.
+- Restauración de sesión.
+- Cierre de sesión.
+
+**Backend REST**
+
+Los controladores de autenticación, usuarios, invitaciones, administración y sesiones exponen los contratos HTTP correspondientes.
+
+Las operaciones administrativas se realizan mediante el backend autorizado. La aplicación Android no incluye una pantalla ADMIN ni selección pública de privilegios.
 
 #### 2.6.1.3. Application Layer
-* **Application Services:** `IncidentService` (Orquesta la creación, actualización y cierre de incidentes delegando las reglas de estado a `IncidentStateMachine`).
-* **Use Cases:** `CreateIncidentUseCase`, `UpdateIncidentStatusUseCase`, `CloseIncidentUseCase`.
+
+En Android, `IdentityUseCases` valida los valores de entrada y coordina las operaciones de `IdentityRepository`.
+
+Después de iniciar sesión y durante la restauración se consulta el perfil autorizado del servidor. Un token almacenado no se considera suficiente para presentar una identidad confiable sin validación.
+
+El registro devuelve al usuario a la pantalla de login; no crea automáticamente una sesión.
+
+En el backend, los servicios coordinan incorporación, autenticación, perfil, administración y revocación:
+
+- Cada login crea una sesión independiente.
+- Logout revoca únicamente la sesión presentada.
+- Los cambios efectivos de roles, empresa o habilitación revocan todas las sesiones del usuario afectado.
+- La vigencia predeterminada es de siete días, configurable.
+- No existe renovación automática.
 
 #### 2.6.1.4. Infrastructure Layer
-* **Persistence:** `IncidentRepositoryImpl` (Implementación de `IncidentRepository` usando Spring Data JPA/Hibernate sobre MySQL).
+
+`HttpIdentityRepository` implementa el contrato del dominio y transforma los DTO HTTP en modelos validados.
+
+`ApiClient` centraliza el transporte autenticado y el tratamiento de errores de sesión. Una respuesta 401 invalida la sesión local correspondiente; una respuesta 403 conserva una sesión válida y representa una denegación de permisos.
+
+`EncryptedSessionStore` protege el token mediante AES-GCM y Android Keystore. El almacenamiento se vincula a la URL de la API.
+
+No se almacenan contraseñas ni invitaciones. Tampoco se utiliza un perfil persistido como sustituto de la validación del servidor.
+
+El backend utiliza JPA/MySQL, BCrypt y JWT firmado. Cada petición protegida comprueba firma, expiración y sesión persistida activa. La sesión se identifica mediante `jti`; la tabla no conserva el JWT completo.
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
-![imgs](./assets/Cap-2/component1.png)
+
+El diagrama actualizado debe mostrar los siguientes componentes y dependencias:
+
+| Componente | Relación principal |
+| --- | --- |
+| `IdentityScreen` | Presenta el estado y envía acciones al ViewModel |
+| `IdentityViewModel` | Invoca `IdentityUseCases` |
+| `IdentityUseCases` | Depende de `IdentityRepository` |
+| `HttpIdentityRepository` | Implementa el contrato y utiliza el transporte |
+| `ApiClient` | Ejecuta peticiones HTTP |
+| `EncryptedSessionStore` | Protege y recupera credenciales de sesión |
+| API IAM | Valida identidad, incorporación, permisos y sesiones |
+| MySQL | Persiste usuarios, empresas, roles, invitaciones y sesiones |
+
+**Estado de evidencia:** pendiente de incorporar el diagrama actualizado y su archivo fuente. La figura anterior de Profile no acredita todos los componentes actuales de IAM.
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
+El diagrama de clases Android debe representar `UserProfile`, sus identificadores y valores, `Role` y el contrato `IdentityRepository`.
+
+El modelo de servidor debe distinguir `User`, `Company`, `Role`, `CompanyInvitation`, `UserSession` y `AdministrationAudit`.
+
+Las clases del servidor y los modelos Android no se presentan como una única implementación compartida: cada producto posee sus propios modelos y límites.
+
+**Estado de evidencia:** pendiente de incorporar el UML actualizado a partir del código.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
+El diseño debe representar:
+
+- Usuarios vinculados a empresas.
+- Roles y asociación usuario–rol.
+- Invitaciones vinculadas a empresa y correo, con expiración y consumo.
+- Sesiones vinculadas al usuario, con vigencia y revocación.
+- Auditoría de cambios administrativos.
+
+Los nombres físicos, claves e índices deben obtenerse del esquema JPA/MySQL real. No se deben reutilizar diagramas anteriores que omitan invitaciones o sesiones persistidas.
+
+**Estado de evidencia:** pendiente de incorporar el diagrama actualizado del esquema.
 
 ---
 
-### 2.6.2. Bounded Context: AssignmentBC
+### 2.6.2. Bounded Context: Incident Management
+
+Incident Management reúne reporte, consulta y atención de incidentes. Assignment pertenece a este contexto porque establece la responsabilidad sobre el mismo incidente y participa en su ciclo de vida.
+
+El cliente integrado implementa consulta, detalle, reporte y ubicación opcional. La gestión móvil de autoasignación, inicio y cierre requiere integrar el paquete de Francisco.
 
 #### 2.6.2.1. Domain Layer
-* **Entities & Aggregates:** `Assignment` (Agregado Raíz que vincula un `IncidentId` con un `ResponsibleUserId`).
-* **Value Objects:** `AssignmentId`, `SlaDeadline`, `AssignmentStatus` (Enum: ASIGNADO, EN_REVISIÓN, VENCIDO, REASIGNADO).
-* **Domain Services:** `SlaEngine` (Aplica y evalúa las reglas del Acuerdo de Nivel de Servicio / SLA según el tipo de incidente).
-* **Domain Events:** `AssignmentCreatedEvent`, `SlaBreachedEvent`.
-* **Repository Interfaces:** `AssignmentRepository` (Interfaz del puerto de persistencia).
+
+En Android se implementan:
+
+- `Incident`: modelo del incidente.
+- `IncidentDraft`: datos validados para crear un reporte.
+- `IncidentId`: identificador positivo.
+- `IncidentTitle`: título no vacío, máximo 120 puntos de código Unicode.
+- `IncidentDescription`: descripción no vacía, máximo 4000 puntos de código Unicode.
+- `IncidentLocation`: ubicación textual no vacía, máximo 500 puntos de código Unicode.
+- `IncidentStatus`: OPEN, ASSIGNED, IN_PROGRESS y CLOSED.
+- `IncidentRepository`: contrato para consulta y reporte.
+- `LocationProvider`: puerto para captura opcional de ubicación.
+
+La ubicación se conserva como texto editable. La captura de coordenadas no introduce un DTO adicional de latitud/longitud.
+
+En el backend, `Incident` mantiene el ciclo de vida y `Assignment` vincula el incidente con el responsable.
 
 #### 2.6.2.2. Interface Layer
-* **Controllers:** `AssignmentController` (Spring MVC REST Controller con endpoints para asignación manual y gestión de casos).
-* **DTOs:** `AssignIncidentRequest`, `AssignmentStatusResponse`.
+
+**Android Presentation**
+
+`IncidentScreen` y `IncidentViewModel` presentan:
+
+- Lista de incidentes de la empresa.
+- Detalle del incidente.
+- Formulario de reporte.
+- Validaciones, carga, errores y reintento.
+- Ubicación manual.
+- Solicitud de permiso y captura puntual de ubicación.
+
+**Backend REST**
+
+Las operaciones principales incluyen:
+
+- GET `/api/v1/incidents`.
+- GET `/api/v1/incidents/{incidentId}`.
+- POST `/api/v1/incidents`.
+- POST `/api/v1/assignments`.
+- POST `/api/v1/incidents/{incidentId}/start`.
+- POST `/api/v1/incidents/{incidentId}/close`.
+
+Las rutas de gestión ya están implementadas y probadas en el backend. Esto no demuestra por sí mismo que sus pantallas Android estén integradas.
 
 #### 2.6.2.3. Application Layer
-* **Application Services:** `AssignmentService` (Lógica de negocio para asignación automática/manual evaluando reglas mediante `SlaEngine`).
-* **Use Cases:** `AssignResponsibleUseCase`, `EvaluateSlaBreachUseCase`.
+
+`IncidentUseCases` coordina consultas y creación de reportes a través de `IncidentRepository`.
+
+`CaptureIncidentLocation` depende de `LocationProvider`, sin importar tipos Android en Application.
+
+Las comprobaciones locales validan entradas y detectan respuestas inconsistentes con la identidad o empresa actual. La autorización definitiva corresponde al servidor.
+
+El ciclo de atención acordado es:
+
+1. Se crea un incidente OPEN.
+2. Un EMPLOYER de la misma empresa lo asume y pasa a ASSIGNED.
+3. El responsable lo inicia y pasa a IN_PROGRESS.
+4. El responsable lo cierra y pasa a CLOSED.
+
+La autoasignación envía únicamente `incidentId`. El servidor obtiene el responsable de la sesión autenticada.
+
+Los rechazos por empresa, permisos, responsable o estado no deben modificar los datos.
 
 #### 2.6.2.4. Infrastructure Layer
-* **Persistence:** `AssignmentRepositoryImpl` (Implementación de `AssignmentRepository` usando JPA/Hibernate sobre MySQL).
+
+`HttpIncidentRepository` ejecuta el transporte y transforma `IncidentDto` en el modelo del dominio.
+
+`IncidentResource` conserva exactamente diez campos:
+
+- `id`
+- `userId`
+- `companyId`
+- `title`
+- `description`
+- `location`
+- `status`
+- `documentUrl`
+- `reporterName`
+- `assigneeName`
+
+`userId` identifica al reportante. La identidad del responsable se obtiene de Assignment; no se infiere comparando nombres.
+
+`assignmentId` y `assigneeUserId` no forman parte de `IncidentResource`.
+
+La implementación Android de ubicación utiliza LocationManager y permisos durante el uso. La captura es puntual y opcional; no realiza seguimiento en segundo plano.
+
+Cuando el permiso o la ubicación no están disponibles, el reporte puede continuar mediante entrada manual.
+
+En el backend se utiliza JPA/MySQL para persistir incidentes y asignaciones. El cierre conserva `completionDate`.
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
-![imgs](./assets/Cap-2/component2.png)
+
+El diagrama debe mostrar:
+
+| Componente | Responsabilidad |
+| --- | --- |
+| `IncidentScreen` | Lista, detalle y formulario |
+| `IncidentViewModel` | Estado de UI y coordinación de acciones |
+| `IncidentUseCases` | Consulta y creación de reportes |
+| `IncidentRepository` | Puerto del dominio |
+| `HttpIncidentRepository` | Transporte y transformación de DTO |
+| `CaptureIncidentLocation` | Caso de uso de ubicación |
+| `LocationProvider` | Abstracción de captura |
+| Implementación Android de ubicación | Acceso al dispositivo y permisos |
+| API Incident Management | Autorización, persistencia y ciclo de vida |
+
+**Estado de evidencia:** pendiente de actualizar las figuras de Incident y Assignment para representar un único contexto y los componentes reales.
+
+El diseño no incluye un motor SLA, reasignación a otro técnico ni procesamiento distribuido como funcionalidades implementadas.
 
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
+El UML Android debe mostrar `Incident`, `IncidentDraft`, los valores validados, `IncidentStatus` y los contratos del dominio.
+
+El UML del servidor debe reflejar `Incident`, `Assignment`, el reportante, la empresa y el responsable.
+
+Los estados deben coincidir con el contrato: OPEN, ASSIGNED, IN_PROGRESS y CLOSED. No se agregan estados SLA o reasignación que no existen en el incremento.
+
+**Estado de evidencia:** pendiente de incorporar los diagramas actuales y sus fuentes.
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
+El esquema debe mostrar:
+
+- Incidente vinculado al reportante y a la empresa.
+- Assignment vinculado al incidente y al usuario responsable.
+- Restricción que impide varias asignaciones para un mismo incidente en el modelo actual.
+- Estado, fechas, prioridad y fecha de cierre de Assignment.
+- Campos textuales compatibles con las validaciones del contrato.
+
+El nombre del responsable mostrado en un DTO no sustituye las relaciones e identificadores persistidos.
+
+**Estado de evidencia:** pendiente de incorporar el diagrama obtenido del esquema real.
 
 ---
 
-### 2.6.3. Bounded Context: NotificationBC
+### 2.6.3. Bounded Context: Notification Management
+
+Notification Management gestiona mensajes asociados a los eventos del ciclo de vida de incidentes y su consulta por el destinatario autorizado.
+
+El backend está implementado y probado. El cliente Android de este contexto requiere integrar y validar el paquete de Francisco.
 
 #### 2.6.3.1. Domain Layer
-* **Entities & Aggregates:** `Notification` (Agregado que representa el mensaje y el destinatario).
-* **Value Objects:** `NotificationId`, `Recipient`, `NotificationContent`, `DeliveryChannel` (Enum: PUSH, EMAIL, SMS).
-* **Domain Events:** `NotificationSentEvent`, `NotificationFailedEvent`.
-* **Interfaces Outbound:** `NotificationProvider` (Interfaz para abstraer los proveedores de mensajería).
+
+El backend implementa `Notification` con información del destinatario y la empresa.
+
+El recurso público incluye:
+
+- `id`: UUID.
+- `subject`.
+- `body`.
+- `createdAt`: fecha con zona.
+- `isRead`.
+
+El campo `isRead` mantiene el valor provisional indicado en el contrato. No demuestra que exista marcado o seguimiento de lectura.
+
+La presencia de código dentro del paquete de Francisco no constituye evidencia de integración en el repositorio móvil.
 
 #### 2.6.3.2. Interface Layer
-* **Controllers:** `NotificationController` (Expone endpoints REST para consultar el historial de notificaciones del usuario).
-* **DTOs:** `SendNotificationRequest`, `NotificationHistoryResponse`.
+
+`NotificationController` expone:
+
+- GET `/api/v1/notifications/my-notifications`.
+
+El destinatario se obtiene de la sesión autenticada. No se permite consultar notificaciones mediante un selector arbitrario de usuario.
+
+La pantalla Android y sus estados de carga, error, vacío y contenido deben documentarse después de integrar el cliente.
 
 #### 2.6.3.3. Application Layer
-* **Application Services:** `NotificationService` (Decide el canal y compone el contenido del mensaje antes de enviarlo).
-* **Use Cases:** `SendPushNotificationUseCase`, `SendEmailNotificationUseCase`.
+
+El backend procesa eventos de incidentes mediante `NotificationEventListener`.
+
+La consulta devuelve notificaciones del destinatario autenticado y su empresa actual, ordenadas desde las más recientes.
+
+Los casos de uso Android deben utilizar la sesión y los contratos compartidos, sin duplicar la identidad ni introducir un modelo alternativo de incidentes.
 
 #### 2.6.3.4. Infrastructure Layer
-* **Adapters & Providers:** 
-  * `NotificationAdapter` (Adaptador genérico que implementa `NotificationProvider`).
-  * `EmailProvider` (Componente de integración para servicios de correo).
-  * `SmsProvider` / `PushProvider` (Integración con Firebase Cloud Messaging o SMS).
-* **Persistence:** Guardado del historial de notificaciones en MySQL.
+
+Las notificaciones se persisten mediante `NotificationRepository`, JPA y MySQL.
+
+El transporte devuelve JSON conforme al contrato. La integración Android utilizará la infraestructura autenticada compartida.
+
+El incremento no implementa:
+
+- Firebase Cloud Messaging.
+- Notificaciones push.
+- Envío automático por correo o SMS.
+- Kafka o Spark.
+- Marcado de lectura.
+
+Estas tecnologías y funciones del diseño anterior no se presentan como componentes desplegados.
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
-![imgs](./assets/Cap-2/component3.png)
+
+El diagrama debe representar la generación desde eventos de incidentes, persistencia, consulta autorizada y cliente móvil.
+
+Los componentes Android se incorporarán según sus nombres y dependencias reales después de integrar a Francisco.
+
+**Estado de evidencia:** pendiente de actualizar la figura anterior y añadir el diagrama del cliente integrado.
+
+Un gateway push, correo o SMS no debe aparecer como implementado en el diagrama del incremento actual.
 
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
+El UML debe mostrar `Notification` y las referencias de destinatario y empresa, distinguiendo el modelo del servidor y el modelo Android.
+
+Los atributos deben coincidir con la implementación y el contrato. No se incorporan proveedores o estados de entrega inexistentes.
+
+**Estado de evidencia:** pendiente de completar con el código Android integrado y el modelo de servidor.
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
+El diseño debe representar la persistencia de notificaciones, su UUID y las referencias utilizadas para limitar la consulta por destinatario y empresa.
+
+Los nombres físicos y restricciones deben verificarse en el esquema MySQL.
+
+**Estado de evidencia:** pendiente de incorporar el diagrama actualizado.
 
 ---
 
-### 2.6.4. Bounded Context: AnalyticsBC
+**Referencias de implementación**
 
-#### 2.6.4.1. Domain Layer
-* **Entities & Aggregates:** `AnalyticsReport` (Representación agregada de las métricas de seguridad y reportes generados).
-* **Value Objects:** `MetricType`, `TimeWindow`, `IncidentKPI`.
-* **Domain Services:** Algoritmos de agregación y detección de patrones de riesgo laboral.
-
-#### 2.6.4.2. Interface Layer
-* **Controllers / Exporters:** `ReportGenerator` (Componente Django/Python que renderiza y genera dashboards y reportes exportables).
-* **DTOs:** `AnalyticsFilterRequest`, `KPISummaryResponse`.
-
-#### 2.6.4.3. Application Layer
-* **Application Services:** `AnalyticsService` (Procesa los eventos entrantes y prepara los datos estructurados para las métricas).
-* **Use Cases:** `ProcessAnalyticsEventUseCase`, `GenerateSafetyReportUseCase`.
-
-#### 2.6.4.4. Infrastructure Layer
-* **Event Processing Pipeline:**
-  * `EventBus` (Componente Apache Kafka para consumir el flujo de eventos de los otros BCs).
-  * `AnalyticsPipeline` (Componente Apache Spark / Python para procesamiento de datos en flujo y por lotes).
-* **Persistence:** Conexión a la base de datos de analítica / MySQL.
-
-#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
-![imgs](./assets/Cap-2/component4.png)
-
-#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
-
-##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
-
-
-##### 2.6.4.6.2. Bounded Context Database Design Diagram
-
-
----
-
-### 2.6.5. Bounded Context: ProfileBC
-
-#### 2.6.5.1. Domain Layer
-* **Entities & Aggregates:** `UserProfile` (Agregado Raíz que maneja los datos personales e identidades del sistema).
-* **Value Objects:** `UserId`, `Email`, `WorkArea`, `Role` (Enum: TRABAJADOR, PERSONAL_SST, ADMINISTRADOR).
-* **Domain Services:** `RoleManager` (Gestiona permisos y reglas asociadas a cada rol).
-* **Domain Events:** `UserProfileUpdatedEvent`, `UserRoleChangedEvent`.
-* **Repository Interfaces:** `ProfileRepository`.
-
-#### 2.6.5.2. Interface Layer
-* **Controllers:** `ProfileController` (Spring MVC REST Controller para endpoints de gestión de perfiles).
-* **DTOs:** `UserProfileRequest`, `UserProfileResponse`, `LoginRequest`, `AuthTokenResponse`.
-
-#### 2.6.5.3. Application Layer
-* **Application Services:** 
-  * `ProfileService` (Gestiona la información del usuario y su rol coordinando con `RoleManager`).
-  * `AuthService` (Maneja el proceso de autenticación y la emisión/validación de tokens JWT).
-* **Use Cases:** `UpdateProfileUseCase`, `AuthenticateUserUseCase`, `ManageRolesUseCase`.
-
-#### 2.6.5.4. Infrastructure Layer
-* **Persistence:** `ProfileRepositoryImpl` (Implementación de `ProfileRepository` mediante JPA/Hibernate sobre MySQL).
-
-#### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
-![imgs](./assets/Cap-2/component5.png)
-
-#### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
-
-##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
-
-
-##### 2.6.5.6.2. Bounded Context Database Design Diagram
-
+- [Arquitectura móvil](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/architecture.md).
+- [Contratos compartidos móviles](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/team-integration-contracts.md).
+- [Contrato del backend corregido](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend/blob/08b07675720d378db7a552c44d493f9c386d8375/docs/api-contract.md).
 
 ---
 
 # Capítulo III: Solution UI/UX Design
 
 ## 3.1. Product design
+
+El diseño de **SafeWork** está orientado a facilitar el registro, la atención y el seguimiento de accidentes e incidentes laborales desde dispositivos móviles. La solución está dirigida principalmente a dos perfiles: **trabajadores**, que necesitan reportar situaciones de riesgo de forma rápida, y **personal de Seguridad y Salud en el Trabajo (SST)**, que debe revisar, asignar, atender y supervisar los casos recibidos.
+
+La experiencia de usuario se plantea con un enfoque *mobile-first*: pantallas simples, acciones visibles, navegación táctil y formularios breves que permitan operar en fábricas, almacenes y obras de construcción. Asimismo, se consideran las capacidades propias de un teléfono, como cámara, ubicación GPS y notificaciones, además de mecanismos para registrar información cuando la conexión sea limitada. La landing page cumple una función complementaria de presentación del producto y acceso a la aplicación.
+
 ### 3.1.1. Style Guidelines
+
+Las guías de estilo establecen criterios comunes para la identidad visual, la legibilidad y la interacción de SafeWork. Su objetivo es lograr consistencia entre la landing page y las distintas pantallas móviles, evitando que el usuario deba aprender patrones diferentes para realizar tareas similares.
+
 #### 3.1.1.1. General Style Guidelines
+
+**Tipografía**
+
+SafeWork utiliza una jerarquía tipográfica clara. Se considera **Raleway** para títulos y encabezados, por su apariencia moderna, y **Montserrat** para textos generales, descripciones y etiquetas, por su legibilidad. En las pantallas móviles, las fuentes deben respetar las opciones de tamaño y accesibilidad del dispositivo, conservando una diferenciación visible entre títulos, información y botones.
+
+**Colores principales**
+
+La identidad visual se organiza alrededor del **violeta `#7B7DC1`**, empleado en acciones principales y elementos de marca; el **violeta secundario `#5A5CA0`**, usado en variaciones de componentes; y el **fondo oscuro `#0D0C22`**, acompañado de blancos y grises claros como `#FFFFFF`, `#E1E3EC` y `#888A9C` para mantener una lectura adecuada. Los mensajes de estado y prioridad de incidentes pueden apoyarse en colores de advertencia, atención y resolución, pero siempre deben mostrar también una etiqueta textual para no depender únicamente del color.
+
+| Elemento | Criterio de diseño |
+| :--- | :--- |
+| Encabezados | Jerarquía visual destacada y títulos breves. |
+| Texto descriptivo | Contraste suficiente, tamaño adaptable y párrafos concisos. |
+| Botones principales | Color de marca, texto explícito y zona táctil cómoda. |
+| Tarjetas de incidentes | Número de caso, tipo, fecha, prioridad y estado claramente identificados. |
+| Formularios | Campos agrupados, etiquetas permanentes y validación comprensible. |
+| Mensajes de confirmación | Indicar si el reporte fue enviado, guardado localmente o requiere reintento. |
+| Alertas | Prioridad visual y redacción directa, sin depender solo de íconos. |
+
+**Estilo visual e interacción**
+
+La interfaz prioriza componentes de bordes suaves, espaciado consistente e íconos reconocibles. En el teléfono, la interacción se realiza mediante toques y gestos naturales, por lo que los botones y controles deben mantener superficies táctiles apropiadas y una separación que reduzca las pulsaciones accidentales. Las transiciones deben ser breves y aportar retroalimentación, sin bloquear el registro de un incidente.
+
+**Accesibilidad y responsividad**
+
+Se busca mantener contraste entre fondo y texto, etiquetas claras para lectores de pantalla, indicadores de error comprensibles y compatibilidad con distintos tamaños de pantalla. La landing page adapta su distribución a resoluciones móviles y de escritorio; la aplicación organiza su contenido en vistas verticales, con navegación y controles accesibles al uso con una mano cuando resulte posible.
+
+**Seguridad y confianza en la experiencia**
+
+Como SafeWork gestiona información sensible sobre incidentes laborales, las pantallas deben mostrar únicamente los datos pertinentes para cada rol. Antes de acceder a cámara, ubicación o notificaciones, la aplicación debe explicar por qué se necesita el permiso y qué ocurrirá si el usuario lo rechaza. Las acciones delicadas, como cerrar o modificar un caso, deben ofrecer confirmación y retroalimentación.
+
 ### 3.1.2. Information Architecture
+
+La arquitectura de información de SafeWork permite que el usuario encuentre las opciones relevantes sin recorrer menús innecesarios. Se diferencian dos espacios: la **landing page**, dirigida a visitantes interesados en conocer la solución, y la **aplicación móvil**, destinada al registro y gestión operativa de incidentes.
+
 #### 3.1.2.1. Organization Systems
+
+**Organización de la landing page**
+
+La información se distribuye en secciones reconocibles: presentación de SafeWork, beneficios, funcionalidades, testimonios, planes, preguntas frecuentes y contacto. Las acciones **«Descargar App»** y **«Probar Demo»** se muestran como vías de acceso destacadas, de acuerdo con las historias de usuario contempladas para la landing.
+
+**Organización de la aplicación móvil**
+
+La navegación se estructura por módulos asociados con las funciones del sistema:
+
+| Módulo | Contenido principal | Perfil destinatario |
+| :--- | :--- | :--- |
+| Inicio | Resumen y accesos rápidos según rol. | Trabajador y SST. |
+| Reportar incidente | Formulario, descripción, evidencia fotográfica y ubicación. | Trabajador. |
+| Mis reportes | Casos propios, estado, responsable e historial. | Trabajador. |
+| Gestión de casos | Reportes recibidos, prioridad, filtros y asignación. | Personal SST. |
+| Notificaciones | Alertas de cambios de estado y nuevas asignaciones. | Trabajador y SST. |
+| Estadísticas | Indicadores y gráficos de incidentes. | SST o administrador autorizado. |
+| Ayuda | Preguntas frecuentes y asistencia. | Todos los usuarios. |
+| Perfil | Datos personales, preferencias y opciones de cuenta. | Todos los usuarios. |
+
+Esta organización permite que cada perfil visualice primero las tareas más frecuentes. Las funcionalidades disponibles dependen de los permisos del usuario y no solamente de la apariencia de la interfaz.
+
 #### 3.1.2.2. Labelling Systems
+
+El sistema de etiquetado usa expresiones breves y comprensibles para los trabajadores y responsables de SST. Se evitan términos técnicos en las acciones de uso cotidiano.
+
+**Etiquetas principales de la landing:** «Inicio», «Beneficios», «Planes», «Preguntas frecuentes», «Contacto», «Descargar App» y «Probar Demo».
+
+**Etiquetas principales en la aplicación:** «Iniciar sesión», «Registrarme», «Reportar incidente», «Mis reportes», «Gestión de casos», «Asignar responsable», «Notificaciones», «Ayuda» y «Mi perfil».
+
+**Etiquetas de estados:** «Abierto», «En proceso» y «Resuelto» o «Cerrado», según el estado definido para cada caso. Es importante mantener un solo catálogo de estados en la interfaz y en el servicio para evitar inconsistencias.
+
+**Etiquetas de formularios:** «Tipo de incidente», «Descripción», «Fecha», «Ubicación», «Adjuntar foto» y «Enviar reporte». Los mensajes de error deben señalar el campo afectado y la forma de corregirlo; por ejemplo: «Ingresa una descripción del incidente».
+
+La terminología se mantiene coherente con los conceptos documentados en los módulos de incidentes, asignaciones, notificaciones y perfiles de SafeWork.
+
 #### 3.1.2.3. SEO Tags and Meta Tags
+
+Las técnicas de SEO se aplican principalmente a la **landing page**, ya que es el recurso público que pueden indexar los motores de búsqueda. Las pantallas privadas de la aplicación móvil no requieren indexación SEO; en ellas se priorizan nombres de pantalla, accesibilidad y navegación.
+
+Para la landing se considera un título descriptivo, una metadescripción enfocada en la propuesta de valor y una configuración *viewport* que permita visualizar correctamente el contenido en celulares. Un ejemplo de la estructura esperada es:
+
+```html
+<title>SafeWork | Gestión de incidentes laborales</title>
+<meta name="description" content="SafeWork facilita el reporte y seguimiento de incidentes laborales desde dispositivos móviles, con evidencias, alertas y gestión de casos.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+Además, las imágenes informativas deben contar con texto alternativo y los encabezados deben seguir una jerarquía semántica. Cuando la landing tenga una dirección pública definitiva, se podrán incorporar metadatos de vista previa para redes sociales y la URL canónica correspondiente. El fragmento mostrado define el criterio de diseño; su presencia en el código desplegado debe comprobarse con el repositorio de la landing.
+
 #### 3.1.2.4. Searching Systems
+
+SafeWork contempla mecanismos de búsqueda destinados a reducir el tiempo de localización de información dentro de la aplicación móvil:
+
+- **Búsqueda de reportes:** el personal SST puede introducir palabras clave, nombres o tipos de incidente y visualizar los casos coincidentes.
+- **Filtros de gestión:** los casos se pueden organizar por estado y otros criterios relevantes, como prioridad o fecha, según los datos disponibles.
+- **Búsqueda en preguntas frecuentes:** el usuario puede escribir términos específicos, por ejemplo «GPS», para localizar respuestas de ayuda.
+- **Ausencia de resultados:** cuando no existan coincidencias, la interfaz debe mostrar «No se encontraron resultados» y permitir limpiar el filtro o modificar la búsqueda.
+
+Los requisitos de búsqueda se encuentran contemplados en las historias de usuario **US35** y **US37**. La implementación final y sus capturas se documentarán con las evidencias de desarrollo correspondientes.
+
 #### 3.1.2.5. Navigation Systems
+
+**Navegación de la landing page:** un menú adaptable permite desplazarse a las secciones de información y acceder a los botones de descarga, demostración o contacto. En pantallas pequeñas se prioriza un menú desplegable y botones táctiles visibles.
+
+**Navegación de la aplicación móvil:** el ingreso comienza con autenticación y conduce a una pantalla inicial específica para cada rol. El trabajador dispone de acceso prioritario a «Reportar incidente» y «Mis reportes»; el personal SST cuenta con accesos a «Gestión de casos», «Notificaciones» y, cuando corresponda, «Estadísticas». Las funciones secundarias se ubican en secciones de ayuda o perfil.
+
+**Navegación contextual:** desde una tarjeta de reporte, el usuario puede abrir el detalle del caso. Si cuenta con permisos, puede asignar responsables o actualizar su estado sin perder el contexto del incidente consultado.
+
+**Continuidad del proceso:** antes de salir de un formulario con información ingresada, la aplicación debe advertir sobre los datos sin guardar. Cuando se contemple trabajo sin conexión, debe diferenciar claramente entre un registro local pendiente y un reporte sincronizado.
+
 ### 3.1.3. Landing Page UI Design
+
+La landing page de SafeWork está orientada a presentar el problema de la gestión manual de incidentes laborales y explicar cómo una aplicación móvil facilita el registro de reportes, la captura de evidencia y la comunicación entre trabajadores y personal SST. El diseño debe ser claro, responsivo y dirigir al visitante hacia una acción concreta.
+
 #### 3.1.3.1. Landing Page Wireframe
+
+El wireframe define la distribución inicial de los bloques de contenido antes de aplicar los detalles visuales. Se consideran las siguientes zonas: encabezado con identidad y menú; sección principal con mensaje de valor y llamada a la acción; beneficios relacionados con rapidez, cámara, GPS y notificaciones; presentación de funciones; testimonios; planes; preguntas frecuentes; y contacto.
+
+En la vista móvil, estos elementos se organizan principalmente en una columna para facilitar el desplazamiento vertical. Los testimonios y planes pueden incorporar tarjetas deslizables; las preguntas frecuentes se presentan en formato acordeón, conforme a las historias de usuario **US03**, **US42** y **US43**.
+
+**Evidencia de diseño:** incorporar aquí las imágenes del wireframe de la landing page en sus tamaños de escritorio y móvil, con su respectiva figura y enlace al archivo de diseño.
+
 #### 3.1.3.2. Landing Page Mock-up
+
+El mock-up muestra el resultado visual esperado de la landing, aplicando la identidad de SafeWork: jerarquía tipográfica, paleta de violetas y tonos oscuros, componentes consistentes y botones de acción destacados. La sección principal debe hacer comprensible la propuesta de valor; las tarjetas de funcionalidades y los testimonios deben mantener legibilidad en dispositivos pequeños.
+
+Se contemplan acciones como **«Descargar App»**, **«Probar Demo»** y **«Contacto»**, además de la representación visual de las funcionalidades móviles de reporte con cámara, GPS y notificaciones. La visualización de planes debe permitir comparar alternativas sin saturar la pantalla.
+
+**Evidencia de diseño:** incorporar aquí las capturas del mock-up de la landing page en sus versiones de escritorio y móvil. Si existe una URL pública del diseño o de la landing, agregarla junto con las capturas correspondientes.
+
 ### 3.1.4. Mobile Applications UX/UI Design
+
+El diseño UX/UI de la aplicación móvil se centra en reducir el tiempo necesario para reportar y gestionar un incidente. Las interacciones están pensadas para usuarios que pueden encontrarse en campo, con atención dividida, condiciones variables de conectividad y necesidad de registrar información de manera inmediata.
+
+La solución comprende flujos diferenciados para **trabajador** y **personal SST**, con funciones de autenticación, registro de incidentes, captura de evidencia, seguimiento de estados, asignaciones, alertas, ayuda, perfil y análisis de información según permisos.
+
 #### 3.1.4.1. Mobile Applications Wireframes
+
+Los wireframes de SafeWork representan la distribución funcional de sus pantallas principales sin depender todavía de colores, imágenes o efectos visuales. Las vistas prioritarias que deben documentarse son:
+
+| Pantalla | Elementos principales |
+| :--- | :--- |
+| Registro e inicio de sesión | Datos de acceso, recuperación de contraseña y validaciones. |
+| Inicio del trabajador | Acceso rápido a nuevo reporte, casos recientes y notificaciones. |
+| Formulario de reporte | Tipo de incidente, descripción, cámara, ubicación y envío. |
+| Mis reportes | Listado e indicadores de estado de los casos propios. |
+| Detalle de reporte | Información, fotografías, ubicación, responsable e historial. |
+| Inicio de personal SST | Acceso a casos recibidos y reportes prioritarios. |
+| Gestión y asignación | Filtros, búsqueda, detalle del caso y selección de responsable. |
+| Notificaciones y ayuda | Alertas y preguntas frecuentes consultables. |
+| Perfil y configuración | Información personal y preferencias de uso. |
+| Estadísticas | Indicadores y gráficos adaptados al tamaño del dispositivo. |
+
+En el formulario de incidentes se debe destacar la acción de registrar el caso, facilitar la captura de evidencia y mostrar validaciones inmediatas. En las pantallas de SST, la información debe jerarquizarse según urgencia y estado para agilizar la atención.
+
+**Evidencia de diseño:** insertar aquí los wireframes móviles por pantalla, con sus nombres, figuras y enlace al proyecto de diseño. Las capturas deben mostrar una disposición propia de teléfono.
+
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams
+
+Los wireflows muestran cómo se relacionan las pantallas con las acciones que realiza el usuario. En SafeWork se distinguen el proceso de creación de un reporte y el proceso de revisión y asignación de casos.
+
+**Recorrido de registro de incidentes (trabajador):**
+
+```mermaid
+flowchart TD
+    A[Inicio de sesión] --> B[Inicio del trabajador]
+    B --> C[Reportar incidente]
+    C --> D[Completar formulario]
+    D --> E[Agregar foto y ubicación]
+    E --> F{¿Datos válidos?}
+    F -->|No| D
+    F -->|Sí| G{¿Hay conexión?}
+    G -->|Sí| H[Enviar reporte]
+    G -->|No| I[Guardar como pendiente de sincronización]
+    H --> J[Confirmación y número de caso]
+    I --> K[Confirmación de guardado local]
+    J --> L[Mis reportes]
+```
+
+**Recorrido de atención (personal SST):**
+
+```mermaid
+flowchart TD
+    A[Inicio de sesión SST] --> B[Gestión de casos]
+    B --> C[Buscar o filtrar reportes]
+    C --> D[Consultar detalle]
+    D --> E[Asignar responsable]
+    E --> F[Actualizar estado]
+    F --> G[Registrar seguimiento]
+    G --> H[Consultar historial del caso]
+```
+
+Estos diagramas describen el recorrido funcional. Para completar el entregable de wireflow, se deben acompañar con las **pantallas conectadas visualmente** mediante flechas y puntos de interacción dentro de la herramienta de diseño.
+
 #### 3.1.4.3. Mobile Applications Mock-ups
+
+Los mock-ups desarrollan la apariencia final de las pantallas móviles con la identidad de SafeWork. Los componentes deben mantener consistencia en colores, tipografía, espaciado, botones, campos y tarjetas informativas.
+
+En el **inicio del trabajador**, el botón «Reportar incidente» debe ser la acción más visible. En **Mis reportes**, cada tarjeta muestra información útil para reconocer el caso y su estado. En la **gestión SST**, el diseño prioriza la búsqueda, los filtros, la urgencia y las acciones de asignación. Los permisos de cámara y ubicación deben explicarse con mensajes claros, y las alertas deben diferenciar los cambios de estado de las nuevas asignaciones.
+
+**Evidencia de diseño:** insertar los mock-ups de las pantallas móviles principales y, de ser posible, una comparación entre vistas de trabajador y SST. Cada imagen debe incluir una descripción breve de su función.
+
 #### 3.1.4.4. Mobile Applications User Flow Diagrams
+
+Los diagramas de flujo de usuario detallan las decisiones, validaciones y resultados que pueden presentarse durante la ejecución de una tarea. Su finalidad es comprobar que el proceso sea entendible y contemple tanto rutas exitosas como situaciones de error.
+
+**Flujo del trabajador al reportar un incidente:**
+
+```mermaid
+flowchart TD
+    A[Usuario ingresa a SafeWork] --> B{¿Sesión válida?}
+    B -->|No| C[Autenticarse]
+    C --> D[Inicio]
+    B -->|Sí| D
+    D --> E[Seleccionar Reportar incidente]
+    E --> F[Ingresar datos y adjuntar evidencia]
+    F --> G{¿Campos requeridos completos?}
+    G -->|No| H[Mostrar validación]
+    H --> F
+    G -->|Sí| I{¿Existe conexión?}
+    I -->|Sí| J[Enviar y confirmar recepción]
+    I -->|No| K[Guardar pendiente local]
+    J --> L[Consultar estado del reporte]
+    K --> M[Sincronizar cuando haya conexión]
+    M --> L
+```
+
+**Flujo del personal SST al gestionar un reporte:**
+
+```mermaid
+flowchart TD
+    A[Personal SST inicia sesión] --> B[Abre Gestión de casos]
+    B --> C[Selecciona reporte]
+    C --> D[Revisa detalle y evidencias]
+    D --> E{¿Corresponde asignar?}
+    E -->|Sí| F[Selecciona responsable]
+    E -->|No| G[Continúa revisión]
+    F --> H[Actualiza estado y registra seguimiento]
+    G --> H
+    H --> I[Guarda los cambios]
+    I --> J[Genera actualización o notificación]
+```
+
+Estos flujos son la base para revisar la lógica de uso y definir casos de prueba; la validación de cada comportamiento se documentará en la etapa de implementación.
+
 #### 3.1.4.5. Mobile Applications Prototyping
+
+El prototipado interactivo de SafeWork tiene como finalidad comprobar que los usuarios puedan completar las tareas esenciales con una secuencia clara de acciones. Para el rol trabajador se considera el flujo **iniciar sesión → reportar incidente → adjuntar evidencia → enviar → consultar estado**. Para el rol SST se contempla **iniciar sesión → revisar reportes → filtrar → asignar → actualizar estado**.
+
+Durante la evaluación del prototipo se prestará atención al número de interacciones necesarias, facilidad de comprensión de botones, visibilidad de errores y mensajes de confirmación. También se revisarán escenarios de permisos denegados y conectividad limitada, debido a su importancia en el uso de la aplicación dentro de entornos laborales.
+
+**Evidencia de prototipado:** incorporar el enlace compartible del prototipo interactivo, capturas de sus conexiones y resultados de las pruebas de navegación cuando estén disponibles. El prototipo debe corresponder a pantallas móviles y reflejar los recorridos descritos.
 
 ---
 
 # Capítulo IV: Product Implementation & Validation
 
+Este capítulo documenta el incremento de SafeWork integrado y probado al 8 de octubre de 2026. Se distinguen implementación, pruebas automatizadas, integración HTTP, ejecución en dispositivo físico y despliegue público.
+
+Las funcionalidades futuras del Product Backlog no se presentan como terminadas. Los resultados se respaldan mediante los informes técnicos y Pull Requests enlazados.
+
 ## 4.1. Software Configuration Management
+
 ### 4.1.1. Software Development Environment Configuration
+
+| Componente | Configuración utilizada |
+| --- | --- |
+| Aplicación Android | Kotlin y Compose Compiler 2.2.21, Android Gradle Plugin 8.10.1, Gradle Wrapper 8.11.1 y JDK 17 |
+| Interfaz Android | Jetpack Compose y Material 3; Compose BOM 2025.04.01 |
+| Compatibilidad Android | minSdk 26; compileSdk y targetSdk 35 |
+| Identificador de aplicación | `com.nexorape.safework` |
+| Módulos | `app`: aplicación Android; `business`: dominio y casos de uso en Kotlin/JVM |
+| Transporte | OkHttp 4.12.0 y Gson 2.13.2 |
+| Estado y concurrencia | Lifecycle 2.8.7 y coroutines 1.10.2 |
+| Pruebas móviles | JUnit 4.13.2, MockWebServer y coroutines-test |
+| Backend | Spring Boot 4.0.5, JDK 25 y Maven Wrapper 3.9.14 |
+| Base de datos | MySQL 8.4 |
+| Dispositivo físico probado | Huawei CLT-L29, Android 10/API 29 |
+| Landing page | HTML5, CSS3 y JavaScript; publicación mediante GitHub Pages coordinada con Daniel |
+
+Android y backend utilizan JDK diferentes: las tareas Gradle del móvil requieren JDK 17, mientras el backend utiliza JDK 25.
+
+Las versiones y dependencias se encuentran registradas en la configuración y los README de cada repositorio.
+
 ### 4.1.2. Source Code Management
+
+| Producto | Repositorio | Estado de referencia |
+| --- | --- | --- |
+| Informe | [report](https://github.com/NexoraPe-1ACC0238-2620-4945/report) | Documentación colaborativa; preparación de la entrega en `TB1` |
+| Aplicación móvil | [safework-mobile](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile) | IAM e incidentes integrados en `test`, revisión `3887c49` |
+| Backend | [safework-backend](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend) | Fundación corregida integrada, revisión `08b0767` |
+| Landing actual | [safework-landing-page](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-landing-page) | Adaptación y publicación pendientes de verificar |
+
+El flujo acordado para los repositorios de aplicación es:
+
+1. Integrar la fundación mediante `feature/...-foundation` y PR hacia `main`.
+2. Crear `test` desde la fundación integrada.
+3. Crear cada `feature/...` desde `test` actualizado.
+4. Abrir PR hacia `test` y validar el incremento integrado.
+5. Abrir PR de `test` hacia `main` cuando el conjunto esté aprobado.
+
+Esta actualización documental se incorporó directamente en `TB1`. Para los siguientes cambios se utilizarán ramas de trabajo y revisión mediante PR hacia `TB1`, antes de integrar la entrega final.
+
+Se emplean Conventional Commits y las identidades reales de los participantes. Se conservan los commits mediante merge y se revisan los archivos efectivamente incluidos en cada PR.
+
+Las credenciales, tokens, archivos de configuración local, herramientas, paquetes de entrega y compilaciones quedan excluidos del control de versiones.
+
 ### 4.1.3. Source Code Style Guide & Conventions
+
+Los nombres de paquetes, clases y conceptos técnicos se escriben en inglés. Los contextos están directamente bajo `com.nexorape.safework`:
+
+- `iam`: identidad, perfil, incorporación, roles y sesiones.
+- `incidentmanagement`: reporte, consulta y atención de incidentes, incluida Assignment.
+- `notificationmanagement`: notificaciones del usuario.
+
+En Android, Domain y Application pertenecen a `business`; Presentation e Infrastructure pertenecen a `app`. La dependencia Gradle es `app → business`.
+
+Los DTO HTTP se transforman en Infrastructure antes de devolver modelos del dominio. Las reglas de negocio no dependen de Compose, Android Location ni almacenamiento de credenciales. Los ViewModels invocan casos de uso y exponen estado para la interfaz.
+
+Los textos de la aplicación utilizan recursos localizados: inglés predeterminado y español latinoamericano. Se incluyen temas claro y oscuro, estados de carga, errores y reintento.
+
 ### 4.1.4. Software Deployment Configuration
 
+La validación realizada utiliza el backend corregido en `http://127.0.0.1:18082/`, con MySQL y datos sintéticos. El dispositivo físico se conecta mediante redirección USB del puerto. Esta configuración corresponde a ejecución local.
+
+El despliegue público se coordina reutilizando el hosting existente. Debe utilizar el código corregido del repositorio actual, JDK 25, una base MySQL persistente, esquema compatible y variables privadas de configuración.
+
+La URL HTTPS y el commit desplegado deben verificarse antes de conectar la aplicación. La existencia del despliegue histórico no demuestra compatibilidad con el contrato corregido.
+
+Android admite una URL HTTPS explícita mediante `-Psafework.apiUrl`. La compilación release no dispone de un host de producción predeterminado. Los APK release generados durante la validación no tienen firma de distribución.
+
+La landing anterior se reutilizará previa revisión de contenido, enlaces, idiomas y correspondencia con las funcionalidades móviles actuales. Su publicación mediante GitHub Pages debe acompañarse de URL y evidencia de ejecución.
+
 ## 4.2. Landing Page & Mobile Application Implementation
-### 4.2.1. Sprint n
-#### 4.2.1.1. Sprint Planning n
+
+El incremento documentado comprende IAM y consulta/reporte de incidentes en Android, junto con el backend corregido.
+
+La gestión móvil de incidentes y las notificaciones requieren integrar y validar el paquete de Francisco. La mejora visual y el despliegue público requieren evidencias adicionales.
+
+### 4.2.1. Sprint 1
+
+#### 4.2.1.1. Sprint Planning 1
+
+El objetivo del incremento documentado es permitir que un usuario autorizado acceda a SafeWork, consulte su perfil y reporte o consulte incidentes desde un dispositivo Android, con ubicación manual o captura puntual opcional.
+
+La planificación formal debe complementarse con su fecha, duración, registro y tablero del equipo. Esta descripción del incremento no sustituye un acta de planificación.
+
 #### 4.2.1.2. Aspect Leaders and Collaborators
-#### 4.2.1.3. Sprint Backlog n
+
+| Integrante | Responsabilidad acordada | Evidencia disponible |
+| --- | --- | --- |
+| Carlos Mansilla Rivero | IAM, configuración compartida, correcciones del backend e integración técnica | PR de fundación backend, IAM móvil y corrección de publicación de incidentes |
+| Daniel Ruiz Huisa | Consulta, detalle, reporte y ubicación de incidentes; coordinación de landing y despliegue | PR documental de incidentes; código del paquete recuperado mediante el PR correctivo de Carlos |
+| Francisco Uribe Linares | Autoasignación, inicio/cierre y notificaciones móviles | Paquete preparado sobre `test`; integración y validación pendientes al corte |
+
+El reparto de responsabilidades se distingue de la autoría de commits. Los commits correctivos realizados por Carlos no se atribuyen a Daniel.
+
+La participación se documenta mediante contribuciones, revisiones y resultados reales. Cada integrante debe comprender y sustentar el código y las decisiones correspondientes a su trabajo.
+
+#### 4.2.1.3. Sprint Backlog 1
+
+| Historia o funcionalidad | Alcance evidenciado | Pendiente o límite |
+| --- | --- | --- |
+| US04: registro | Invitación verificada, rol inicial WORKER y retorno al login | Completar evidencia de términos y aceptación en la interfaz |
+| US05: login | Autenticación con credenciales y perfil autorizado | Biometría no implementada |
+| US06: roles | Roles concedidos administrativamente y sesiones revocadas ante cambios | No existe elección pública de privilegios |
+| US08: contraseña | Reglas de registro y validaciones | Cobertura visual completa pendiente |
+| US09/US10/US36: reporte | Título, descripción y ubicación manual o GPS opcional | Cámara y adjuntos no implementados |
+| US15/US27: consulta | Lista de empresa, detalle y estado actual | Galería, mapa e historial ampliado pendientes |
+| US19: perfil | Consulta y edición de nombre/teléfono | No permite cambiar rol o empresa desde Android |
+| US13/US14: atención | Backend con autoasignación e inicio/cierre autorizados | Integración móvil de Francisco pendiente |
+| Consulta de notificaciones | Backend limitado al destinatario y empresa autenticados | Pantalla móvil pendiente; no incluye push |
+| Landing | Reutilización y adaptación coordinadas | URL y pruebas del contenido actual pendientes |
+
+Las historias se consideran cumplidas únicamente respecto a los criterios demostrados.
+
+El cifrado del token no acredita almacenamiento offline de reportes. La consulta de notificaciones no acredita notificaciones push. La expiración y revocación de sesiones no acreditan un bloqueo por inactividad de quince minutos.
+
 #### 4.2.1.4. Development Evidence for Sprint Review
+
+| Incremento | Evidencia | Resultado |
+| --- | --- | --- |
+| Fundación Android | [PR móvil #1](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/pull/1) | Configuración, módulos y pantalla inicial |
+| Backend corregido | [PR backend #1](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend/pull/1) | Incorporación verificada, autorización y sesiones revocables |
+| IAM Android | [PR móvil #2](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/pull/2) | Registro, login, perfil, restauración y logout |
+| Documentación de incidentes | [PR móvil #3](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/pull/3) | Publicó únicamente un documento |
+| Implementación de incidentes | [PR móvil #4](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/pull/4) | Recuperó código, recursos, navegación, permisos y pruebas faltantes |
+
+El PR #4 conserva el historial previo y registra correctamente la autoría de la corrección.
+
+Los enlaces deben complementarse con capturas legibles de commits, diff, revisiones y contribuidores. Las funcionalidades aún no integradas no se acreditan mediante estos PR.
+
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
+
+| Validación | Resultado documentado |
+| --- | --- |
+| Backend corregido | Maven `verify`: 28 pruebas, sin fallos, errores ni omisiones |
+| HTTP del backend | 222 peticiones reales registradas, incluidos dos reinicios del servidor |
+| IAM móvil previo | 14 pruebas y 20 peticiones HTTP reales |
+| IAM e incidentes integrados | 21 pruebas JVM: 19 locales/simuladas y 2 integraciones reales; sin fallos, errores ni omisiones |
+| HTTP móvil integrado | 40 peticiones reales: 20 de IAM y 20 de incidentes/preparación |
+| Compilación Android | APK debug y release generados |
+| Lint Android | 0 errores y 9 advertencias documentadas |
+
+Las 14 pruebas de IAM están incluidas en las 21 del incremento posterior.
+
+Las 20 peticiones de IAM están incluidas en las 40 del incremento integrado; no se suman como ejecuciones independientes.
+
+Las pruebas con MockWebServer verifican contratos del cliente mediante respuestas simuladas. Las integraciones reales utilizan el backend corregido con MySQL.
+
+Sin la configuración opt-in requerida, dichas integraciones se omiten y no pueden presentarse como aprobadas. Las peticiones HTTP incluyen preparación y limpieza de datos; no representan exclusivamente casos de negocio independientes.
+
+Fuentes:
+
+- [Verificación del backend](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend/blob/08b07675720d378db7a552c44d493f9c386d8375/docs/verification.md).
+- [Implementación y pruebas de IAM](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/iam-implementation.md).
+- [Implementación y pruebas de incidentes](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/incident-query-reporting.md).
+
 #### 4.2.1.6. Execution Evidence for Sprint Review
+
+La aplicación se instaló y ejecutó en un Huawei CLT-L29 con Android 10.
+
+**IAM comprobado:**
+
+- Registro confirmado por el tester.
+- Login y consulta del perfil.
+- Edición del perfil.
+- Restauración después de reiniciar el proceso.
+- Logout.
+- Revocación administrativa y nuevo login con los roles actualizados.
+
+El [informe físico de IAM](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile/blob/3887c49b8b67f6582f4d4bb7bf399089ff68cf60/docs/iam-device-validation.md) registra diez peticiones del celular, separadas de las pruebas automatizadas.
+
+El estado HTTP del registro inicial no quedó capturado; su confirmación se apoya en la comprobación del tester.
+
+**Incidentes comprobados después del merge en `test` (`3887c49`):**
+
+- Restauración de sesión y consulta de incidentes.
+- Reporte con ubicación manual: creación HTTP 201.
+- Consulta del detalle: HTTP 200.
+- Captura real de coordenadas.
+- Ubicación desactivada: aviso y entrada manual disponibles.
+
+Estos resultados fueron confirmados durante la prueba física y registrados en el documento local `docs/incident-device-validation.md`, pendiente de publicación al corte.
+
+Quedan pendientes:
+
+- Denegación explícita del permiso.
+- Timeout de captura.
+- Cancelación durante la captura.
+- Cobertura adicional de accesibilidad y versiones Android.
+- Gestión y notificaciones después de integrar a Francisco.
+
+Los resultados físicos posteriores no validan retroactivamente las afirmaciones antiguas corregidas del PR #3.
+
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
+
+El [contrato actual del backend](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend/blob/08b07675720d378db7a552c44d493f9c386d8375/docs/api-contract.md) describe rutas, DTO, autorización y errores JSON.
+
+Las decisiones principales son:
+
+- Registro mediante invitación vinculada a correo y empresa.
+- Rol inicial WORKER y concesión administrativa de EMPLOYER.
+- Autoasignación enviando únicamente `incidentId`.
+- Empresa y reportante derivados de la identidad autenticada.
+- Inicio y cierre limitados al responsable de la misma empresa.
+- Estados OPEN → ASSIGNED → IN_PROGRESS → CLOSED.
+- Notificaciones limitadas al destinatario autenticado.
+- Logout de la sesión actual.
+- Revocación de todas las sesiones del usuario ante cambios administrativos efectivos de roles, empresa o habilitación.
+
+`IncidentResource` conserva diez campos. No incluye `assignmentId` ni `assigneeUserId`.
+
+OpenAPI local se consultó en `/v3/api-docs` y Swagger UI en `/swagger-ui/index.html`.
+
+La URL pública y su captura deben agregarse al verificar el despliegue corregido.
+
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
+
+| Producto | Estado al corte | Evidencia pendiente |
+| --- | --- | --- |
+| Landing | Se reporta un despliegue anterior; adaptación coordinada | URL, revisión publicada, capturas y comprobación del contenido actual |
+| Backend corregido | JAR local con MySQL y pruebas satisfactorias | URL HTTPS, commit desplegado y pruebas contra ese servidor |
+| Android | APK instalado y flujos IAM/incidentes probados físicamente | Versión integrada de Francisco/UI y prueba contra el backend público |
+
+El despliegue anterior del backend no se considera compatible hasta verificar que utiliza el código y esquema actuales. La ejecución local no equivale a publicación pública.
+
+Las evidencias finales deben indicar ambiente, fecha, revisión, procedimiento y resultado, sin mostrar credenciales o tokens.
+
+No se asigna un porcentaje de cumplimiento del backend únicamente a partir de la cantidad de pruebas; debe contrastarse con los criterios y el alcance del hito.
+
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
+El equipo distribuyó IAM/configuración, incidentes/ubicación y atención/notificaciones. La preparación de paquetes se separó de su incorporación, revisión y publicación.
+
+La revisión del PR #3 detectó que solo contenía documentación. El PR #4 recuperó los archivos faltantes, conservó el commit anterior y ejecutó validaciones contra el backend corregido.
+
+Francisco recibió su paquete actualizado contra `test` en `3887c49`, sin necesidad de reaplicar el paquete de Daniel. Su integración y pruebas deben quedar respaldadas por su PR y resultados reales.
+
+Carlos prepara mejoras visuales en local y Daniel coordina landing y despliegue.
+
+La promoción de `test` a `main` se realizará después de validar el incremento completo.
+
 ## 4.3. Validation Interviews
+
 ### 4.3.1. Diseño de Entrevistas
+
+La validación con usuarios representativos debe observar las tareas de reporte, consulta y comprensión de estados y permisos.
+
+Se utilizarán consentimiento y datos de demostración.
+
+Las entrevistas de needfinding del capítulo II no se presentan como nuevas entrevistas de validación de la aplicación implementada.
+
 ### 4.3.2. Registro de Entrevistas
+
+No se aportaron registros nuevos de entrevistas de validación para este incremento.
+
+Queda pendiente documentar participante, segmento, fecha, tareas, observaciones y enlace cuando corresponda al hito.
+
+La prueba técnica realizada por el desarrollador en su celular no sustituye validación con usuarios representativos.
+
 ### 4.3.3. Evaluaciones según heurísticas
+
+La evaluación debe registrar evidencia de:
+
+- Visibilidad del estado del sistema.
+- Prevención y recuperación de errores.
+- Consistencia de componentes y mensajes.
+- Navegación y orientación.
+- Legibilidad y accesibilidad.
+
+Este informe no declara una evaluación heurística ejecutada sin sus fichas y resultados.
 
 ---
 
