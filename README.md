@@ -130,6 +130,15 @@ COURSE PROJECT
     - [2.5.1. EventStorming](#251-eventstorming)
       - [2.5.1.1. Candidate Context Discovery](#2511-candidate-context-discovery)
       - [2.5.1.2. Domain Message Flows Modeling](#2512-domain-message-flows-modeling)
+        - [Escenario 1: Reporte In-Situ de Incidente o Accidente](#escenario-1-reporte-in-situ-de-incidente-o-accidente)
+          - [Descripción del Flujo](#descripción-del-flujo)
+          - [Justificación Arquitectónica](#justificación-arquitectónica)
+        - [Escenario 2: Asignación de Responsable y Evaluación de SLA](#escenario-2-asignación-de-responsable-y-evaluación-de-sla)
+          - [Descripción del Flujo](#descripción-del-flujo-1)
+          - [Justificación Arquitectónica](#justificación-arquitectónica-1)
+        - [Escenario 3: Actualización de Estado, Resolución y Cierre del Caso](#escenario-3-actualización-de-estado-resolución-y-cierre-del-caso)
+          - [Descripción del Flujo](#descripción-del-flujo-2)
+          - [Justificación Arquitectónica](#justificación-arquitectónica-2)
       - [2.5.1.3. Bounded Context Canvases](#2513-bounded-context-canvases)
     - [2.5.2. Context Mapping](#252-context-mapping)
     - [2.5.3. Software Architecture](#253-software-architecture)
@@ -592,26 +601,79 @@ Debe tener un diseño claro, simple y profesional, con íconos fáciles de recon
 * **Creemos que** ofrecer un historial accesible de incidentes con estadísticas y reportes ayudará a las empresas a tomar decisiones preventivas más efectivas. **Sabremos que** hemos tenido éxito cuando al menos el 80% de los usuarios responsables de seguridad accedan al módulo de reportes y estadísticas al menos una vez por semana.
 
 #### 1.2.2.4. Lean UX Canvas
+<table>
+  <!-- FILA SUPERIOR: Bloques 1, 5 (que ocupa 2 alturas de fila) y 2 -->
+  <tr>
+    <td width="33%" valign="top">
+      <b>1. Business Problem</b><br><br>
+      Actualmente, muchas empresas en Perú gestionan incidentes laborales de forma manual y desorganizada, lo que dificulta la prevención de accidentes y el cumplimiento normativo. No existen muchas soluciones que sean digitales, accesibles y estandarizadas que permitan reportar, organizar y dar seguimiento a estos incidentes de forma eficiente. Esta falta de herramientas genera riesgos operativos, pérdida de información y baja transparencia en los entornos laborales.
+    </td>
+    <td width="34%" rowspan="2" valign="top">
+      <b>5. Solutions</b><br><br>
+      SafeWork es una aplicación web que permite a los trabajadores reportar incidentes, riesgos y fallas de seguridad de forma inmediata desde sus dispositivos móviles. El personal de seguridad recibe estos reportes, asigna responsables, da seguimiento y cierra los casos una vez resueltos. La plataforma también almacena un historial de incidentes para generar reportes y estadísticas que faciliten la toma de decisiones preventivas.
+      <br><br>
+      <b>Características clave:</b>
+      <ul>
+        <li>Reporte de incidentes en tiempo real con foto, ubicación y descripción</li>
+        <li>Panel de control para responsables de seguridad</li>
+        <li>Historial de incidentes y estadísticas exportables</li>
+        <li>Sistema de asignación de responsables y seguimiento de casos</li>
+        <li>Opción de reportes anónimos</li>
+        <li>Panel visual con indicadores clave de seguridad</li>
+      </ul>
+    </td>
+    <td width="33%" valign="top">
+      <b>2. Business Outcomes</b><br><br>
+      Sabremos que estamos resolviendo el problema cuando las empresas comiencen a reportar incidentes laborales a través de la plataforma de forma consistente, reduciendo el tiempo de hacer un reporte en al menos un 40%. Esperamos ver un aumento en la trazabilidad de los casos, una mejora en el cumplimiento normativo, y una adopción de la app sostenida por parte de empresas medianas, con una tasa de retención superior al 70% en los primeros seis meses.
+    </td>
+  </tr>
 
-| 1. Businesses Problem | 5. Solutions | 2. Businesses Outcomes |
-|-----------------------|--------------|-------------------------|
-| Actualmente, muchas empresas en Perú gestionan incidentes laborales de forma manual y desorganizada, lo que dificulta la prevención de accidentes y el cumplimiento normativo. No existen muchas soluciones que sean digital accesible y estandarizada que permitan reportar, organizar y dar seguimiento a estos incidentes de forma eficiente. Esta falta de herramientas genera riesgos operativos, pérdida de información y baja transparencia en los entornos laborales. | SafeWork es una aplicación web que permite a los trabajadores reportar incidentes, riesgos y fallas de seguridad de forma inmediata desde sus dispositivos móviles. El personal de seguridad recibe estos reportes, asigna responsables, da seguimiento y cierra los casos una vez resueltos. La plataforma también almacena un historial de incidentes para generar reportes y estadísticas que faciliten la toma de decisiones preventivas. <br><br>Características clave:<br>- Reporte de incidentes en tiempo real con foto, ubicación y descripción<br>- Panel de control para responsables de seguridad<br>- Historial de incidentes y estadísticas exportables<br>- Sistema de asignación de responsables y seguimiento de casos<br>- Opción de reportes anónimos<br>- Panel visual con indicadores clave de seguridad | Sabremos que estamos resolviendo el problema cuando las empresas comiencen a reportar incidentes laborales a través de la plataforma de forma consistente, reduciendo el tiempo de hacer un reporte en al menos un 40%. Esperamos ver un aumento en la trazabilidad de los casos, una mejora en el cumplimiento normativo, y una adopción de la app sostenida por parte de empresas medianas, con una tasa de retención superior al 70% en los primeros seis meses. |
+  <!-- FILA INTERMEDIA: Bloques 3 y 4 en los lados (el centro lo sigue ocupando el bloque 5) -->
+  <tr>
+    <td valign="top">
+      <b>3. Users</b><br><br>
+      Nos enfocaremos inicialmente en tres tipos de usuarios:
+      <ol>
+        <li><b>Trabajadores operativos</b> en fábricas, almacenes y obras de construcción que necesitan reportar incidentes de forma rápida y sencilla.</li>
+        <li><b>Personal de seguridad y salud ocupacional</b> que gestiona y da seguimiento a los reportes.</li>
+        <li><b>Gerentes o jefes de área</b> que aprueban la adopción del sistema y supervisan su uso.</li>
+      </ol>
+      Estos perfiles son clave para garantizar la adopción, configuración y uso efectivo de la aplicación.
+    </td>
+    <td valign="top">
+      <b>4. User Outcomes & Benefits</b><br><br>
+      Los usuarios buscan nuestra solución para reducir el tiempo y la complejidad al reportar incidentes laborales, lo que les permite enfocarse en tareas más importantes y disminuir el estrés.<br><br>
+      El personal de seguridad obtiene una herramienta organizada para clasificar y gestionar incidentes, mejorando la trazabilidad y la respuesta.<br><br>
+      Los gerentes logran mayor visibilidad y control sobre los riesgos, lo que se traduce en decisiones más efectivas y ahorro económico.<br><br>
+      Observamos como cambio de comportamiento una mayor frecuencia en los reportes, tiempos de respuesta más cortos y una disminución en incidentes repetitivos.
+    </td>
+  </tr>
 
-| 3. Users |
-|----------|
-| Nos enfocaremos inicialmente en tres tipos de usuarios: (1) trabajadores operativos en fábricas, almacenes y obras de construcción que necesitan reportar incidentes de forma rápida y sencilla; (2) personal de seguridad y salud ocupacional que gestiona y da seguimiento a los reportes; y (3) gerentes o jefes de área que aprueban la adopción del sistema y supervisan su uso. Estos perfiles son clave para garantizar la adopción, configuración y uso efectivo de la aplicación. |
-
-| 4. User Outcomes & Benefits |
-|-----------------------------|
-| Los usuarios buscan nuestra solución para reducir el tiempo y la complejidad al reportar incidentes laborales, lo que les permite enfocarse en tareas más importantes y disminuir el estrés. El personal de seguridad obtiene una herramienta organizada para clasificar y gestionar incidentes, mejorando la trazabilidad y la respuesta. Los gerentes logran mayor visibilidad y control sobre los riesgos, lo que se traduce en decisiones más efectivas y ahorro económico. Observamos como cambio de comportamiento una mayor frecuencia en los reportes, tiempos de respuesta más cortos y una disminución en incidentes repetitivos. |
-
-| 6. Hypotheses |
-|----------------|
-| - Creemos que se logrará una reducción del tiempo de hacer un reporte en al menos 40% si los trabajadores operativos pueden reportar incidentes rápidamente mediante la función de reporte en tiempo real con foto, ubicación y descripción.<br>- Creemos que se mejorará la trazabilidad de los casos si el personal de seguridad y salud ocupacional obtiene mayor control mediante el panel de gestión de incidentes.<br>- Creemos que se logrará un mejor cumplimiento normativo de riesgos si los gerentes pueden visualizar métricas clave mediante el panel de indicadores de seguridad.<br>- Creemos que se alcanzará una adopción sostenida por parte de empresas medianas en al menos 70% de los casos si los usuarios pueden acceder fácilmente a la plataforma mediante la versión web. |
-
-| 7. What's the most important thing we need to learn first? | 8. What's the least amount of work we need to do to learn the next most important thing? |
-|------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-| ¿Realmente los trabajadores usarán la función de reporte en tiempo real en el momento del incidente? | Validar si los trabajadores están dispuestos y son capaces de reportar incidentes en tiempo real, sin necesidad de construir el sistema completo:<br><br>- Prototipo interactivo (sin backend): Simulación de la función de reporte en una app o mockup clickable<br>- Video demo + encuesta: Mostrar cómo funciona la aplicación y recolectar feedback |
+  <!-- FILA INFERIOR: Bloques 6, 7 y 8 -->
+  <tr>
+    <td valign="top">
+      <b>6. Hypotheses</b><br><br>
+      <ul>
+        <li>Creemos que se logrará una reducción del tiempo de hacer un reporte en al menos 40% si los trabajadores operativos pueden reportar incidentes rápidamente mediante la función de reporte en tiempo real con foto, ubicación y descripción.</li>
+        <li>Creemos que se mejorará la trazabilidad de los casos si el personal de seguridad y salud ocupacional obtiene mayor control mediante el panel de gestión de incidentes.</li>
+        <li>Creemos que se logrará un mejor cumplimiento normativo de riesgos si los gerentes pueden visualizar métricas clave mediante el panel de indicadores de seguridad.</li>
+        <li>Creemos que se alcanzará una adopción sostenida por parte de empresas medianas en al menos 70% de los casos si los usuarios pueden acceder fácilmente a la plataforma mediante la versión web.</li>
+      </ul>
+    </td>
+    <td valign="top">
+      <b>7. What's the most important thing we need to learn first?</b><br><br>
+      ¿Realmente los trabajadores usarán la función de reporte en tiempo real en el momento del incidente?
+    </td>
+    <td valign="top">
+      <b>8. Least Work / Experiments</b><br><br>
+      Validar si los trabajadores están dispuestos y son capaces de reportar incidentes en tiempo real, sin necesidad de construir el sistema completo:
+      <ul>
+        <li><b>Prototipo interactivo (sin backend):</b> Simulación de la función de reporte en una app o mockup clickable</li>
+        <li><b>Video demo + encuesta:</b> Mostrar cómo funciona la aplicación y recolectar feedback</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ## 1.3. Segmentos objetivo
 
@@ -1385,25 +1447,25 @@ Se utilizó la escala Fibonacci para la estimación de los Story Points. En tota
 
 Proceso del Design-Level EventStorming:
 
-Paso 1: Partimos del Big Picture Event Storming, como base
+Partimos del Big Picture Event Storming, como base
 
 <img width="888" height="969" alt="Captura de pantalla 2025-09-19 193005" src="https://github.com/user-attachments/assets/3a9c223e-5a86-42f6-a656-62edb6014dc7" />
 
-Paso 2: Ordenamos de manera cronologíca los eventos de dominio, tuvimos en cuenta el 'happy path'.
+Ordenamos de manera cronologíca los eventos de dominio, tuvimos en cuenta el 'happy path'.
 
 <img width="1665" height="837" alt="Captura de pantalla 2025-09-19 194846" src="https://github.com/user-attachments/assets/653c0ba7-fb66-417c-900d-828fd06457d0" />
 
-Paso 3: Se colocó dudas/posibles problemas a futuro sobre el dominio en algunas partes del flujo
+Se colocó dudas/posibles problemas a futuro sobre el dominio en algunas partes del flujo
 
 <img width="1762" height="951" alt="Captura de pantalla 2025-09-19 195737" src="https://github.com/user-attachments/assets/17b13a87-9c28-4e49-b2af-dcebd18f893a" />
 
 #### 2.5.1.1. Candidate Context Discovery
 
-Paso 4: Se buscó eventos importantes que indiquen un cambio en el contexto.
+Se buscó eventos importantes que indiquen un cambio en el contexto.
 
 <img width="1101" height="842" alt="Captura de pantalla 2025-09-19 201748" src="https://github.com/user-attachments/assets/592d82bb-1505-46f3-9f72-29ea3ef67594" />
 
-Paso 5: Se añadió comandos que desencadenen eventos y tambien agregamos sus actores
+Se añadió comandos que desencadenen eventos y tambien agregamos sus actores
 
 <img width="1546" height="695" alt="Captura de pantalla 2025-09-19 212519" src="https://github.com/user-attachments/assets/457d1e48-9f20-4402-a752-55db5aad9510" />
 
@@ -1411,7 +1473,7 @@ Paso 5: Se añadió comandos que desencadenen eventos y tambien agregamos sus ac
 
 <img width="564" height="204" alt="Captura de pantalla 2025-09-19 221438" src="https://github.com/user-attachments/assets/36f32016-3b6b-46d0-877d-9ad9bfbce242" />
 
-Paso 6: Se equipo añadió 'policies' o reglas de negocio que hacen que se ejecuten eventos de dominio
+Se equipo añadió 'policies' o reglas de negocio que hacen que se ejecuten eventos de dominio
 
 <img width="886" height="907" alt="Captura de pantalla 2025-09-19 223550" src="https://github.com/user-attachments/assets/101ae7b9-5c4b-41c1-9ead-c6b1953c79de" />
 
@@ -1421,9 +1483,7 @@ Paso 6: Se equipo añadió 'policies' o reglas de negocio que hacen que se ejecu
 
 <img width="1645" height="703" alt="Captura de pantalla 2025-09-19 223654" src="https://github.com/user-attachments/assets/9fad0aad-fbfb-44f0-ab66-4b0738493420" />
 
-#### 2.5.1.2. Domain Message Flows Modeling
-
-Paso 7: Se añadió read models, son la vista de datos o 'views' que ayudarán al usuario con la ejecución de comandos
+Se añadió read models, son la vista de datos o 'views' que ayudarán al usuario con la ejecución de comandos
 <img width="1238" height="869" alt="Captura de pantalla 2025-09-19 230749" src="https://github.com/user-attachments/assets/c4346d99-f430-426b-b6ba-c910b5e13c23" />
 
 <img width="1260" height="598" alt="Captura de pantalla 2025-09-19 230805" src="https://github.com/user-attachments/assets/e7ac4a05-a46c-4e10-b1cd-546c29a5e473" />
@@ -1436,7 +1496,7 @@ Paso 7: Se añadió read models, son la vista de datos o 'views' que ayudarán a
 
 <img width="1704" height="612" alt="Captura de pantalla 2025-09-19 231604" src="https://github.com/user-attachments/assets/ad6f7ffe-5bb5-466f-88ce-6d5ed74175f2" />
 
-Paso 8: Se identifico sistemas externos, tales como el servicio de guardado de imagenes en la nube, por ahora va como "Cloud Storage"
+Se identifico sistemas externos, tales como el servicio de guardado de imagenes en la nube, por ahora va como "Cloud Storage"
 
 <img width="1720" height="867" alt="Captura de pantalla 2025-09-19 232402" src="https://github.com/user-attachments/assets/6000d670-f2f7-408e-9bc4-43128d9d393f" />
 
@@ -1445,7 +1505,7 @@ Paso 8: Se identifico sistemas externos, tales como el servicio de guardado de i
 <img width="1660" height="646" alt="Captura de pantalla 2025-09-19 233559" src="https://github.com/user-attachments/assets/39acdbd3-b116-4a1e-a71a-66e21fd075e8" />
 
 
-Paso 9: Se identifico los aggregates
+Se identifico los aggregates
 
 <img width="1135" height="849" alt="Captura de pantalla 2025-09-19 233815" src="https://github.com/user-attachments/assets/82d0bb24-af97-4b17-9db5-df1b115accc0" />
 
@@ -1453,9 +1513,67 @@ Paso 9: Se identifico los aggregates
 
 <img width="1744" height="777" alt="Captura de pantalla 2025-09-19 233848" src="https://github.com/user-attachments/assets/d6a7f7c0-1c97-4b20-9e3f-a1256a7293da" />
 
+#### 2.5.1.2. Domain Message Flows Modeling
+
+El modelado de flujo de mensajes del dominio (*Domain Message Flow Modelling*) define la coreografía de comunicación asíncrona y reactiva entre los Bounded Contexts de SafeWork. Muestra la secuencia de interacciones entre Comandos (🟦), Eventos de Dominio (🟧), Actores (👤) y Sistemas (⚙️) para los tres escenarios principales del sistema:
+
+---
+
+##### Escenario 1: Reporte In-Situ de Incidente o Accidente
+
+Abarca el flujo inicial desde que un trabajador registra un incidente o accidente desde la aplicación móvil hasta su creación en el dominio central, el almacenamiento de evidencia multimedia y el envío asíncrono a analítica.
+
+![imgs](./assets/Cap-2/MessageFlowReporte%20In-Situ%20de%20Incidente%20o%20Accidente.png)
+
+###### Descripción del Flujo
+1. **[1. Command] Registrar Incidente:** El **Trabajador** interactúa con la **Mobile Application** para ingresar la descripción del evento y capturar fotografías/coordenadas GPS in-situ.
+2. **[2. Command] Crear Incidente:** La **Mobile Application** emite la solicitud estructurada hacia el Bounded Context de gestión de incidentes (**IncidentsBC**).
+3. **[3. Event] IncidentReported:** **IncidentsBC** procesa la solicitud y emite el evento de dominio `IncidentReportedEvent`. El contexto de analítica (**AnalyticsBC**) consume este evento de forma asíncrona para actualizar los indicadores KPI y patrones de riesgo en tiempo real.
+4. **[4. Command] Guardar Evidencia:** De forma paralela, **IncidentsBC** delega la persistencia de las imágenes adjuntas al servicio externo **Cloud Storage**.
+
+###### Justificación Arquitectónica
+* **Aislamiento del Core Domain (`IncidentsBC`):** Se evita sobrecargar el microservicio principal de incidentes con tareas de cálculo estadístico o procesamiento pesado de imágenes.
+* **Procesamiento Asíncrono de Métricas (`AnalyticsBC`):** Al emitir `IncidentReportedEvent`, el módulo de analítica procesa el evento sin bloquear la respuesta inmediata que recibe el usuario en la app móvil.
+
+---
+
+##### Escenario 2: Asignación de Responsable y Evaluación de SLA
+
+Representa la reacción del sistema ante la llegada de un nuevo reporte, ejecutando la asignación de un supervisor SST responsable y evaluando los plazos del Acuerdo de Nivel de Servicio (SLA).
+
+![imgs](./assets/Cap-2/MessageFlowAsignación%20de%20Responsable%20y%20Evaluación%20de%20SLA.png)
+
+###### Descripción del Flujo
+1. **[1. Event] IncidentReported:** El Bounded Context de asignaciones (**AssignmentBC**) escucha la emisión del evento publicado por **IncidentsBC**.
+2. **[2. Command] Asignar Responsable SST:** El motor de reglas de SLA (`SlaEngine`) evalúa el nivel de severidad del caso y ejecuta el comando para vincular a un especialista SST responsable.
+3. **[3. Event] AssignmentCreated:** **AssignmentBC** emite el evento de dominio `AssignmentCreatedEvent` tras completar la vinculación exitosamente.
+4. **[4 & 5. Commands] Enviar Alerta Push & Notificar Asignación:** El Bounded Context de notificaciones (**NotificationBC**) procesa el evento, construye el mensaje y utiliza el **Notification Gateway** (FCM/SMS) para despachar una alerta Push en tiempo real al smartphone del **Personal SST** asignado.
+
+###### Justificación Arquitectónica
+* **Separación de Responsabilidades (*Separation of Concerns*):** Las reglas operativas de asignación y SLA residen de forma independiente en **AssignmentBC**, permitiendo modificar la lógica de delegación de trabajo sin alterar la entidad base del incidente.
+* **Desacoplamiento de Servicios de Notificación:** **AssignmentBC** ignora la infraestructura física empleada para enviar alertas (SMS, Push o Email); únicamente notifica el hecho de negocio `AssignmentCreatedEvent`.
+
+---
+
+##### Escenario 3: Actualización de Estado, Resolución y Cierre del Caso
+
+Abarca el trabajo del responsable SST al aplicar medidas correctivas, actualizar el estado del caso en el ciclo de vida del reporte e informar la resolución al trabajador afectado.
+
+![imgs](./assets/Cap-2/MessageFlowActualización%20de%20Estado,%20Resolución%20y%20Cierre%20del%20Caso.png)
+
+###### Descripción del Flujo
+1. **[1 & 2. Commands] Resolver Incidente & Actualizar Estado:** El **Personal SST** registra las acciones preventivas/correctivas en la **Mobile Application**, la cual envía la orden de actualización a **IncidentsBC** para cambiar el estado a *RESUELTO*.
+2. **[3. Event] IncidentStatusUpdated:** **IncidentsBC** valida la transición a través de su máquina de estados (`IncidentStateMachine`) y emite `IncidentStatusUpdatedEvent`. **AnalyticsBC** captura el evento para medir los tiempos reales de resolución.
+3. **[4 & 5. Commands / Event] Cerrar Caso & IncidentClosed:** Tras la validación final, se ejecuta el comando de cierre y se emite el evento definitivo `IncidentClosedEvent`.
+4. **[6 & 7. Commands] Despachar Notificación & Notificar Cierre:** **NotificationBC** procesa el evento de cierre y coordina con el **Notification Gateway** para notificar al **Trabajador** que su reporte fue resuelto y cerrado satisfactoriamente.
+
+###### Justificación Arquitectónica
+* **Trazabilidad y Transparencia con el Usuario:** La emisión de eventos explícitos en cada hito (`IncidentStatusUpdatedEvent` e `IncidentClosedEvent`) permite mantener informado al trabajador afectado en tiempo real, resolviendo la problemática identificada de falta de seguimiento e incertidumbre.
+* **Integridad del Dominio (`IncidentStateMachine`):** Un reporte no puede ser cerrado sin haber pasado primero por las validaciones de estado intermedias exigidas por la máquina de estados del aggregate, garantizando la consistencia de los datos en todo el sistema.
+
 #### 2.5.1.3. Bounded Context Canvases
 
-Paso 10: Separamos por bounded context, en los cuales algunos tienen un cierto tipo de relación medianto comando y domain
+Separamos por bounded context, en los cuales algunos tienen un cierto tipo de relación medianto comando y domain
 
 <img width="1233" height="854" alt="Captura de pantalla 2025-09-19 235338" src="https://github.com/user-attachments/assets/0ac45724-d0d6-45cf-9ef9-bdc3c4e24dc1" />
 
@@ -1849,6 +1967,125 @@ Un gateway push, correo o SMS no debe aparecer como implementado en el diagrama 
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
+
+##### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+
+---
+
+### 2.6.4. Bounded Context: AnalyticsBC
+
+#### 2.6.4.1. Domain Layer
+* **Entities & Aggregates:** `AnalyticsReport` (Representación agregada de las métricas de seguridad y reportes generados).
+* **Value Objects:** `MetricType`, `TimeWindow`, `IncidentKPI`.
+* **Domain Services:** Algoritmos de agregación y detección de patrones de riesgo laboral.
+
+#### 2.6.4.2. Interface Layer
+* **Controllers / Exporters:** `ReportGenerator` (Componente Django/Python que renderiza y genera dashboards y reportes exportables).
+* **DTOs:** `AnalyticsFilterRequest`, `KPISummaryResponse`.
+
+#### 2.6.4.3. Application Layer
+* **Application Services:** `AnalyticsService` (Procesa los eventos entrantes y prepara los datos estructurados para las métricas).
+* **Use Cases:** `ProcessAnalyticsEventUseCase`, `GenerateSafetyReportUseCase`.
+
+#### 2.6.4.4. Infrastructure Layer
+* **Event Processing Pipeline:**
+  * `EventBus` (Componente Apache Kafka para consumir el flujo de eventos de los otros BCs).
+  * `AnalyticsPipeline` (Componente Apache Spark / Python para procesamiento de datos en flujo y por lotes).
+* **Persistence:** Conexión a la base de datos de analítica / MySQL.
+
+#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
+![imgs](./assets/Cap-2/component4.png)
+
+#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+
+##### 2.6.4.6.2. Bounded Context Database Design Diagram
+
+
+---
+
+### 2.6.5. Bounded Context: ProfileBC
+
+#### 2.6.5.1. Domain Layer
+* **Entities & Aggregates:** `UserProfile` (Agregado Raíz que maneja los datos personales e identidades del sistema).
+* **Value Objects:** `UserId`, `Email`, `WorkArea`, `Role` (Enum: TRABAJADOR, PERSONAL_SST, ADMINISTRADOR).
+* **Domain Services:** `RoleManager` (Gestiona permisos y reglas asociadas a cada rol).
+* **Domain Events:** `UserProfileUpdatedEvent`, `UserRoleChangedEvent`.
+* **Repository Interfaces:** `ProfileRepository`.
+
+#### 2.6.5.2. Interface Layer
+* **Controllers:** `ProfileController` (Spring MVC REST Controller para endpoints de gestión de perfiles).
+* **DTOs:** `UserProfileRequest`, `UserProfileResponse`, `LoginRequest`, `AuthTokenResponse`.
+
+#### 2.6.5.3. Application Layer
+* **Application Services:** 
+  * `ProfileService` (Gestiona la información del usuario y su rol coordinando con `RoleManager`).
+  * `AuthService` (Maneja el proceso de autenticación y la emisión/validación de tokens JWT).
+* **Use Cases:** `UpdateProfileUseCase`, `AuthenticateUserUseCase`, `ManageRolesUseCase`.
+
+#### 2.6.5.4. Infrastructure Layer
+* **Persistence:** `ProfileRepositoryImpl` (Implementación de `ProfileRepository` mediante JPA/Hibernate sobre MySQL).
+
+#### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
+![imgs](./assets/Cap-2/component5.png)
+
+#### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+
+##### 2.6.5.6.2. Bounded Context Database Design Diagram
+
+
+---
+
+# Capítulo III: Solution UI/UX Design
+
+## 3.1. Product design
+
+El diseño de **SafeWork** está orientado a facilitar el registro, la atención y el seguimiento de accidentes e incidentes laborales desde dispositivos móviles. La solución está dirigida principalmente a dos perfiles: **trabajadores**, que necesitan reportar situaciones de riesgo de forma rápida, y **personal de Seguridad y Salud en el Trabajo (SST)**, que debe revisar, asignar, atender y supervisar los casos recibidos.
+
+La experiencia de usuario se plantea con un enfoque *mobile-first*: pantallas simples, acciones visibles, navegación táctil y formularios breves que permitan operar en fábricas, almacenes y obras de construcción. Asimismo, se consideran las capacidades propias de un teléfono, como cámara, ubicación GPS y notificaciones, además de mecanismos para registrar información cuando la conexión sea limitada. La landing page cumple una función complementaria de presentación del producto y acceso a la aplicación.
+
+### 3.1.1. Style Guidelines
+
+Las guías de estilo establecen criterios comunes para la identidad visual, la legibilidad y la interacción de SafeWork. Su objetivo es lograr consistencia entre la landing page y las distintas pantallas móviles, evitando que el usuario deba aprender patrones diferentes para realizar tareas similares.
+
+#### 3.1.1.1. General Style Guidelines
+
+**Tipografía**
+
+SafeWork utiliza una jerarquía tipográfica clara. Se considera **Raleway** para títulos y encabezados, por su apariencia moderna, y **Montserrat** para textos generales, descripciones y etiquetas, por su legibilidad. En las pantallas móviles, las fuentes deben respetar las opciones de tamaño y accesibilidad del dispositivo, conservando una diferenciación visible entre títulos, información y botones.
+
+**Colores principales**
+
+La identidad visual se organiza alrededor del **violeta `#7B7DC1`**, empleado en acciones principales y elementos de marca; el **violeta secundario `#5A5CA0`**, usado en variaciones de componentes; y el **fondo oscuro `#0D0C22`**, acompañado de blancos y grises claros como `#FFFFFF`, `#E1E3EC` y `#888A9C` para mantener una lectura adecuada. Los mensajes de estado y prioridad de incidentes pueden apoyarse en colores de advertencia, atención y resolución, pero siempre deben mostrar también una etiqueta textual para no depender únicamente del color.
+
+| Elemento | Criterio de diseño |
+| :--- | :--- |
+| Encabezados | Jerarquía visual destacada y títulos breves. |
+| Texto descriptivo | Contraste suficiente, tamaño adaptable y párrafos concisos. |
+| Botones principales | Color de marca, texto explícito y zona táctil cómoda. |
+| Tarjetas de incidentes | Número de caso, tipo, fecha, prioridad y estado claramente identificados. |
+| Formularios | Campos agrupados, etiquetas permanentes y validación comprensible. |
+| Mensajes de confirmación | Indicar si el reporte fue enviado, guardado localmente o requiere reintento. |
+| Alertas | Prioridad visual y redacción directa, sin depender solo de íconos. |
+
+**Estilo visual e interacción**
+
+La interfaz prioriza componentes de bordes suaves, espaciado consistente e íconos reconocibles. En el teléfono, la interacción se realiza mediante toques y gestos naturales, por lo que los botones y controles deben mantener superficies táctiles apropiadas y una separación que reduzca las pulsaciones accidentales. Las transiciones deben ser breves y aportar retroalimentación, sin bloquear el registro de un incidente.
+
+**Accesibilidad y responsividad**
+
+Se busca mantener contraste entre fondo y texto, etiquetas claras para lectores de pantalla, indicadores de error comprensibles y compatibilidad con distintos tamaños de pantalla. La landing page adapta su distribución a resoluciones móviles y de escritorio; la aplicación organiza su contenido en vistas verticales, con navegación y controles accesibles al uso con una mano cuando resulte posible.
+
+**Seguridad y confianza en la experiencia**
+
+Como SafeWork gestiona información sensible sobre incidentes laborales, las pantallas deben mostrar únicamente los datos pertinentes para cada rol. Antes de acceder a cámara, ubicación o notificaciones, la aplicación debe explicar por qué se necesita el permiso y qué ocurrirá si el usuario lo rechaza. Las acciones delicadas, como cerrar o modificar un caso, deben ofrecer confirmación y retroalimentación.
+
 El UML debe mostrar `Notification` y las referencias de destinatario y empresa, distinguiendo el modelo del servidor y el modelo Android.
 
 Los atributos deben coincidir con la implementación y el contrato. No se incorporan proveedores o estados de entrega inexistentes.
@@ -2140,96 +2377,70 @@ Durante la evaluación del prototipo se prestará atención al número de intera
 
 # Capítulo IV: Product Implementation & Validation
 
-Este capítulo documenta el incremento de SafeWork integrado y probado al 8 de octubre de 2026. Se distinguen implementación, pruebas automatizadas, integración HTTP, ejecución en dispositivo físico y despliegue público.
-
-Las funcionalidades futuras del Product Backlog no se presentan como terminadas. Los resultados se respaldan mediante los informes técnicos y Pull Requests enlazados.
+El desarrollo de SafeWork comprende la configuración del entorno técnico, la organización del código fuente y la construcción progresiva de la landing page y la aplicación móvil. La implementación se organiza en sprints, de modo que cada avance pueda asociarse con historias de usuario y verificarse mediante evidencia de ejecución, pruebas y despliegue.
 
 ## 4.1. Software Configuration Management
 
+La gestión de configuración del software establece las herramientas, convenciones y mecanismos necesarios para mantener la solución organizada y trazable. Este proceso abarca tanto la documentación y la landing page como el cliente móvil y los servicios de backend que soportan el registro y seguimiento de incidentes.
+
 ### 4.1.1. Software Development Environment Configuration
 
-| Componente | Configuración utilizada |
-| --- | --- |
-| Aplicación Android | Kotlin y Compose Compiler 2.2.21, Android Gradle Plugin 8.10.1, Gradle Wrapper 8.11.1 y JDK 17 |
-| Interfaz Android | Jetpack Compose y Material 3; Compose BOM 2025.04.01 |
-| Compatibilidad Android | minSdk 26; compileSdk y targetSdk 35 |
-| Identificador de aplicación | `com.nexorape.safework` |
-| Módulos | `app`: aplicación Android; `business`: dominio y casos de uso en Kotlin/JVM |
-| Transporte | OkHttp 4.12.0 y Gson 2.13.2 |
-| Estado y concurrencia | Lifecycle 2.8.7 y coroutines 1.10.2 |
-| Pruebas móviles | JUnit 4.13.2, MockWebServer y coroutines-test |
-| Backend | Spring Boot 4.0.5, JDK 25 y Maven Wrapper 3.9.14 |
-| Base de datos | MySQL 8.4 |
-| Dispositivo físico probado | Huawei CLT-L29, Android 10/API 29 |
-| Landing page | HTML5, CSS3 y JavaScript; publicación mediante GitHub Pages coordinada con Daniel |
+El entorno de trabajo debe permitir el diseño de interfaces, desarrollo de funcionalidades móviles, construcción de servicios, control de versiones y ejecución de pruebas.
 
-Android y backend utilizan JDK diferentes: las tareas Gradle del móvil requieren JDK 17, mientras el backend utiliza JDK 25.
+| Área | Herramienta o componente | Uso dentro de SafeWork |
+| :--- | :--- | :--- |
+| Gestión del proyecto | GitHub | Repositorios, historial de cambios y colaboración. |
+| Diseño de producto | Herramienta de prototipado de interfaces, como Figma | Wireframes, mock-ups, wireflows y prototipo interactivo. |
+| Landing page | HTML, CSS y JavaScript | Interfaz informativa adaptable a pantallas móviles. |
+| Aplicación móvil | Entorno de desarrollo Android por confirmar | Construcción y pruebas de pantallas y funciones del dispositivo. |
+| Servicios de backend | API REST basada en la arquitectura documentada | Autenticación, incidentes, asignaciones, notificaciones y perfiles. |
+| Persistencia | MySQL, según los diagramas y componentes del proyecto | Almacenamiento de información de usuarios y casos. |
+| Pruebas | Emulador y dispositivos físicos, cuando estén configurados | Verificación de navegación, permisos, cámara, GPS y conectividad. |
 
-Las versiones y dependencias se encuentran registradas en la configuración y los README de cada repositorio.
+En el diseño técnico del proyecto se describen componentes de servicios con **Spring MVC**, **JPA/Hibernate** y persistencia en **MySQL**. El entorno concreto del cliente móvil, sus dependencias y versiones deberá consignarse a partir de la configuración efectiva de su repositorio, para evitar confundir herramientas previstas con componentes implementados.
 
 ### 4.1.2. Source Code Management
 
-| Producto | Repositorio | Estado de referencia |
-| --- | --- | --- |
-| Informe | [report](https://github.com/NexoraPe-1ACC0238-2620-4945/report) | Documentación colaborativa; preparación de la entrega en `TB1` |
-| Aplicación móvil | [safework-mobile](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-mobile) | IAM e incidentes integrados en `test`, revisión `3887c49` |
-| Backend | [safework-backend](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-backend) | Fundación corregida integrada, revisión `08b0767` |
-| Landing actual | [safework-landing-page](https://github.com/NexoraPe-1ACC0238-2620-4945/safework-landing-page) | Adaptación y publicación pendientes de verificar |
+El código y la documentación de SafeWork se gestionan con **Git** y repositorios de **GitHub**, lo que permite identificar cambios, mantener versiones y coordinar el trabajo de los integrantes del equipo.
 
-El flujo acordado para los repositorios de aplicación es:
+**Repositorio del informe:** [NexoraPe - SafeWork Report](https://github.com/NexoraPe-1ACC0238-2620-4945/report).
 
-1. Integrar la fundación mediante `feature/...-foundation` y PR hacia `main`.
-2. Crear `test` desde la fundación integrada.
-3. Crear cada `feature/...` desde `test` actualizado.
-4. Abrir PR hacia `test` y validar el incremento integrado.
-5. Abrir PR de `test` hacia `main` cuando el conjunto esté aprobado.
+Se establece como criterio de trabajo mantener una rama principal para las versiones integradas y utilizar ramas específicas para cambios funcionales cuando corresponda. Cada modificación debe acompañarse de un commit descriptivo; las incorporaciones relevantes deben revisarse antes de integrarse. Los archivos de configuración local, credenciales y claves privadas no deben incluirse en el repositorio público.
 
-Esta actualización documental se incorporó directamente en `TB1`. Para los siguientes cambios se utilizarán ramas de trabajo y revisión mediante PR hacia `TB1`, antes de integrar la entrega final.
-
-Se emplean Conventional Commits y las identidades reales de los participantes. Se conservan los commits mediante merge y se revisan los archivos efectivamente incluidos en cada PR.
-
-Las credenciales, tokens, archivos de configuración local, herramientas, paquetes de entrega y compilaciones quedan excluidos del control de versiones.
+Los repositorios concretos de landing page, cliente móvil y backend se documentarán aquí cuando estén definidos y accesibles, indicando su rama principal y responsabilidades. Este apartado no sustituye la evidencia de commits, ramas o solicitudes de incorporación que se presentará durante los sprints.
 
 ### 4.1.3. Source Code Style Guide & Conventions
 
-Los nombres de paquetes, clases y conceptos técnicos se escriben en inglés. Los contextos están directamente bajo `com.nexorape.safework`:
+Se adoptan convenciones de código para facilitar la lectura, el mantenimiento y la colaboración:
 
-- `iam`: identidad, perfil, incorporación, roles y sesiones.
-- `incidentmanagement`: reporte, consulta y atención de incidentes, incluida Assignment.
-- `notificationmanagement`: notificaciones del usuario.
+**Landing page (HTML, CSS y JavaScript).** Se utiliza marcado semántico, nombres descriptivos, indentación uniforme y separación de contenido, presentación y comportamiento. Las imágenes informativas incorporan textos alternativos; los estilos deben evitar duplicidades y considerar diseños adaptables. Las funciones de JavaScript deben expresar claramente su responsabilidad.
 
-En Android, Domain y Application pertenecen a `business`; Presentation e Infrastructure pertenecen a `app`. La dependencia Gradle es `app → business`.
+**Aplicación móvil.** Los componentes de interfaz y la lógica de negocio deben mantenerse organizados por responsabilidades. Se recomienda utilizar nombres consistentes para pantallas, modelos y servicios; centralizar textos reutilizables; evitar valores sensibles en el código; y controlar de manera explícita permisos, validaciones, errores y estados de carga. Las convenciones de lenguaje concretas se registrarán cuando se confirme la tecnología utilizada por el cliente móvil.
 
-Los DTO HTTP se transforman en Infrastructure antes de devolver modelos del dominio. Las reglas de negocio no dependen de Compose, Android Location ni almacenamiento de credenciales. Los ViewModels invocan casos de uso y exponen estado para la interfaz.
+**Servicios REST y persistencia.** La arquitectura documenta ámbitos como `Incidents`, `Assignment`, `Notification`, `Analytics` y `Profile`. La implementación debe mantener denominaciones coherentes entre entidades, servicios, controladores y objetos de transferencia de datos. Se deben validar las entradas, separar las capas y evitar exponer información confidencial en respuestas o registros.
 
-Los textos de la aplicación utilizan recursos localizados: inglés predeterminado y español latinoamericano. Se incluyen temas claro y oscuro, estados de carga, errores y reintento.
+**Gestión de cambios.** Los commits deben tener mensajes breves que expliquen la modificación realizada. Antes de integrar cambios se debe comprobar que el código compila, que las pruebas disponibles se ejecutan y que la documentación refleja las funcionalidades afectadas.
 
 ### 4.1.4. Software Deployment Configuration
 
-La validación realizada utiliza el backend corregido en `http://127.0.0.1:18082/`, con MySQL y datos sintéticos. El dispositivo físico se conecta mediante redirección USB del puerto. Esta configuración corresponde a ejecución local.
+La configuración de despliegue de SafeWork distingue tres componentes con necesidades diferentes:
 
-El despliegue público se coordina reutilizando el hosting existente. Debe utilizar el código corregido del repositorio actual, JDK 25, una base MySQL persistente, esquema compatible y variables privadas de configuración.
+1. **Landing page:** debe publicarse mediante un servicio de hosting web con acceso HTTPS y soporte para contenido adaptable. Es necesario comprobar su funcionamiento desde navegadores de escritorio y móviles, así como los enlaces y botones de descarga o demostración.
+2. **Aplicación móvil:** debe generar un paquete instalable adecuado para las pruebas de la plataforma elegida. Su configuración debe considerar identificador de aplicación, permisos de cámara y ubicación, conexión a los servicios y firma correspondiente al entorno de pruebas o distribución.
+3. **Backend y almacenamiento:** los servicios deben contar con dirección de acceso y configuración de conexión a base de datos. Las credenciales, tokens y claves de integración se gestionan fuera del código fuente. Las comunicaciones que transporten información de usuarios e incidentes deben protegerse durante su transmisión.
 
-La URL HTTPS y el commit desplegado deben verificarse antes de conectar la aplicación. La existencia del despliegue histórico no demuestra compatibilidad con el contrato corregido.
-
-Android admite una URL HTTPS explícita mediante `-Psafework.apiUrl`. La compilación release no dispone de un host de producción predeterminado. Los APK release generados durante la validación no tienen firma de distribución.
-
-La landing anterior se reutilizará previa revisión de contenido, enlaces, idiomas y correspondencia con las funcionalidades móviles actuales. Su publicación mediante GitHub Pages debe acompañarse de URL y evidencia de ejecución.
+Las notificaciones push, el almacenamiento local y la sincronización de reportes sin conexión requieren configuración y pruebas específicas antes de considerarse operativos. La evidencia de despliegue deberá indicar **URL o paquete generado, ambiente, fecha, versión, procedimiento de ejecución y resultado de verificación**. No se declara aquí un despliegue completado sin la documentación correspondiente.
 
 ## 4.2. Landing Page & Mobile Application Implementation
 
-El incremento documentado comprende IAM y consulta/reporte de incidentes en Android, junto con el backend corregido.
+La implementación de SafeWork se organiza en entregas incrementales basadas en las historias de usuario priorizadas. Cada sprint debe definir objetivos concretos, funcionalidades a desarrollar y criterios de aceptación verificables.
 
-La gestión móvil de incidentes y las notificaciones requieren integrar y validar el paquete de Francisco. La mejora visual y el despliegue público requieren evidencias adicionales.
+El trabajo abarca dos frentes complementarios. En la **landing page** se consideran navegación adaptable, información de beneficios, testimonios, planes, preguntas frecuentes y llamadas a la acción. En la **aplicación móvil** se priorizan autenticación, reporte de incidentes, captura de evidencia, consulta de estados, gestión SST, asignaciones, búsqueda, notificaciones y perfiles; otras funciones se incorporan de acuerdo con el Product Backlog y la capacidad del equipo.
 
-### 4.2.1. Sprint 1
+Para cada sprint se documentarán la planificación, responsables, backlog seleccionado, cambios de código, resultados de pruebas, capturas de ejecución, documentación de servicios, evidencias de despliegue y colaboración del equipo. Las evidencias deben corresponder a funcionalidades realmente desarrolladas y permitir contrastar lo implementado con los criterios de aceptación de las historias de usuario.
 
-#### 4.2.1.1. Sprint Planning 1
-
-El objetivo del incremento documentado es permitir que un usuario autorizado acceda a SafeWork, consulte su perfil y reporte o consulte incidentes desde un dispositivo Android, con ubicación manual o captura puntual opcional.
-
-La planificación formal debe complementarse con su fecha, duración, registro y tablero del equipo. Esta descripción del incremento no sustituye un acta de planificación.
-
+### 4.2.1. Sprint n
+#### 4.2.1.1. Sprint Planning n
 #### 4.2.1.2. Aspect Leaders and Collaborators
 
 | Integrante | Responsabilidad acordada | Evidencia disponible |
