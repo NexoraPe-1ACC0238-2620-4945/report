@@ -92,7 +92,6 @@ COURSE PROJECT
 - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
 - [Contenido](#contenido)
-- [Student Outcome](#student-outcome)
 - [Objetivos SMART](#objetivos-smart)
 - [Capítulo I: Presentación](#capítulo-i-presentación)
   - [1.1. Startup Profile](#11-startup-profile)
@@ -146,6 +145,7 @@ COURSE PROJECT
       - [2.5.3.2. Software Architecture Container Level Diagrams](#2532-software-architecture-container-level-diagrams)
       - [2.5.3.3. Software Architecture Deployment Diagrams](#2533-software-architecture-deployment-diagrams)
   - [2.6. Tactical-Level Domain-Driven Design](#26-tactical-level-domain-driven-design)
+    - [Organización de capas en Android](#organización-de-capas-en-android)
     - [2.6.1. Bounded Context: Identity and Access Management](#261-bounded-context-identity-and-access-management)
       - [2.6.1.1. Domain Layer](#2611-domain-layer)
       - [2.6.1.2. Interface Layer](#2612-interface-layer)
@@ -173,10 +173,33 @@ COURSE PROJECT
       - [2.6.3.6. Bounded Context Software Architecture Code Level Diagrams](#2636-bounded-context-software-architecture-code-level-diagrams)
         - [2.6.3.6.1. Bounded Context Domain Layer Class Diagrams](#26361-bounded-context-domain-layer-class-diagrams)
         - [2.6.3.6.2. Bounded Context Database Design Diagram](#26362-bounded-context-database-design-diagram)
+    - [2.6.4. Bounded Context: AnalyticsBC](#264-bounded-context-analyticsbc)
+      - [2.6.4.1. Domain Layer](#2641-domain-layer)
+      - [2.6.4.2. Interface Layer](#2642-interface-layer)
+      - [2.6.4.3. Application Layer](#2643-application-layer)
+      - [2.6.4.4. Infrastructure Layer](#2644-infrastructure-layer)
+      - [2.6.4.5. Bounded Context Software Architecture Component Level Diagrams](#2645-bounded-context-software-architecture-component-level-diagrams)
+      - [2.6.4.6. Bounded Context Software Architecture Code Level Diagrams](#2646-bounded-context-software-architecture-code-level-diagrams)
+        - [2.6.4.6.1. Bounded Context Domain Layer Class Diagrams](#26461-bounded-context-domain-layer-class-diagrams)
+        - [2.6.4.6.2. Bounded Context Database Design Diagram](#26462-bounded-context-database-design-diagram)
+    - [2.6.5. Bounded Context: ProfileBC](#265-bounded-context-profilebc)
+      - [2.6.5.1. Domain Layer](#2651-domain-layer)
+      - [2.6.5.2. Interface Layer](#2652-interface-layer)
+      - [2.6.5.3. Application Layer](#2653-application-layer)
+      - [2.6.5.4. Infrastructure Layer](#2654-infrastructure-layer)
+      - [2.6.5.5. Bounded Context Software Architecture Component Level Diagrams](#2655-bounded-context-software-architecture-component-level-diagrams)
+      - [2.6.5.6. Bounded Context Software Architecture Code Level Diagrams](#2656-bounded-context-software-architecture-code-level-diagrams)
+        - [2.6.5.6.1. Bounded Context Domain Layer Class Diagrams](#26561-bounded-context-domain-layer-class-diagrams)
+        - [2.6.5.6.2. Bounded Context Database Design Diagram](#26562-bounded-context-database-design-diagram)
 - [Capítulo III: Solution UI/UX Design](#capítulo-iii-solution-uiux-design)
   - [3.1. Product design](#31-product-design)
     - [3.1.1. Style Guidelines](#311-style-guidelines)
       - [3.1.1.1. General Style Guidelines](#3111-general-style-guidelines)
+        - [2.6.3.6.2. Bounded Context Database Design Diagram](#26362-bounded-context-database-design-diagram-1)
+- [Capítulo III: Solution UI/UX Design](#capítulo-iii-solution-uiux-design-1)
+  - [3.1. Product design](#31-product-design-1)
+    - [3.1.1. Style Guidelines](#311-style-guidelines-1)
+      - [3.1.1.1. General Style Guidelines](#3111-general-style-guidelines-1)
     - [3.1.2. Information Architecture](#312-information-architecture)
       - [3.1.2.1. Organization Systems](#3121-organization-systems)
       - [3.1.2.2. Labelling Systems](#3122-labelling-systems)
@@ -199,8 +222,8 @@ COURSE PROJECT
     - [4.1.3. Source Code Style Guide \& Conventions](#413-source-code-style-guide--conventions)
     - [4.1.4. Software Deployment Configuration](#414-software-deployment-configuration)
   - [4.2. Landing Page \& Mobile Application Implementation](#42-landing-page--mobile-application-implementation)
-    - [4.2.1. Sprint 1](#421-sprint-1)
-      - [4.2.1.1. Sprint Planning 1](#4211-sprint-planning-1)
+    - [4.2.1. Sprint n](#421-sprint-n)
+      - [4.2.1.1. Sprint Planning n](#4211-sprint-planning-n)
       - [4.2.1.2. Aspect Leaders and Collaborators](#4212-aspect-leaders-and-collaborators)
       - [4.2.1.3. Sprint Backlog 1](#4213-sprint-backlog-1)
       - [4.2.1.4. Development Evidence for Sprint Review](#4214-development-evidence-for-sprint-review)
@@ -225,8 +248,6 @@ COURSE PROJECT
 </div>
 
 ---
-# Student Outcome
-
 <div style="page-break-after: always;">
 
 El curso contribuye al cumplimiento del Student Outcome ABET:<br>
@@ -257,6 +278,7 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
         <p><b>Ruiz Huisa, Daniel Elias</b></p>
         <ul>
           <li><b>TB1:</b> Reforce conceptos de arquitectura de software y ahonede en nuevos orientados a architecturas moviles. Adapte estos conocimientos para darle una nueva forma al proyecto</li>
+          <li><b>TP:</b> Investigué y profundicé en patrones de diseño arquitectónico para backend y móviles, aplicando mejores prácticas para la estructuración y despliegue de los servicios backend y la integración con la primera versión de la aplicación móvil y Landing Page.</li>
         </ul>
         <p><b>Mansilla Rivero, Carlos Marcelo</b></p>
         <ul>
@@ -267,14 +289,14 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
             móvil, así como en la revisión de la estructura, consistencia y organización del
             informe de acuerdo con los requerimientos del curso.
           </li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
+          <li><b>TP:</b> Investigué y apliqué conceptos avanzados de diseño de experiencia e interacción de usuario (UX/UI) enfocados en interfaces móviles, así como patrones de arquitectura RESTful para el desarrollo e integración de servicios backend. Apliqué estos conocimientos en el prototipado de la primera aplicación móvil, la estructuración e implementación de la Landing Page y en la configuración y despliegue del Backend de SafeWork.</li>
           <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
           <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
         </ul>
         <p><b>Uribe Linares, Francisco</b></p>
         <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre actualización de conceptos y conocimientos]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre actualización de conceptos y conocimientos]</li>
+          <li><b>TB1:</b> Revisé conceptos fundamentales de ingeniería de requerimientos e interfaces de usuario para la adaptación del proyecto SafeWork a un entorno enfocado en dispositivos móviles.</li>
+          <li><b>TP:</b> Profundicé en conceptos sobre diseño centrado en el usuario, arquitectura de componentes para el frontend web y prácticas de despliegue de servicios en la nube. Estos conocimientos me permitieron contribuir de forma activa en el diseño de las pantallas clave de la aplicación móvil (Capítulo 3), el desarrollo y maquetación de la Landing Page responsiva y la verificación de la integración con los endpoints del backend desplegado (Capítulo 4).</li>
           <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre actualización de conceptos y conocimientos]</li>
           <li><b>TF:</b> [Aporte correspondiente a TF sobre actualización de conceptos y conocimientos]</li>
         </ul>
@@ -287,7 +309,7 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
             problemática, la propuesta de solución y la documentación del proyecto según
             la nueva estructura del curso.
           </li>
-          <li><b>TP:</b> [Acción realizada por el equipo en TP para la actualización de conceptos]</li>
+          <li><b>TP:</b> El equipo investigó, actualizó y aplico nuevos conceptos de diseño de interfaces móviles (UX/UI), maquetación web adaptable y arquitectura de microservicios/APIs RESTful. Con ello, se desarrollaron los wireframes, mockups y prototipos del Capítulo 3, así como la implementación del backend desplegado y la primera versión de la Landing Page en el Capítulo 4.</li>
           <li><b>TB2:</b> [Acción realizada por el equipo en TB2 para la actualización de conceptos]</li>
           <li><b>TF:</b> [Acción realizada por el equipo en TF para la actualización de conceptos]</li>
         </ul>
@@ -305,6 +327,7 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
         <p><b>Ruiz Huisa, Daniel Elias</b></p>
         <ul>
           <li><b>TB1:</b> Reconozco la importancia del constante y permanente aprendizaje del desarrolador. Adaptandose a nuevos stacks tecnologicso que cumplen propositos distintos segun las necesidades del proyecto.</li>
+          <li><b>TP:</b> Reconocí la importancia de la autoformación continua para dominar el despliegue de infraestructuras backend y su comunicación con aplicaciones móviles y entornos web, garantizando la escalabilidad y disponibilidad del sistema SafeWork.</li>
         </ul>
         <p><b>Mansilla Rivero, Carlos Marcelo</b></p>
         <ul>
@@ -316,14 +339,14 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
             de soluciones, aplicándolos directamente en el desarrollo y adaptación del proyecto
             SafeWork.
           </li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
+          <li><b>TP:</b> Reconocí la importancia del aprendizaje autodidacta y la adopción de nuevas herramientas de desarrollo y despliegue. Para esta entrega, aprendí a utilizar tecnologías de despliegue en la nube y herramientas de prototipado interactivo de alta fidelidad, asegurando que los servicios backend quedaran operativos y la interfaz móvil respondiera a las necesidades de los trabajadores y del personal SST.</li>
           <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
           <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
         </ul>
         <p><b>Uribe Linares, Francisco</b></p>
         <ul>
-          <li><b>TB1:</b> [Aporte correspondiente a TB1 sobre aprendizaje permanente]</li>
-          <li><b>TP:</b> [Aporte correspondiente a TP sobre aprendizaje permanente]</li>
+          <li><b>TB1:</b> Reconocí la necesidad de aprender de forma autónoma nuevas herramientas de modelado y diseño UX/UI para abordar los desafíos del desarrollo móvil.</li>
+          <li><b>TP:</b> Identifiqué la necesidad de mantener un aprendizaje continuo frente a la evolución de frameworks de diseño web y desarrollo móvil. Durante el desarrollo del TP, investigué de forma autónoma mejores prácticas de maquetación móvil, estándares de consumo de APIs y pruebas de interfaz, permitiendo validar la correcta integración entre la Landing Page y los servicios backend desplegados.</li>
           <li><b>TB2:</b> [Aporte correspondiente a TB2 sobre aprendizaje permanente]</li>
           <li><b>TF:</b> [Aporte correspondiente a TF sobre aprendizaje permanente]</li>
         </ul>
@@ -336,7 +359,7 @@ En el siguiente cuadro se describen las acciones realizadas y los aportes indivi
             aprendiendo nuevas herramientas, tecnologías y prácticas de desarrollo móvil durante
             las siguientes etapas de SafeWork.
           </li>
-          <li><b>TP:</b> [Acción realizada por el equipo en TP para fomentar el aprendizaje permanente]</li>
+          <li><b>TP:</b> El equipo reconoció la necesidad de un aprendizaje constante ante el cambio de enfoque hacia una solución móvil. Se asumió el reto de aprender e integrar nuevas herramientas para el prototipado interactivo de UI/UX, el desarrollo de la Landing Page y la configuración y despliegue del backend en un entorno de producción/pruebas.</li>
           <li><b>TB2:</b> [Acción realizada por el equipo en TB2 para fomentar el aprendizaje permanente]</li>
           <li><b>TF:</b> [Acción realizada por el equipo en TF para fomentar el aprendizaje permanente]</li>
         </ul>
